@@ -1,0 +1,28 @@
+# Titkok
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.pytest_cache/
+.ruff_cache/
+
+# Nyers letöltött dokumentumok: a data/sources.yaml + scripts/fetch.py alapján reprodukálhatók
+data/raw/
+
+# LLM-válasz gyorsítótár, modellcache
+.cache/
+cache/
+
+# Órai anyag (a tárgy diasora) – nem publikáljuk
+RAG.pdf
+
+# Editor / OS
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store

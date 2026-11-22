@@ -1,0 +1,33 @@
+# A korpusz dokumentumlistája. Minden bejegyzésből reprodukálható a data/raw/ tartalma (scripts/fetch.py, F1).
+# scope: egyetemi | VIK | szak:<név> | tárgy:<kód>
+# priority: P0 (kötelező) | P1 (fontos) | P2 (opcionális)
+
+index_pages:
+  - url: https://etk.bme.hu/hallgatoknak/szabalyzatok/
+    note: Egyetemi szabályzatok gyűjtőoldala; kiindulópont, nem teljes.
+  - url: https://szabalyozastar.bme.hu/
+    note: BME Szabályozástár – a hivatalos, aláírt egységes szerkezetű szabályzatok forrása (innen jön a TVSZ).
+
+documents:
+  - id: tvsz
+    title: BME Tanulmányi és Vizsgaszabályzat
+    scope: egyetemi
+    priority: P0
+    format: pdf
+    url: https://szabalyozastar.bme.hu/storage/documents/szenatus/X./10./2015-2016./bme_tvsz_2016_elfogadott_mod_20250717_t_s_20250717143237.pdf
+    local_path: data/raw/tvsz/BME_TVSZ.pdf
+    version: "XII./3./2024-2025. sz. szenátusi határozattal egybeszerkesztett változat"
+    signed: 2025-07-16
+    sha256: 5f2f57325ac9aa3c6faddcbfdd1c3cd62e8a02c9ce1960156cedd92574352062
+    retrieved: 2026-11-12
+
+  # --- F1-ben kitöltendő (P0) ---
+  # - id: vik_tvsz_kiegeszites   # kari kiegészítő rendelkezések
+  # - id: vik_zarovizsga
+  # - id: vik_szakdolgozat_diplomaterv
+  # - id: vik_kreditatvitel
+  # - id: vik_specializacio
+  # --- P1 ---
+  # - id: tjsz                   # Térítési és juttatási szabályzat
+  # - szakok képzési programjai, mintatantervek
+  # - tárgyadatlapok (portal.vik.bme.hu) -> külön lista / scraper

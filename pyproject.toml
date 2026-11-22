@@ -1,0 +1,29 @@
+[project]
+name = "kerdezd-a-tvszt"
+version = "0.1.0"
+description = "RAG-asszisztens a BME VIK-re érvényes tanulmányi szabályzatokhoz, bekezdésszintű hivatkozással"
+readme = "README.md"
+requires-python = ">=3.11,<3.13"
+dependencies = [
+    "pymupdf>=1.24",
+    "pyyaml>=6.0",
+    "requests>=2.31",
+    "beautifulsoup4>=4.12",
+    "python-dotenv>=1.0",
+]
+
+# A nehezebb függőségek (torch, sentence-transformers, faiss, gradio stb.) az F3-ban kerülnek be.
+
+[dependency-groups]
+dev = ["pytest>=8.0"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/vikrag"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
