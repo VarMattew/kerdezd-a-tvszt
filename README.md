@@ -4,10 +4,10 @@ RAG-alapú chatbot a **BME VIK-re érvényes** tanulmányi szabályzatokhoz (TVS
 
 > BME „AI in Practice” félévközi feladat (17. téma). Nem hivatalos tájékoztatás: mindig ellenőrizd az eredeti szabályzatot.
 
-**Állapot:** fejlesztés alatt (F0 – alapok). A részletes terv: [TERV.md](TERV.md), a fejlesztési napló: [docs/NAPLO.md](docs/NAPLO.md).
+**Állapot:** fejlesztés alatt (F4 kész: 86 kérdéses kiértékelő halmaz, baseline-mérés). A részletes terv: [TERV.md](TERV.md), a fejlesztési napló: [docs/NAPLO.md](docs/NAPLO.md).
 
 - 🌐 Demó (Hugging Face Spaces): *hamarosan*
-- 📊 Kiértékelés: *hamarosan*
+- 📊 Kiértékelés: 86 kérdés ([eval/questions.jsonl](eval/questions.jsonl)), eredmények: [results/](results/); a baseline-számok a [TERV 3.1](TERV.md#31-kiértékelő-halmaz-cél-80100-kérdés-minimum-50) alatt
 
 ## Fejlesztői környezet
 
@@ -31,6 +31,15 @@ Kérdezés parancssorból (a `.env`-ben kell a `GROQ_API_KEY` és a `GEMINI_API_
 ```bash
 uv run python scripts/ask.py "Mennyibe kerül a harmadik vizsga ugyanabból a tárgyból?"
 ```
+
+Kiértékelés (`results/<név>.json` + `results/summary.csv`):
+
+```bash
+uv run python eval/run.py --name retrieval --split all --modes bm25 dense hybrid   # csak keresés, LLM nélkül
+uv run python eval/run.py --name answers --split test --modes hybrid --answers     # generálás + LLM-bíró (kvótát fogyaszt)
+```
+
+A kiértékelő halmaz újraépítése: `eval/build_questions.py` (jelöltek) → kézi átnézés (`eval/review.jsonl`, `eval/handwritten.jsonl`, `eval/gold_additions.jsonl`) → `eval/finalize_questions.py`.
 
 Az OCR-hez Tesseract magyar nyelvi modell kell (Windows + MSYS2: `pacman -S mingw-w64-ucrt-x86_64-tesseract-ocr mingw-w64-ucrt-x86_64-tesseract-data-hun`). A tessdata útvonala a `TESSDATA_PREFIX` környezeti változóval állítható.
 

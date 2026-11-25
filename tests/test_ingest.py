@@ -45,6 +45,19 @@ def test_parse_paragraph_structure():
     assert unit_citation("TVSZ", u) == "TVSZ 53. § (2)"
 
 
+def test_line_starting_with_reference_is_not_a_new_heading():
+    lines = [
+        L("103. § [ Utólagos tantárgyfelvétel ]"),
+        L("(1) A hallgató adatkezelője a"),
+        L("45. § (2a) bekezdésében foglalt rendelkezés alapján törli a felvételt, ha a"),
+        L("(3) bekezdés b) pontja szerinti feltétel nem teljesül."),
+        L("(2) A hallgató kérheti a tantárgy leadását."),
+    ]
+    units = parse(lines)
+    assert [(u.paragraph, u.subsection) for u in units] == [("103", "1"), ("103", "2")]
+    assert "45. § (2a) bekezdésében" in units[0].text() and "(3) bekezdés b) pontja" in units[0].text()
+
+
 def test_parse_numbered_items_without_paragraphs():
     lines = [
         L("A SZAKDOLGOZAT", bold=True, page=2),

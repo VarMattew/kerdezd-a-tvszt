@@ -1,13 +1,13 @@
 {
-  "total_chunks": 5217,
-  "total_chars": 1725706,
-  "with_crossrefs": 366,
+  "total_chunks": 5191,
+  "total_chars": 1727955,
+  "with_crossrefs": 374,
   "documents": {
     "kepzesi_kodex": {
-      "chunks": 75,
-      "chars": 28203,
+      "chunks": 74,
+      "chars": 28208,
       "kinds": {
-        "rule": 75
+        "rule": 74
       }
     },
     "kp_bprof_uzinfo": {
@@ -97,17 +97,17 @@
       }
     },
     "tjsz": {
-      "chunks": 360,
-      "chars": 119132,
+      "chunks": 353,
+      "chars": 119806,
       "kinds": {
-        "rule": 360
+        "rule": 353
       }
     },
     "tvsz": {
-      "chunks": 1296,
-      "chars": 380643,
+      "chunks": 1281,
+      "chars": 381822,
       "kinds": {
-        "rule": 1296
+        "rule": 1281
       }
     },
     "vik_bprof_kooperativ": {
@@ -118,10 +118,10 @@
       }
     },
     "vik_bprof_specval": {
-      "chunks": 23,
-      "chars": 4494,
+      "chunks": 22,
+      "chars": 4499,
       "kinds": {
-        "rule": 23
+        "rule": 22
       }
     },
     "vik_bprof_specval_du": {
@@ -209,10 +209,10 @@
       }
     },
     "vik_msc_zv": {
-      "chunks": 108,
-      "chars": 29224,
+      "chunks": 107,
+      "chars": 29243,
       "kinds": {
-        "rule": 108
+        "rule": 107
       }
     },
     "vik_nyelvi_kreditek": {
@@ -238,14 +238,14 @@
     },
     "vik_szakmai_gyak_bsc": {
       "chunks": 45,
-      "chars": 25007,
+      "chars": 25188,
       "kinds": {
         "rule": 45
       }
     },
     "vik_szakmai_gyak_msc": {
       "chunks": 47,
-      "chars": 26710,
+      "chars": 26891,
       "kinds": {
         "rule": 47
       }
@@ -258,10 +258,10 @@
       }
     },
     "vik_szmsz": {
-      "chunks": 299,
-      "chars": 65864,
+      "chunks": 298,
+      "chars": 65869,
       "kinds": {
-        "rule": 299
+        "rule": 298
       }
     },
     "vik_tajekoztato_dt_msc": {

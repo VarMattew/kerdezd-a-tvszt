@@ -1,0 +1,94 @@
+{"cand_id": "c001", "decision": "edit", "question": "Hol és hogyan kell jelentkezni a specializációkra?", "note": "kevésbé szó szerinti kérdés"}
+{"cand_id": "c002", "decision": "edit", "question": "Ha egy doktorandusz nem halad jól, a képzés állami ösztöndíjasainak legfeljebb hány százalékát rakhatja át a dékán önköltségesre?", "note": "doktori képzés; a kérdés pontosítva"}
+{"cand_id": "c003", "decision": "accept", "note": ""}
+{"cand_id": "c004", "decision": "reject", "note": "a generátor szerint is csonka forrás"}
+{"cand_id": "c005", "decision": "accept", "note": ""}
+{"cand_id": "c006", "decision": "reject", "note": "jogszabályi apróság, hallgató nem kérdezné"}
+{"cand_id": "c007", "decision": "reject", "note": "definíciós kérdés, nem hallgatói"}
+{"cand_id": "c008", "decision": "reject", "note": "önmagában értelmetlen („az első bekezdés szerint”)"}
+{"cand_id": "c009", "decision": "edit", "question": "Kiírhatja a tanár névvel a zh-eredményeket a tárgy honlapjára?", "gold_answer": "Nem tetszőlegesen: a teljesítményértékelés eredménye (félévközi, vizsga-, szigorlati jegy) nem nyilvános személyes adat, csak a TVSZ-ben meghatározott módon közölhető.", "note": "hallgatói megfogalmazás"}
+{"cand_id": "c010", "decision": "edit", "question": "Hány tanórája lehet egy hallgatónak átlagosan egy héten nappali képzésen?", "gold_answer": "A nyelvi, testnevelés és felzárkóztató órák nélkül heti átlagosan legalább 16 és legfeljebb 26 tanóra.", "type": "numeric", "note": ""}
+{"cand_id": "c011", "decision": "reject", "note": "homályos kérdés"}
+{"cand_id": "c012", "decision": "edit", "question": "Ha valaki más írja meg helyettem a vizsgát, és kiderül, megkaphatom-e abban a félévben a tárgy kreditjét?", "gold_answer": "Nem: ez tanulmányi szabálytalanság, az érintett tantárgy kreditjét a hallgató az adott félévben nem szerezheti meg.", "note": "hallgatói megfogalmazás"}
+{"cand_id": "c013", "decision": "edit", "question": "Az órák legfeljebb hány százaléka lehet távoktatás teljes idejű képzésben?", "type": "numeric", "note": ""}
+{"cand_id": "c014", "decision": "accept", "note": ""}
+{"cand_id": "c015", "decision": "edit", "question": "Milyen szempontok alapján pontozzák a kollégiumi felvételi pályázatot?", "gold_answer": "A tanulmányi teljesítmény, a szociális helyzet, a szakmai/közéleti tevékenység, a képzés munkarendje és az esetleges fegyelmi büntetés alapján.", "note": "a forrás a TJSZ kollégiumi felvételi pontrendszere; pontosítva"}
+{"cand_id": "c016", "decision": "edit", "question": "Mekkora lehet legfeljebb a havonta kapott ösztöndíjaim átlagos összege?", "type": "numeric", "note": ""}
+{"cand_id": "c017", "decision": "accept", "note": ""}
+{"cand_id": "c018", "decision": "accept", "note": ""}
+{"cand_id": "c019", "decision": "reject", "note": "adminisztratív belügy"}
+{"cand_id": "c020", "decision": "edit", "question": "A BSc záróvizsga – MSc felvételin hány pont jár a hozott átlagért és hány a vizsgáért?", "type": "numeric", "note": ""}
+{"cand_id": "c021", "decision": "edit", "type": "numeric", "note": "számadat (24 óra)"}
+{"cand_id": "c022", "decision": "edit", "question": "Gazdinfó MSc-n legalább hány kredites legyen a záróvizsgára választott tárgy?", "type": "numeric", "note": ""}
+{"cand_id": "c023", "decision": "reject", "note": "triviális elnevezés-kérdés"}
+{"cand_id": "c024", "decision": "edit", "gold_answer": "Igen, a kar elfogadhatja a hallgató által választott gyakorlóhelyet és témát, de belföldön csak olyan helyen lehet, amellyel a kar együttműködési megállapodást kötött.", "note": "pontosított válasz"}
+{"cand_id": "c025", "decision": "accept", "note": ""}
+{"cand_id": "c026", "decision": "edit", "question": "Ha a végbizonyítványom után több mint két évvel akarok záróvizsgázni, megtehetem a régi szakdolgozatommal?", "gold_answer": "Csak akkor, ha a szakfelelős (a záróvizsgát szervező egység vezetője és a specializációfelelős véleménye alapján) a szakdolgozat témáját aktuálisnak fogadja el; korszerűtlen téma esetén új szakdolgozatot kell készíteni.", "note": "a generált válasz félreérthető volt"}
+{"cand_id": "c027", "decision": "accept", "note": ""}
+{"cand_id": "c028", "decision": "accept", "note": "forrással ellenőrizve"}
+{"cand_id": "c029", "decision": "edit", "gold_answer": "Érdemes előzetesen egyeztetni az esélyegyenlőségi koordinátorral (Balf Julianna, eselyegyenloseg@m365.bme.hu); a kérelmet a Hallgatói Esélyegyenlőségi Bizottság bírálja el.", "note": "a forrás „érdemes”, nem „kell”"}
+{"cand_id": "c030", "decision": "edit", "type": "numeric", "note": ""}
+{"cand_id": "c031", "decision": "edit", "gold_answer": "MI által generált képnél fel kell tüntetni, hogy generált, és melyik alkalmazás készítette; ha létező fotó vagy műalkotás az alapja, arra külön hivatkozni kell. Generált grafikonnál a hivatkozás kötelező, és a nyilatkozatban is jelölni kell az érintett részeket.", "note": "a generált válasz egy szabályt fordítva írt („mellőzni”)"}
+{"cand_id": "c032", "decision": "reject", "note": "átmeneti rendelkezés"}
+{"cand_id": "c033", "decision": "reject", "note": "átmeneti rendelkezés"}
+{"cand_id": "c034", "decision": "reject", "note": "átmeneti rendelkezés"}
+{"cand_id": "c035", "decision": "reject", "note": "hibás referenciaválasz, irreleváns"}
+{"cand_id": "c036", "decision": "reject", "note": "átmeneti rendelkezés (1993-as törvény szerinti képzések)"}
+{"cand_id": "c037", "decision": "reject", "note": "doktori, átmeneti"}
+{"cand_id": "c038", "decision": "reject", "note": "OCR-hibás forrás, a generált dátum nem igazolható"}
+{"cand_id": "c039", "decision": "edit", "question": "Milyen gyakran vizsgálják felül a szociális helyzetemet a szociális ösztöndíjhoz?", "gold_answer": "Tanulmányi félévente egyszer, egyetemi szinten egységesen vizsgálja az ESZB (kivéve a rendkívüli szociális ösztöndíjat).", "note": ""}
+{"cand_id": "c040", "decision": "edit", "question": "Meddig kell beadnom az önköltség alóli részleges mentességi kérelmet az őszi félévben?", "gold_answer": "Őszi félévben október 1-ig (tavaszi félévben március 1-ig), a TR-en keresztül.", "note": "forrással ellenőrizve (OCR-szöveg)"}
+{"cand_id": "c041", "decision": "edit", "question": "Mikor lesz 2027 januárjában a közös BSc záróvizsga – MSc felvételi vizsga villamosmérnököknek és mérnökinfósoknak?", "gold_answer": "2027. január 4-én (gazdinfó és űrmérnök: január 11-én).", "note": ""}
+{"cand_id": "c042", "decision": "reject", "note": "triviális hatálybalépés"}
+{"cand_id": "c043", "decision": "edit", "type": "english", "lang": "en", "question": "In the BProf specialization ranking, what is the weighted sum of grades divided by?", "gold_answer": "By 90 credits: the ranking average is the credit-weighted sum of the grades of the first three semesters' curriculum courses divided by 90, with missing courses counted as 0.", "note": "angol kérdésként átsorolva"}
+{"cand_id": "c044", "decision": "edit", "question": "Hány munkanapos a vizsgaidőszak a 2026/27-es tavaszi félévben?", "gold_answer": "20 munkanap (2027. június 7-től július 2-ig).", "note": ""}
+{"cand_id": "c045", "decision": "accept", "note": ""}
+{"cand_id": "c046", "decision": "reject", "note": "adminisztratív hatály"}
+{"cand_id": "c047", "decision": "reject", "note": "csonka forrás, homályos kérdés"}
+{"cand_id": "c048", "decision": "reject", "note": "oktatói eljárásrend"}
+{"cand_id": "c049", "decision": "reject", "note": "szervezeti egység belügye"}
+{"cand_id": "c050", "decision": "reject", "note": "adminisztratív"}
+{"cand_id": "c051", "decision": "reject", "note": "doktori; a generált válasz félreolvasta az OCR-szöveget"}
+{"cand_id": "c052", "decision": "edit", "question": "Ki dönti el, hogy egy külföldi egyetem tárgyai megfelelnek-e a mintatantervi tárgyaimnak a mobilitási ablakban?", "gold_answer": "Új partnerintézménynél a kreditátviteli bizottság (KKB) a szakfelelőssel együtt határozza meg és teszi közzé az egyenértékűségeket; a kar gondoskodik ezek TR-be rögzítéséről.", "note": "a generátor a KKB-t „Központi Közgazdasági Bizottság”-ként oldotta fel – hibás"}
+{"cand_id": "c053", "decision": "reject", "note": "doktori; ellentmondásos generált válasz"}
+{"cand_id": "c054", "decision": "edit", "question": "Mi van, ha a tavaszi félévre csak március 15-én akarok bejelentkezni?", "gold_answer": "Késő: a bejelentkezést a regisztrációs időszak végéig kell megtenni, különben a félév passzív lesz; a korábban tett bejelentkezés is csak március 14-ig vonható vissza, utána bejelentkezni vagy visszavonni már nem lehet.", "note": ""}
+{"cand_id": "c055", "decision": "edit", "question": "MSc-n lehet a diplomatervem témavezetője kizárólag egy céges (külső) szakember?", "gold_answer": "Nem: kari szabályzat eltérő rendelkezése hiányában MSc-n csak egyetemi (belső) témavezető jelölhető ki; külső szakmai témavezető indokolt esetben, kari engedéllyel, csak a belső témavezető mellett lehet.", "note": ""}
+{"cand_id": "c056", "decision": "edit", "question": "Lehet egy zh nem kötelező (szorgalmi), és ha igen, jár érte valami?", "gold_answer": "Igen: a részteljesítmény-értékelés és az összegző értékelés nem kötelezővé (fakultatív/szorgalmi) minősíthető; eredményes teljesítéséhez kedvezmény rendelhető, és beszámíthat a félévközi jegybe, az aláírásba vagy a vizsgajegybe.", "type": "slang", "note": "hallgatói megfogalmazás"}
+{"cand_id": "c057", "decision": "reject", "note": "oktatói/kari eljárás"}
+{"cand_id": "c058", "decision": "reject", "note": "adminisztratív"}
+{"cand_id": "c059", "decision": "edit", "question": "Meddig őrzik meg a vizsgadolgozatomat, ha nem kapom vissza?", "gold_answer": "Értékelés után a tantárgy felelőse őrzi; ha nem adták vissza a hallgatónak, a következő szorgalmi időszak kezdetétől számított egy hónap múlva selejtezhető (úgy, hogy a készítő ne legyen azonosítható).", "note": ""}
+{"cand_id": "c060", "decision": "edit", "question": "Ha visszavonják a kivételes tanulmányi rendemet, mikor kérhetem újra?", "gold_answer": "Ugyanazon a szakon alapképzésben és osztatlan képzésben két, mesterképzésben egy félév elteltével.", "note": "a generált válasz félreérthető volt"}
+{"cand_id": "c061", "decision": "edit", "question": "Hány óra önkénteskedés ér egy kreditet, és bármilyen önkéntes munkát elismernek?", "gold_answer": "30 óra önkéntes tevékenység ér 1 kreditet; csak a közérdekű önkéntes tevékenységről szóló 2005. évi LXXXVIII. törvény szerint végzett és dokumentált, és ugyanazon a képzésen fennálló hallgatói jogviszony alatt végzett tevékenység ismerhető el.", "note": ""}
+{"cand_id": "c062", "decision": "edit", "question": "Hány kredites a Rendszerelmélet (VIHVAD00) mérnökinfón, és mikor hirdetik meg?", "gold_answer": "5 kredites, félévközi jeggyel zárul, és az őszi félévben hirdetik meg.", "note": ""}
+{"cand_id": "c063", "decision": "accept", "note": ""}
+{"cand_id": "c064", "decision": "accept", "note": ""}
+{"cand_id": "c065", "decision": "accept", "note": ""}
+{"cand_id": "c066", "decision": "accept", "note": ""}
+{"cand_id": "c067", "decision": "accept", "note": ""}
+{"cand_id": "c068", "decision": "reject", "note": "általános helykitöltő tárgynév, több sor"}
+{"cand_id": "c069", "decision": "accept", "note": ""}
+{"cand_id": "c070", "decision": "accept", "add_gold": ["kp_msc_urm:targy:komplex-űrberendezések-fejlesztésének-ko"], "note": "két kezdési ütemterv, azonos adatok"}
+{"cand_id": "c071", "decision": "reject", "note": "helykitöltő tárgynév"}
+{"cand_id": "c072", "decision": "accept", "add_gold": ["kp_msc_eum:targy:orvosbiológiai-sz-gépes-gyak"], "note": "két sor, azonos adatok"}
+{"cand_id": "c073", "decision": "accept", "note": ""}
+{"cand_id": "c074", "decision": "reject", "note": "általános helykitöltő tárgynév"}
+{"cand_id": "c075", "decision": "accept", "add_gold": ["kp_msc_urm:targy:űrrendszerek-tervezése"], "note": "csak kreditre kérdez; két sor"}
+{"cand_id": "c076", "decision": "edit", "question": "Villamosmérnöki MSc-n hány kredites a Főspecializáció A2 labor, és hogyan zárul?", "add_gold": ["kp_msc_vill:targy:főspecializáció-a2-labor"], "note": "félév ütemtervenként eltér, ezért arra nem kérdez"}
+{"cand_id": "c077", "decision": "edit", "type": "numeric", "question": "Mikor nyílik a tárgyfelvétel a vizsgaidőszak után, és meddig tart?", "note": "nem volt szleng; átsorolva"}
+{"cand_id": "c078", "decision": "edit", "type": "numeric", "question": "Ha a KTH-hoz fellebbezek, mennyi időn belül kell kikérniük a KTB véleményét?", "gold_answer": "A kérelem benyújtásától számított három munkanapon belül; a KTB az állásfoglalását a megkeresést követő öt napon belül küldi meg.", "note": "nem volt szleng; átsorolva"}
+{"cand_id": "c079", "decision": "edit", "question": "Ha osztott zv-n megírom a részvizsgát, de a félév végéig nem lesz meg az abszolutóriumom, beszámít később?", "gold_answer": "Nem: ha a részvizsga a végbizonyítvány előtt volt, és a hallgató az adott félév végéig nem szerez végbizonyítványt, a részvizsga érvénytelen, és egy későbbi záróvizsgán nem vehető figyelembe.", "note": "hallgatói nyelvre átírva"}
+{"cand_id": "c080", "decision": "reject", "note": "adminisztratív"}
+{"cand_id": "c081", "decision": "reject", "note": "adminisztratív"}
+{"cand_id": "c082", "decision": "edit", "question": "Hogyan számolják ki az oklevél eredményét, ha a szakon nincs se szigorlat, se szakdolgozat?", "type": "fact", "note": ""}
+{"cand_id": "c083", "decision": "reject", "note": "definíciós kérdés"}
+{"cand_id": "c084", "decision": "edit", "question": "Járhatok nyelvórára akkor is, ha már megvan a nyelvi követelményem? És hány szinten van nyelvoktatás?", "gold_answer": "Igen, a nyelvoktatásban való részvétel joga független attól, hogy a nyelvi követelményt már teljesítetted; az Egyetem négy különböző szinten biztosít nyelvoktatást.", "note": ""}
+{"cand_id": "c085", "decision": "reject", "note": "a generált válasz kitalált dátumot tartalmaz"}
+{"cand_id": "c086", "decision": "edit", "question": "BProf-on mikor kell felvenni a szakdolgozatot idén ősszel?", "gold_answer": "A bejelentkezés és a végleges tárgyfelvétel (a Szakdolgozat-készítést is beleértve) a regisztrációs héten, 2026. augusztus 31. és szeptember 3. között történik.", "note": ""}
+{"cand_id": "c087", "decision": "reject", "note": "oktatói/kari eljárás"}
+{"cand_id": "c088", "decision": "edit", "question": "Mikor nem engednek zv-zni MSc-n?", "note": "hallgatói nyelv"}
+{"cand_id": "c089", "decision": "accept", "note": ""}
+{"cand_id": "c090", "decision": "reject", "note": "doktori, átmeneti"}
+{"cand_id": "c091", "decision": "accept", "note": ""}
+{"cand_id": "c092", "decision": "reject", "note": "a „szigorlat” rosszul fordítva (re-examination), részletkérdés"}
+{"cand_id": "c093", "decision": "edit", "question": "In the BProf cooperative programme, when does the Faculty finish assigning students to companies after the spring exam period, and when are students notified?", "note": "pontosítva"}
+{"cand_id": "c094", "decision": "accept", "note": ""}

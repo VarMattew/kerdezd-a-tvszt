@@ -147,7 +147,10 @@ def parse(lines: list[Line], *, has_paragraphs: bool | None = None) -> list[Unit
             continue
 
         m = PARA_RE.match(t) if has_paragraphs else None
-        if m and (ln.bold or len(t) < 120):
+        # valódi §-fejléc: "53. § [Cím]", félkövér "1. § Cím", vagy üres (OCR: a cím a következő sorban);
+        # NEM fejléc a sor elejére tört hivatkozás: "45. § (2a) bekezdésében foglalt …"
+        rest = m.group(2).strip() if m else ""
+        if m and (rest.startswith("[") or (ln.bold and not rest.startswith("(")) or not rest):
             flush_heading()
             ctx.paragraph = m.group(1)
             title = m.group(2).strip()
@@ -174,6 +177,9 @@ def parse(lines: list[Line], *, has_paragraphs: bool | None = None) -> list[Unit
             continue
 
         m = SUB_RE.match(t)
+        # a sor elejére tört hivatkozás ("(3) bekezdés b) pontjában …") nem új bekezdés: az új bekezdés nagybetűvel kezdődik
+        if m and m.group(2)[:1].islower():
+            m = None
         if m and not ln.bold:
             flush_heading()
             parent_item = cur.item if (cur and not has_paragraphs and not ctx.embedded_tvsz) else ""

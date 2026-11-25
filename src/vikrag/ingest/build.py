@@ -85,8 +85,10 @@ def unit_id(doc_id: str, u: Unit, idx: int) -> str:
         parts.append(f"p{u.item}")
     if u.subsection:
         parts.append(u.subsection)
-    if not parts:
-        parts.append(f"s{idx}")
+    if not parts or parts == [f"m{u.annex}"]:
+        # stabil azonosító a szakaszcímből (a futó sorszám a parser minden változtatásakor elcsúszna);
+        # az ismétlődéseket a hívó ~n utótaggal különbözteti meg
+        parts.append("s-" + (slug(u.section or u.chapter) or f"{idx}"))
     return f"{doc_id}:" + ":".join(parts)
 
 

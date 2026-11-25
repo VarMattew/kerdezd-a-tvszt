@@ -205,6 +205,18 @@ Kétféle kiértékelést kombinálunk: **(A) ground truth alapú** (a feladat e
 5. ~10–15 kérdést **teljesen kézzel írunk** (valós hallgatói kérdések mintájára), kontrollcsoportként.
 6. **Dev/test felosztás** (pl. 30/70). A hangolás (küszöb, top-k, promptok) csak a dev halmazon történik, a végső számok a test halmazról jönnek.
 
+**Megvalósult (F4, 2026-11-25):** 86 kérdés (`eval/questions.jsonl`): 60 LLM-jelöltből (94-ből 22 elfogadva, 38 átírva, 34 elvetve) + 26 kézzel írt. Típusok: tény 22, számadat 18, tárgyadatlap 12, multi 10, szleng 9, angol 5, megválaszolhatatlan 10; dev 27 / test 59. A gold-bővítés LLM-javaslatait kézzel szűrtük (16 kérdés bővült). A szó szerint átvett bekezdésmásolatok (TVSZ ↔ ZV-szabályzat) ekvivalens gold-csoportot alkotnak (`gold_groups`), így nem torzítják a recall-t.
+
+**Baseline retrieval (76 megválaszolható kérdés, chunk-szint):**
+
+| Mód | hit@1 | hit@5 | recall@5 | MRR | nDCG@10 |
+|---|---|---|---|---|---|
+| BM25 | 0,53 | 0,68 | 0,61 | 0,59 | 0,58 |
+| Dense (bge-m3) | **0,78** | **0,93** | **0,84** | **0,84** | **0,82** |
+| Hibrid (RRF k=60) | 0,68 | 0,84 | 0,79 | 0,76 | 0,74 |
+
+→ A hibrid **gyengébb**, mint a dense önmagában: a BM25 az angol (hit@5 = 0) és a szleng (0,33) kérdéseken használhatatlan, és az RRF-ben lerontja a dense rangsort. F5-ben: súlyozott RRF / lekérdezés-átírás, utána reranker.
+
 ### 3.2 (A) Retrieval-metrikák (ground truth)
 - **Recall@k** (k = 1, 3, 5, 10), **MRR**, **nDCG@10**: bekezdésszinten (szigorú) és §-szinten (laza).
 - **Hit rate a végső kontextusban** (a reranking és szűrés után ténylegesen az LLM elé került 3–5 chunk között ott van-e a gold).
@@ -323,7 +335,7 @@ HF/
 | **F2 – Parser** | nov. 15–18. | TVSZ-parser (bekezdések, lábjegyzetek, kereszthivatkozások), kari dokumentumok és tárgyadatlap-parser | `chunks.jsonl` kész; 30 véletlen chunk kézi ellenőrzése: a §/bekezdés-azonosító ≥95%-ban helyes |
 | **F3 – Baseline RAG** | nov. 18–20. | BM25 + dense + RRF + egyszerű generálás, CLI, modellválasztás | végponttól végpontig működik egy kérdésre hivatkozással |
 | **F7a – Korai telepítés** | nov. 21. | minimális Gradio-felület a HF Space-en | a publikus URL él (telepítési gondok korán kiderülnek) |
-| **F4 – Kiértékelő halmaz** | nov. 20–24. | 80–100 kérdés, dev/test felosztás, metrikakód | `questions.jsonl` kézzel ellenőrizve, baseline-számok megvannak |
+| **F4 – Kiértékelő halmaz** ✅ (nov. 25.) | nov. 20–24. | 80–100 kérdés, dev/test felosztás, metrikakód | `questions.jsonl` kézzel ellenőrizve, baseline-számok megvannak |
 | **F5 – Advanced RAG** | nov. 24–28. | reranker, zajszűrés, lekérdezés-feldolgozás, kereszthivatkozás, hivatkozás-ellenőrzés | minden komponens be- és kikapcsolható, mért javulással |
 | **F6 – Kísérletek** | nov. 28. – dec. 2. | kötelező kísérletek, RAG-triád, bíró-validálás | eredménytáblák és ábrák |
 | **F7b – Végleges felület** | dec. 1–3. | teljes UI (hivatkozás-panel, „Hogyan találtam meg?”, kiértékelés-fül), CI | a végleges URL működik |

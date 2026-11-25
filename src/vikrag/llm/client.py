@@ -45,6 +45,12 @@ def _cache_key(model: str, messages: list[dict], temperature: float, json_mode: 
     return hashlib.sha256(blob.encode("utf-8")).hexdigest()
 
 
+def _daily_quota(body: str) -> bool:
+    """Groq: „tokens per day (TPD)” / „requests per day (RPD)”; Gemini: „…PerDay…” kvótaazonosító."""
+    b = body.lower()
+    return "per day" in b or "perday" in b or "(tpd)" in b or "(rpd)" in b
+
+
 def _post(url: str, headers: dict, payload: dict, max_retries: int = 6) -> dict:
     delay = 2.0
     for attempt in range(max_retries):
@@ -58,6 +64,9 @@ def _post(url: str, headers: dict, payload: dict, max_retries: int = 6) -> dict:
             continue
         if r.ok:
             return r.json()
+        if r.status_code == 429 and _daily_quota(r.text):
+            # napi kvóta: az újrapróbálkozás értelmetlen, azonnal a tartalék modellre lépünk
+            raise LLMError(f"napi kvóta kimerült: {r.text[:200]}")
         if r.status_code in (429, 500, 502, 503, 504) and attempt < max_retries - 1:
             ra = r.headers.get("retry-after")
             wait = float(ra) if ra and ra.replace(".", "").isdigit() else delay

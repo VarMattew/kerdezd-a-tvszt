@@ -125,3 +125,53 @@
 **Tanulság (F1)**
 - A „publikus” forrás sem mindig érhető el gépi úton. Érdemes korán ellenőrizni, és pótforrást keresni.
 - Az ágens biztonsági korlátai a gyakorlatban is előjöttek: tilt, ha egy hozzáférési korlátot kerülne meg, és ha a felhasználó által odatett fájlt törölne.
+
+---
+
+## 2026-11-25 – F4: kiértékelő halmaz és baseline-mérés
+
+**Mit csináltunk**
+1. **Jelöltgenerálás** (`eval/build_questions.py`, prompt: `prompts/question_gen_v1.md`): rétegzett chunkmintából (TVSZ, TJSZ, kari szabályzatok, tájékoztatók, tanév rendje, mintatantervek; kéttagú „multi” párok a kereszthivatkozásokból) egy **harmadik** modell (`groq:openai/gpt-oss-120b`, nem a generáló és nem a bíró) 94 kérdésjelöltet írt. Stílusok: tény, számadat, multi, tárgyadatlap, szleng, angol.
+2. **Kézi átnézés** (`eval/review.jsonl`, minden döntés indoklással): **22 elfogadva, 38 átírva, 34 elvetve.** Elvetési okok: átmeneti rendelkezések, doktori képzés, oktatói/adminisztratív belügyek, helykitöltő tárgynevek a mintatantervekből, csonka forrás.
+3. **26 teljesen kézzel írt kérdés** (`eval/handwritten.jsonl`): 10 valósághű hallgatói kérdés, 10 megválaszolhatatlan (menza, kollégiumi kutya, laptopvásárlás, BKV-bérlet angolul…), és 6 további szleng/multi kérdés.
+4. **Gold-bővítés** (`eval/expand_gold.py`): a három kereső top-5 találatai közül egy LLM (Gemini) javasolta azokat a nem-gold chunkokat, amelyek szintén megválaszolják a kérdést. 30 kérdésre érkezett javaslat, ebből **16 kérdésnél fogadtam el** bővítést (`eval/gold_additions.jsonl`); a többit elvetettem, mert csak témájában kapcsolódott (pl. másik szak szabályzata, „beiratkozás” vs. „bejelentkezés”).
+5. **Ekvivalens gold-csoportok:** a ZV-szabályzatok szó szerint átveszik a TVSZ bekezdéseit, így egy szabály 3–4 példányban is létezik. Ezek (fuzzy ≥90) egy csoportba kerülnek: egy példány megtalálása már teljes találat, és a másolatok nem rontják a recall-t.
+6. **Végleges halmaz:** `eval/questions.jsonl`, **86 kérdés**, dev 27 / test 59, típus szerint rétegezve (tény 22, számadat 18, tárgyadatlap 12, multi 10, szleng 9, angol 5, megválaszolhatatlan 10).
+7. Metrikák (`eval/metrics.py`, tesztekkel): hit@k, recall@k, MRR, nDCG@10 szigorú (chunk) és laza (§) szinten; hivatkozási precizitás/felidézés, idézethűség, absztinencia, LLM-bíró (`prompts/judge_correctness_v1.md`). Futtató: `eval/run.py`, kimenet: `results/*.json` + `results/summary.csv`.
+
+**Baseline retrieval (mind a 76 megválaszolható kérdés, chunk-szint)**
+
+| Mód | hit@1 | hit@5 | hit@10 | recall@5 | MRR | nDCG@10 |
+|---|---|---|---|---|---|---|
+| BM25 | 0,53 | 0,68 | 0,74 | 0,61 | 0,59 | 0,58 |
+| Dense (bge-m3) | **0,78** | **0,93** | **0,96** | **0,84** | **0,84** | **0,82** |
+| Hibrid (RRF k=60) | 0,68 | 0,84 | 0,89 | 0,79 | 0,76 | 0,74 |
+
+Típusonként (hit@5): a BM25 az **angol kérdéseken 0,00**, a **szlengen 0,33**; a dense ugyanezeken 1,00 és 0,89. **A hibrid rosszabb, mint a dense önmagában**: a gyenge BM25 rangsor az RRF-ben „kiszorítja” a dense jó találatait (angol: 1,00 → 0,60, szleng: 0,89 → 0,44). Ez az órai dia „a hibrid mindig jobb” intuíciójának ellenpéldája. Ott ugyanis a két ranker hasonló erősségű, itt nem. → F5: súlyozott RRF, ill. lekérdezés-átírás (szleng/angol → szabályzati magyar), és utána reranker.
+
+**Baseline válaszok (test, 59 kérdés, hibrid, top-5, `groq:qwen/qwen3.8-27b`), bíró nélküli metrikák**
+- Absztinencia a 7 megválaszolhatatlan kérdésen: **100%**. Téves elutasítás a megválaszolhatókon: **15%** (8/52). Ez jórészt ott fordul elő, ahol a gold chunk nem került be az 5 elemű kontextusba: a kontextus-találat 0,81.
+- Hivatkozási precizitás **0,82**, felidézés **0,83** (chunk-szint). Az idézetek **86%-a** igazolható szó szerint a forrásból: a maradék jellemzően OCR-es TJSZ-szöveg vagy összevont idézet.
+- A helyességet pontozó LLM-bíró (Gemini) futása a napi kvóta miatt elhalasztva. A válaszok a gyorsítótárban vannak, így a bírálat újragenerálás nélkül pótolható.
+- A kliens javítása: a napi kvóta kimerülését (Groq TPD/RPD, Gemini „PerDay”) felismeri, és nem próbálkozik percekig hiába, hanem azonnal a tartalék modellre lép. A bíróhoz egyetlen modellt adunk meg (`--judge`), hogy kvótahiány esetén se cserélődjön csendben a bíró. A vegyes bírák ugyanis összehasonlíthatatlan számokat adnának.
+
+**Hibák, amelyeket a kiértékelés hozott felszínre**
+- **Parserhiba egy eval-kérdés miatt:** a tárgyleadási határidő bekezdése rossz § alá került. Ok: az új TVSZ-ben a §-címek nem félkövérek, és a „45. § (2a) bekezdésében …” kezdetű soron belüli hivatkozásokat a parser §-címnek nézte. → Szigorúbb §-cím-szabály és kisbetűs folytatás szabály; a chunkok újraépítése (5191 chunk).
+- **Instabil chunk-azonosítók:** a címsor nélküli szakaszok sorszám alapú id-t kaptak (`s17`), ami minden parser-javításnál elcsúszott, és a goldok érvénytelenné váltak. → Címből képzett slug (`s-téli-szünet`), és a jelöltek gold-azonosítóit a `finalize_questions.py` szövegegyezés alapján képezi át a régi chunklistáról.
+- **Újraindexelés ára:** a bge-m3 újraépítése 40 perc → a dense index szöveghash alapján újrahasznosítja a változatlan chunkok vektorait (5126 újrahasznosítva, 47 s).
+
+**A generált jelöltek tipikus hibái (amiket kézzel kellett javítani)**
+- Kitalált feloldás: „KKB = Központi Közgazdasági Bizottság”.
+- Kitalált dátumok olyan forrásnál, amelyben nem szerepelt dátum (c038, c085).
+- OCR-zajos TJSZ-összegek félreolvasása (c051).
+- Megfordított szabály (c031), illetve a „kell” és az „érdemes” összemosása (c029).
+- Túl szó szerinti kérdések, amelyek a BM25-nek kedveznek. Ezeket szlengesebbre írtam át.
+
+**Kézi beavatkozás**
+- A 94 jelölt és a 30 gold-javaslat átnézését az ágens végezte, a forrásszöveggel összevetve. Minden döntés indoklással rögzítve van, így ellenőrizhető.
+- A kvótákkal sáfárkodni kell: a gold-bővítés kimerítette a Gemini napi kvótáját és a gpt-oss-120b napi tokenkeretét (200k TPD). Emiatt 3 kérdésre (q072, q074, q075) nem készült javaslat.
+
+**Tanulság (F4)**
+- A kiértékelő halmaz maga is hibakereső eszköz: az első futtatás egy parserhibát és egy tervezési hibát (instabil azonosítók) is kimutatott.
+- Az LLM-generált kérdések kb. harmada használhatatlan, és a használhatóak közel kétharmadát át kellett írni. A kézi átnézés nem spórolható meg.
+- Gold-címkék: ugyanaz a szabály több dokumentumban is szerepel. Ezt a metrikában kezelni kell, különben a jó kereső büntetést kap.
