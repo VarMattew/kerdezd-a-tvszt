@@ -45,9 +45,10 @@ documents:
     priority: P0
     format: pdf
     url: https://vik.bme.hu/document/7976/
+    ocr: true   # scripts/ocr_pdf.py -> data/raw/tjsz.ocr.pdf
     note: >-
-      A VIK képzési tájékoztatójában hivatkozott példány. BESZKENNELT PDF (110 oldal, nincs szövegréteg) – OCR vagy
-      szöveges változat kell. A hszi.bme.hu oldal 2026-11-25-én nem volt elérhető (időtúllépés).
+      A VIK képzési tájékoztatójában hivatkozott példány. BESZKENNELT PDF (110 oldal, nincs szövegréteg), ezért
+      Tesseract OCR-rel dolgozzuk fel; az idézetek pontossága így kisebb. A hszi.bme.hu 2026-11-25-én nem volt elérhető.
 
   - id: tanev_2026_27
     title: A 2026/2027. tanév időbeosztása

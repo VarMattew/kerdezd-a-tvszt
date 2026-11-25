@@ -17,6 +17,15 @@ cp .env.example .env   # majd töltsd ki az API-kulcsokat
 uv run pytest
 ```
 
+Adatok letöltése és a beszkennelt dokumentumok OCR-ezése:
+
+```bash
+uv run python scripts/fetch.py
+uv run python scripts/ocr_pdf.py
+```
+
+Az OCR-hez Tesseract magyar nyelvi modell kell (Windows + MSYS2: `pacman -S mingw-w64-ucrt-x86_64-tesseract-ocr mingw-w64-ucrt-x86_64-tesseract-data-hun`). A tessdata útvonala a `TESSDATA_PREFIX` környezeti változóval állítható.
+
 ## Tapasztalatok és tanulságok
 
 Lásd: [docs/NAPLO.md](docs/NAPLO.md). A végleges összefoglaló a projekt végén kerül ide.

@@ -65,6 +65,13 @@
 **Kézi beavatkozás**
 - Az ágens a régi `data/raw/tvsz/BME_TVSZ.pdf` másolatot (bájtra azonos a letöltött `tvsz.pdf`-fel) törölte volna, de az auto mode ezt nem engedte; a felhasználóra bízva.
 
+**Kiegészítés: a TJSZ OCR-ezése** (a felhasználó döntése: „OCR-ezzük”)
+- A gépen nem volt Tesseract. Az ágens észrevette, hogy van MSYS2, és annak csomagkezelőjével telepítette a Tesseract 5.3.4-et és a magyar nyelvi modellt (`pacman -S mingw-w64-ucrt-x86_64-tesseract-ocr …-data-hun`).
+- Kiderült, hogy a **PyMuPDF beépített Tesseract-motorral** rendelkezik, csak a `tessdata` nyelvi fájlok kellenek. Így nem kellett külön Python OCR-csomag (pl. pytesseract, EasyOCR/torch).
+- `scripts/ocr_pdf.py`: 300 dpi-s renderelés, oldalanként párhuzamosan (6 folyamat), kereshető PDF a kimenet. 110 oldal kb. 80 másodperc alatt.
+- Minőség: a mintaoldal szövege jól olvasható; a § és a bekezdésjelek felismerhetők. Tipikus hibák: szavanként szétesett sorkizárt sorok, „?” és „!” a lábjegyzetjelek helyén, összeragadt szavak. → Ezeket a parserben kell kezelni, és a TJSZ-idézetekhez fuzzy ellenőrzés kell.
+- Egy félrevezető részlet: a PDF-be ágyazott egyik képréteg szinte üres maszk volt. A közvetlenül kinyert kép ezért értelmetlennek tűnt, a renderelt oldal viszont rendben volt. → Az OCR-t a renderelt oldalon kell futtatni, nem a beágyazott képen.
+
 **Tanulság**
 - A „publikus” forrás sem mindig érhető el gépi úton. Érdemes korán ellenőrizni, és pótforrást keresni.
 - Az ágens biztonsági korlátai a gyakorlatban is előjöttek: tilt, ha egy hozzáférési korlátot kerülne meg, és ha a felhasználó által odatett fájlt törölne.

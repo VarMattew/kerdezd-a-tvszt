@@ -150,7 +150,7 @@ A diasor ívét követjük: naive → advanced → (könnyített) modular RAG. A
 
 **F1 eredménye (2026-11-25):** 43 dokumentum letöltve (`scripts/fetch.py`, részletek a `data/sources.yaml`-ban): TVSZ, TJSZ, a tanév időbeosztása, a Képzési Kódex, 3 záróvizsga-szabályzat, specializációválasztási és szakmai gyakorlati szabályzatok, 8 VIK-es HTML-tájékoztató, 10 szak 2026-os képzési programja (mintatantervekkel) és további tájékoztatók.
 - ⚠️ **portal.vik.bme.hu: HTTP 403 minden kérésre** (a robots.txt-re is) → a tárgyadatlapok automatikusan nem tölthetők le. **Pótlás:** a képzési programok mintatantervei (tárgykód, név, félév, óraszám, követelménytípus, kredit). A tárgyadatlapos kérdéstípus ezért „mintatantervi” kérdés lesz (pl. „Hány kredites és milyen számonkérésű a VIAUAC15?”).
-- ⚠️ **A TJSZ beszkennelt PDF** (110 oldal, szövegréteg nélkül) → OCR (Tesseract, magyar nyelvi modell) vagy szöveges változat kell; a hszi.bme.hu nem volt elérhető.
+- ✅ **A TJSZ beszkennelt PDF** (110 oldal, szövegréteg nélkül) → **OCR-rel feldolgozva** (`scripts/ocr_pdf.py`: PyMuPDF beépített Tesseract-motorja, `hun` modell, 300 dpi; kb. 80 s 6 szálon) → `data/raw/tjsz.ocr.pdf`. 135 §-fejléc és 364 bekezdéskezdet felismerhető. **Ismert OCR-hibák, ezeket az F2-ben a parser kezeli:** sorkizárt sorok szavanként szétesnek; a lábjegyzetjelek helyén „?” és „!” marad (kb. 160 db); néha összeragadnak a szavak („félévbena”); a felsorolás betűjele néha téves. **A TJSZ-idézetek ezért csak közelítőleg szó szerintiek**, ezt a hivatkozás-ellenőrző fuzzy egyezéssel kezeli, a felületen pedig jelezzük („OCR-ből származó szöveg”).
 
 **Döntések a terjedelemről:**
 - **Tárgyadatlapok – fokozatos bővítés, időkorláttal:**
