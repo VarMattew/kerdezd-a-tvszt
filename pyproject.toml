@@ -11,6 +11,11 @@ dependencies = [
     "beautifulsoup4>=4.12",
     "python-dotenv>=1.0",
     "truststore>=0.10.5",
+    "sentence-transformers>=6.3.0",
+    "faiss-cpu>=1.16.0",
+    "bm25s>=0.3.16",
+    "pystemmer>=3.1.0",
+    "rapidfuzz>=3.14.6",
 ]
 
 # A nehezebb függőségek (torch, sentence-transformers, faiss, gradio stb.) az F3-ban kerülnek be.

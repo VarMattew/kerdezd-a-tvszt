@@ -100,6 +100,28 @@
 - Az iteratív „kipróbálás egy dokumentumon → statisztika az egész korpuszon → gyanús esetek megnézése” ciklus sokkal több hibát talált, mint az elsőre megírt kód tesztelése.
 - Az automatikus audit hamis riasztásokat is ad (azonos kezdetű bekezdések, lábjegyzetjelek); ezeket kézzel kell átnézni.
 
+---
+
+## 2026-11-25 – F3: baseline RAG és modellválasztás
+
+**Mit csináltunk**
+1. Az ágens a `.env` kulcsaival lekérdezte a Groq és a Gemini modellkínálatát (a kulcsokat soha nem írta ki, és fejlécben küldte őket, nem URL-ben), majd 6 jelöltet kipróbált ugyanazzal a magyar JSON-kérdéssel.
+2. **RAG nélküli próba – meglepően tanulságos:** a „Mi a TVSZ rövidítés jelentése a BME-n?” kérdésre mindhárom Groq-modell (qwen3.8-27b, gpt-oss-20b, gpt-oss-120b) **hallucinált** („Tudományos és Technológiai Szakosztály”, „Távközlési és Villamosmérnöki Szakképzés”…). Csak a gemini-3.5-flash válaszolt helyesen. → Erős motiváció a RAG-ra, a beszámolóba is bekerül.
+3. **Döntés:** generáló = `groq:qwen/qwen3.8-27b` (közepes méret, ~0,4 s), tartalék: `groq:openai/gpt-oss-120b` → `gemini:gemini-3.5-flash`; bíró = `gemini:gemini-3.5-flash` (másik szolgáltató, másik modellcsalád).
+4. **Korlát:** a Groq free tier modellenként **8000 token/perc** → egy RAG-hívás ~2–3k token, kb. 3 kérdés/perc. A Gemini „latest” aliasai a próbakor 503-at adtak (túlterhelés). → Lemezes LLM-gyorsítótár, újrapróbálkozás és tartalék lánc.
+5. Megvalósítás: BM25 (bm25s + Snowball Hungarian, stopszavak, a tárgykódok egy tokenként), dense (`BAAI/bge-m3` + FAISS IndexFlatIP), RRF (k=60), LLM-kliens (Groq / Gemini / lokális OpenAI-kompatibilis), válaszgenerálás `[S1]` jelölésekkel és szó szerinti idézetekkel, generálás utáni idézet-ellenőrzés (rapidfuzz), CLI (`scripts/ask.py`).
+6. A rendszerprompt verziózott fájlban van: `prompts/answer_v1.md`.
+7. **Első végponttól végpontig tartó próba** (4 kérdés), minden válasz helyes, ellenőrzött idézettel:
+   - „Mennyibe kerül a harmadik vizsga?” → 4500 Ft [TJSZ 2. sz. melléklet 1. § (1)] + [TVSZ 123. § (6)]: a modell két dokumentumot kapcsolt össze, és mindkét idézet 100%-os egyezésű.
+   - Szleng („bebukom a zh-t … aláírás”) → TVSZ 114. § (3)–(4), a dense keresés találta meg, a BM25 nem.
+   - Angol kérdés → angol válasz magyar forrásidézettel (BSc ZV-szabályzat 2. pont: 173 kredit).
+   - Korpuszon kívüli kérdés (menza nyitvatartása) → helyes „nem tudom”.
+
+**Akadályok és tanulságok**
+- **A bge-m3 indexelés CPU-n 43 percig tartott** (5217 chunk, 8 GB RAM, nincs GPU). A lekérdezés viszont csak ~0,17 s. → Az index offline készül, a HF Space csak a kérdést ágyazza be. Az embeddingmodell-összehasonlítás (E5) drága, ott kisebb modellekkel érdemes kísérletezni.
+- A hibrid keresés a mintakérdéseken nem mindig jobb, mint a jobbik egyedi ranker. Ezt az F4 kiértékelése számszerűsíti, a reranker (F5) pedig várhatóan javít rajta.
+- A `python-dotenv` `load_dotenv()` paraméter nélkül nem működik stdin-ről futtatott szkriptben (`find_dotenv` AssertionError) → mindig explicit útvonalat adunk meg.
+
 **Tanulság (F1)**
 - A „publikus” forrás sem mindig érhető el gépi úton. Érdemes korán ellenőrizni, és pótforrást keresni.
 - Az ágens biztonsági korlátai a gyakorlatban is előjöttek: tilt, ha egy hozzáférési korlátot kerülne meg, és ha a felhasználó által odatett fájlt törölne.

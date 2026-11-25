@@ -23,6 +23,13 @@ Adatok letöltése és a beszkennelt dokumentumok OCR-ezése:
 uv run python scripts/fetch.py
 uv run python scripts/ocr_pdf.py
 uv run python scripts/build_chunks.py   # -> data/processed/chunks.jsonl
+uv run python scripts/build_index.py    # -> data/index/ (BM25 + bge-m3; CPU-n ~40 perc)
+```
+
+Kérdezés parancssorból (a `.env`-ben kell a `GROQ_API_KEY` és a `GEMINI_API_KEY`):
+
+```bash
+uv run python scripts/ask.py "Mennyibe kerül a harmadik vizsga ugyanabból a tárgyból?"
 ```
 
 Az OCR-hez Tesseract magyar nyelvi modell kell (Windows + MSYS2: `pacman -S mingw-w64-ucrt-x86_64-tesseract-ocr mingw-w64-ucrt-x86_64-tesseract-data-hun`). A tessdata útvonala a `TESSDATA_PREFIX` környezeti változóval állítható.

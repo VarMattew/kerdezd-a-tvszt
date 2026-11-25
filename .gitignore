@@ -26,3 +26,6 @@ RAG.pdf
 .idea/
 Thumbs.db
 .DS_Store
+
+# Keresőindexek (scripts/build_index.py-val újragyárthatók)
+data/index/

@@ -130,7 +130,8 @@ A diasor ívét követjük: naive → advanced → (könnyített) modular RAG. A
 - **Lokális modellek** (később, erősebb gépen): Qwen családból ~8–9B és ~14B (Ollama vagy vLLM, OpenAI-kompatibilis végponton), így ugyanaz a kód futtatja őket.
 - **Gyorsítótár:** minden LLM-hívás (prompt-hash → válasz) lemezre kerül. A kiértékelés így megismételhető, és nem égeti a free tier kvótát.
 - A bíró modell (a kiértékelésnél) lehetőleg **más modell legyen, mint a generáló**, hogy csökkentsük az önértékelési torzítást.
-- **Modellválasztás (döntés):** „átlagos”, közepes modell. Az F3-ban, a `.env` kulcsokkal lekérdezzük a free tier aktuális modellkínálatát és rate limitjeit, és ez alapján választunk: a **generáló** egy közepes méretű nyílt modell Groqon, a **bíró** egy Flash-szintű Gemini (más szolgáltató, más modellcsalád). Rate limitek: minden hívás gyorsítótárazva; a kiértékelő futtató kérés/perc korláttal és újrapróbálkozással (backoff) dolgozik.
+- **Modellválasztás (döntés, F3, 2026-11-25):** generáló = **`groq:qwen/qwen3.8-27b`** (tartalék: `groq:openai/gpt-oss-120b` → `gemini:gemini-3.5-flash`); bíró = **`gemini:gemini-3.5-flash`** (más szolgáltató, más modellcsalád). A Groq free tier modellenként **8000 token/perc**, ez kb. 3 RAG-kérdés percenként; a Gemini „latest” aliasai időnként 503-at adnak. Ezért minden hívás gyorsítótárazva van (`.cache/llm/`), a kiértékelő futtató pedig korlátozza a kérések ütemét, és újrapróbálkozik (backoff).
+- **F3 eredménye:** `src/vikrag/{index,retrieve,llm,generate}`, `pipeline.py`, CLI: `uv run python scripts/ask.py "kérdés"`. A bge-m3 index CPU-n 43 perc alatt épült fel, egy lekérdezés ~0,17 s. A 4 kérdéses próba minden válasza helyes volt, ellenőrzött idézettel (magyar, szleng, angol, korpuszon kívüli kérdés).
 - **Kulcsok:** `.env` (gitignore-olva), a változónevek a `.env.example`-ben.
 
 ---
