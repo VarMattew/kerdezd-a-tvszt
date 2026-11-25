@@ -10,6 +10,7 @@ dependencies = [
     "requests>=2.31",
     "beautifulsoup4>=4.12",
     "python-dotenv>=1.0",
+    "truststore>=0.10.5",
 ]
 
 # A nehezebb függőségek (torch, sentence-transformers, faiss, gradio stb.) az F3-ban kerülnek be.

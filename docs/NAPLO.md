@@ -39,3 +39,32 @@
 **Tanulság**
 - Mielőtt parsert írunk, érdemes megnézni a PDF szövegrétegét span-szinten: a vizuálisan látható szöveg (pl. sorszámozás) nem feltétlenül kinyerhető.
 - A forrásdokumentum verziója nemcsak tartalmi, hanem technikai kérdés is: az újabb verzió könnyebben feldolgozható volt.
+
+---
+
+## 2026-11-25 – F1: adatgyűjtés
+
+**Mit csináltunk**
+1. Az ágens feltérképezte a forrásoldalakat: ETK szabályzatok, BME Szabályozástár, vik.bme.hu „Hallgatóknak” és „Szabályzatok” oldalak, a VIK 2026/27-es képzési tájékoztatója, portal.vik.bme.hu.
+2. Kb. 110 linkből kiválasztotta a hallgatókra vonatkozó, hatályos dokumentumokat (P0/P1/P2), ezek a `data/sources.yaml`-ba kerültek.
+3. `scripts/fetch.py`: udvarias letöltő (saját User-Agent, 1,5 s szünet, formátum-ellenőrzés, `manifest.json` SHA-256-tal). Eredmény: **43 dokumentum**.
+4. A letöltött PDF-ek gyors profilozása: oldalszám, szöveghossz, §- és bekezdésszámok, tárgykódok.
+
+**Kulcsfontosságú prompt**
+> „Igen, jöhet az F1”, vagyis az ágens a terv alapján önállóan végezte a forráskeresést.
+
+**Érdekes megfigyelések / akadályok**
+- **portal.vik.bme.hu: 403 minden kérésre**, a robots.txt-re is. Az ágens egy böngészőnek álcázott User-Agenttel próbálkozott volna, de ezt a Claude Code biztonsági ellenőrzője **jogosan letiltotta**, mert egy hozzáférési korlát megkerülése lett volna. → A tárgyadatlapok helyett a képzési programok mintatanterveit használjuk.
+- **A Szabályozástár egy SPA**, az API-ja bejelentkezést kér (401). A közvetlen `/storage/...pdf` linkek viszont publikusak.
+- **A VIK-dokumentumok a `/document/<id>/` URL-lel is letölthetők**, fájlnév nélkül. Ez egyszerűsíti a forráslistát, és elkerüli az ékezetes URL-ek kódolási gondjait.
+- **A TJSZ beszkennelt PDF**, szövegréteg nélkül → OCR kell majd.
+- **A kth.bme.hu tanúsítványlánca hiányos**: a curl (Windows schannel) elfogadta, a Python (certifi) nem. Megoldás: a `truststore` csomag az OS tanúsítványtárát használja, így nem kellett kikapcsolni az ellenőrzést.
+- A képzési programokban mintatanterv-táblázatok vannak (pl. `VIAUAC15 Adatvezérelt rendszerek 2/2/0/v/5`), de nincsenek bennük részletes tantárgyleírások.
+- A záróvizsga-szabályzatokban vannak „(n)” bekezdésjelölések, de nincs „§”. A parsernek többféle szerkezetet is kezelnie kell.
+
+**Kézi beavatkozás**
+- Az ágens a régi `data/raw/tvsz/BME_TVSZ.pdf` másolatot (bájtra azonos a letöltött `tvsz.pdf`-fel) törölte volna, de az auto mode ezt nem engedte; a felhasználóra bízva.
+
+**Tanulság**
+- A „publikus” forrás sem mindig érhető el gépi úton. Érdemes korán ellenőrizni, és pótforrást keresni.
+- Az ágens biztonsági korlátai a gyakorlatban is előjöttek: tilt, ha egy hozzáférési korlátot kerülne meg, és ha a felhasználó által odatett fájlt törölne.

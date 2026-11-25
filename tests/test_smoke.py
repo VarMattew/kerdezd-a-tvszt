@@ -4,7 +4,7 @@ from pathlib import Path
 
 import pytest
 
-TVSZ = Path(__file__).resolve().parents[1] / "data" / "raw" / "tvsz" / "BME_TVSZ.pdf"
+TVSZ = Path(__file__).resolve().parents[1] / "data" / "raw" / "tvsz.pdf"
 
 
 def test_package_imports():

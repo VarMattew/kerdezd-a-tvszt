@@ -1,33 +1,253 @@
-# A korpusz dokumentumlistája. Minden bejegyzésből reprodukálható a data/raw/ tartalma (scripts/fetch.py, F1).
-# scope: egyetemi | VIK | szak:<név> | tárgy:<kód>
-# priority: P0 (kötelező) | P1 (fontos) | P2 (opcionális)
+# A korpusz dokumentumlistája. A data/raw/ tartalma ebből reprodukálható:  uv run python scripts/fetch.py
+#
+# Mezők:
+#   id        egyedi azonosító (fájlnév és chunk_id előtag)
+#   title     emberi olvasásra szánt cím (a hivatkozásokban ez jelenik meg)
+#   short     rövid név a hivatkozásokhoz, pl. „TVSZ”, „BSc ZV-szabályzat”
+#   scope     egyetemi | VIK | szak:<név>
+#   priority  P0 (kötelező) | P1 (fontos) | P2 (opcionális)
+#   format    pdf | html
+#   url       letöltési URL (VIK-dokumentumoknál a /document/<id>/ forma elég)
+#   note      opcionális megjegyzés
+#
+# A letöltés eredménye (sha256, méret, dátum) a data/raw/manifest.json-ba kerül, nem ide.
+#
+# Kiválasztási elvek (F1, 2026-11-25):
+#   - csak hallgatókra vonatkozó tanulmányi szabályok (oktatói/munkatársi dékáni utasítások,
+#     bérpolitika, doktori képzés, iratkezelés stb. kimarad)
+#   - mindig csak a hatályos / legfrissebb változat (a régebbi tantervekhez tartozó változatok kimaradnak)
+#   - a tárgyadatlapok (portal.vik.bme.hu) automatikusan nem érhetők el (HTTP 403), lásd TERV.md
 
 index_pages:
   - url: https://etk.bme.hu/hallgatoknak/szabalyzatok/
-    note: Egyetemi szabályzatok gyűjtőoldala; kiindulópont, nem teljes.
+    note: Egyetemi szabályzatok gyűjtőoldala.
   - url: https://szabalyozastar.bme.hu/
-    note: BME Szabályozástár – a hivatalos, aláírt egységes szerkezetű szabályzatok forrása (innen jön a TVSZ).
+    note: BME Szabályozástár (SPA, az API-ja bejelentkezést kér; a közvetlen /storage/ fájllinkek publikusak).
+  - url: https://vik.bme.hu/hallgatoknak/szabalyzatok/
+    note: VIK kari szabályzatok gyűjtőoldala.
+  - url: https://vik.bme.hu/page/1379
+    note: VIK Képzési tájékoztató a 2026/27. tanévre (dokumentumgyűjtemény, lezárva 2026-07-20).
 
 documents:
+  # ───────────────────────── P0: egyetemi, VIK-en hatályos ─────────────────────────
   - id: tvsz
-    title: BME Tanulmányi és Vizsgaszabályzat
+    title: BME Tanulmányi és Vizsgaszabályzat (egységes szerkezet, XII./3./2024-2025.)
+    short: TVSZ
     scope: egyetemi
     priority: P0
     format: pdf
     url: https://szabalyozastar.bme.hu/storage/documents/szenatus/X./10./2015-2016./bme_tvsz_2016_elfogadott_mod_20250717_t_s_20250717143237.pdf
-    local_path: data/raw/tvsz/BME_TVSZ.pdf
-    version: "XII./3./2024-2025. sz. szenátusi határozattal egybeszerkesztett változat"
-    signed: 2025-07-16
-    sha256: 5f2f57325ac9aa3c6faddcbfdd1c3cd62e8a02c9ce1960156cedd92574352062
-    retrieved: 2026-11-12
 
-  # --- F1-ben kitöltendő (P0) ---
-  # - id: vik_tvsz_kiegeszites   # kari kiegészítő rendelkezések
-  # - id: vik_zarovizsga
-  # - id: vik_szakdolgozat_diplomaterv
-  # - id: vik_kreditatvitel
-  # - id: vik_specializacio
-  # --- P1 ---
-  # - id: tjsz                   # Térítési és juttatási szabályzat
-  # - szakok képzési programjai, mintatantervek
-  # - tárgyadatlapok (portal.vik.bme.hu) -> külön lista / scraper
+  - id: tjsz
+    title: Térítési és Juttatási Szabályzat
+    short: TJSZ
+    scope: egyetemi
+    priority: P0
+    format: pdf
+    url: https://vik.bme.hu/document/7976/
+    note: >-
+      A VIK képzési tájékoztatójában hivatkozott példány. BESZKENNELT PDF (110 oldal, nincs szövegréteg) – OCR vagy
+      szöveges változat kell. A hszi.bme.hu oldal 2026-11-25-én nem volt elérhető (időtúllépés).
+
+  - id: tanev_2026_27
+    title: A 2026/2027. tanév időbeosztása
+    short: Tanév időbeosztása 2026/27
+    scope: egyetemi
+    priority: P0
+    format: pdf
+    url: https://vik.bme.hu/document/7970/
+
+  # ───────────────────────── P0: VIK kari szabályzatok ─────────────────────────
+  - id: vik_kepzesi_tajekoztato
+    title: VIK Képzési tájékoztató a 2026/2027. tanévre
+    short: VIK Képzési tájékoztató
+    scope: VIK
+    priority: P0
+    format: html
+    url: https://vik.bme.hu/page/1379
+
+  - id: vik_bsc_zv
+    title: VIK BSc szakdolgozat-, záróvizsga- és oklevélszabályzat (2022-es tanterv)
+    short: BSc ZV-szabályzat
+    scope: VIK
+    priority: P0
+    format: pdf
+    url: https://vik.bme.hu/document/6739/
+
+  - id: vik_msc_zv
+    title: VIK MSc diplomaterv-, záróvizsga- és oklevélszabályzat (2023-as tanterv)
+    short: MSc ZV-szabályzat
+    scope: VIK
+    priority: P0
+    format: pdf
+    url: https://vik.bme.hu/document/6276/
+
+  - id: vik_bprof_zv
+    title: VIK BProf szakdolgozat-, záróvizsga- és oklevélszabályzat
+    short: BProf ZV-szabályzat
+    scope: VIK
+    priority: P0
+    format: pdf
+    url: https://vik.bme.hu/document/6326/
+
+  - id: vik_bsc_zv_msc_felveteli
+    title: Közös BSc záróvizsga – MSc felvételi szabályzat
+    short: BSc ZV – MSc felvételi
+    scope: VIK
+    priority: P0
+    format: pdf
+    url: https://vik.bme.hu/document/4523/
+
+  - id: vik_bsc_specval
+    title: VIK BSc specializáció- és ágazatválasztási szabályzat (2023-tól)
+    short: BSc specializációválasztási szabályzat
+    scope: VIK
+    priority: P0
+    format: pdf
+    url: https://vik.bme.hu/document/5974/
+
+  - id: vik_bsc_specval_du
+    title: Dékáni utasítás a BSc specializáció- és ágazatválasztási szabályzathoz (2026.04.27.)
+    short: Dékáni utasítás (BSc specválasztás)
+    scope: VIK
+    priority: P0
+    format: pdf
+    url: https://vik.bme.hu/document/7948/
+
+  - id: vik_bprof_specval
+    title: VIK BProf specializációválasztási szabályzat
+    short: BProf specializációválasztási szabályzat
+    scope: VIK
+    priority: P0
+    format: pdf
+    url: https://vik.bme.hu/document/1986/
+
+  - id: vik_bprof_specval_du
+    title: Dékáni utasítás a BProf specializáció- és ágazatválasztási szabályzathoz
+    short: Dékáni utasítás (BProf specválasztás)
+    scope: VIK
+    priority: P0
+    format: pdf
+    url: https://vik.bme.hu/document/3038/
+
+  - id: vik_szakmai_gyak_bsc
+    title: VIK BSc szakmai gyakorlat szabályzat (2014 után kezdőknek)
+    short: BSc szakmai gyakorlat szabályzat
+    scope: VIK
+    priority: P0
+    format: pdf
+    url: https://vik.bme.hu/document/412/
+
+  - id: vik_szakmai_gyak_msc
+    title: VIK MSc szakmai gyakorlat szabályzat (2015-től)
+    short: MSc szakmai gyakorlat szabályzat
+    scope: VIK
+    priority: P0
+    format: pdf
+    url: https://vik.bme.hu/document/413/
+
+  - id: vik_nyelvi_kreditek
+    title: Nyelvi kreditek megszerzése (kimeneti szaknyelvi követelmények)
+    short: Nyelvi kreditek
+    scope: VIK
+    priority: P0
+    format: pdf
+    url: https://vik.bme.hu/document/6087/
+
+  - id: vik_projekttargyak
+    title: Szakdolgozat, diplomaterv, témalabor és önálló laboratórium témák felvételének előírásai
+    short: Projekttárgyak felvétele
+    scope: VIK
+    priority: P0
+    format: pdf
+    url: https://vik.bme.hu/document/4312/
+
+  # ── VIK HTML-oldalak (rövid, szabályzatjellegű tájékoztatók) ──
+  - id: vik_valaszthato_targyak
+    title: A választható tantárgyak mikéntjéről
+    short: Választható tárgyak
+    scope: VIK
+    priority: P0
+    format: html
+    url: https://vik.bme.hu/page/801/
+
+  - id: vik_szabval_targyak
+    title: Szakmai szabadon választható tantárgyak
+    short: Szabadon választható tárgyak
+    scope: VIK
+    priority: P0
+    format: html
+    url: https://vik.bme.hu/page/530/
+
+  - id: vik_kervenyek
+    title: Hallgatói kérvények beadása
+    short: Hallgatói kérvények
+    scope: VIK
+    priority: P0
+    format: html
+    url: https://vik.bme.hu/page/173/
+
+  - id: vik_zv_targyak
+    title: Záróvizsga-tárgyak
+    short: Záróvizsga-tárgyak
+    scope: VIK
+    priority: P0
+    format: html
+    url: https://vik.bme.hu/page/25/
+
+  - id: vik_elotanulmanyi_rendek
+    title: Előtanulmányi rendek
+    short: Előtanulmányi rendek
+    scope: VIK
+    priority: P0
+    format: html
+    url: https://vik.bme.hu/page/503/
+
+  - id: vik_szamonkeresek
+    title: Számonkérések ütemezése (teljesítményértékelési terv)
+    short: Számonkérések ütemezése
+    scope: VIK
+    priority: P0
+    format: html
+    url: https://vik.bme.hu/page/1150/
+
+  - id: vik_tanev_kieg_1
+    title: Kiegészítés a tanév időbeosztásához 1
+    short: Tanév kiegészítés 1
+    scope: VIK
+    priority: P0
+    format: html
+    url: https://vik.bme.hu/page/1177/
+
+  - id: vik_tanev_kieg_2
+    title: Kiegészítés a tanév időbeosztásához 2
+    short: Tanév kiegészítés 2
+    scope: VIK
+    priority: P0
+    format: html
+    url: https://vik.bme.hu/page/1090/
+
+  # ───────────────────────── P1: szakok, tájékoztatók ─────────────────────────
+  - {id: kp_bsc_info, title: Mérnökinformatikus BSc képzési program (2026), short: Mérnökinformatikus BSc képzési program, scope: "szak:mérnökinformatikus BSc", priority: P1, format: pdf, url: "https://vik.bme.hu/document/7979/"}
+  - {id: kp_bsc_vill, title: Villamosmérnöki BSc képzési program (2026), short: Villamosmérnöki BSc képzési program, scope: "szak:villamosmérnöki BSc", priority: P1, format: pdf, url: "https://vik.bme.hu/document/7981/"}
+  - {id: kp_bsc_gain, title: Gazdaságinformatikus BSc képzési program (2026), short: Gazdaságinformatikus BSc képzési program, scope: "szak:gazdaságinformatikus BSc", priority: P1, format: pdf, url: "https://vik.bme.hu/document/7980/"}
+  - {id: kp_bprof_uzinfo, title: Üzemmérnök-informatikus BProf képzési program (2026), short: Üzemmérnök-informatikus BProf képzési program, scope: "szak:üzemmérnök-informatikus BProf", priority: P1, format: pdf, url: "https://vik.bme.hu/document/7978/"}
+  - {id: kp_msc_info, title: Mérnökinformatikus MSc képzési program (2026), short: Mérnökinformatikus MSc képzési program, scope: "szak:mérnökinformatikus MSc", priority: P1, format: pdf, url: "https://vik.bme.hu/document/7985/"}
+  - {id: kp_msc_vill, title: Villamosmérnöki MSc képzési program (2026), short: Villamosmérnöki MSc képzési program, scope: "szak:villamosmérnöki MSc", priority: P1, format: pdf, url: "https://vik.bme.hu/document/7987/"}
+  - {id: kp_msc_ai, title: Mesterséges intelligencia informatikus MSc képzési program (2026), short: MI informatikus MSc képzési program, scope: "szak:MI informatikus MSc", priority: P1, format: pdf, url: "https://vik.bme.hu/document/7982/"}
+  - {id: kp_msc_gain, title: Gazdaságinformatikus MSc képzési program (2026), short: Gazdaságinformatikus MSc képzési program, scope: "szak:gazdaságinformatikus MSc", priority: P1, format: pdf, url: "https://vik.bme.hu/document/7984/"}
+  - {id: kp_msc_eum, title: Egészségügyi mérnöki MSc képzési program (2026), short: Egészségügyi mérnöki MSc képzési program, scope: "szak:egészségügyi mérnöki MSc", priority: P1, format: pdf, url: "https://vik.bme.hu/document/7983/"}
+  - {id: kp_msc_urm, title: Űrmérnök MSc képzési program (2026), short: Űrmérnök MSc képzési program, scope: "szak:űrmérnök MSc", priority: P1, format: pdf, url: "https://vik.bme.hu/document/7986/"}
+
+  - {id: vik_tajekoztato_szd_bsc, title: Tájékoztató a szakdolgozatról (BSc, 2026 ősz), short: Szakdolgozat-tájékoztató (BSc), scope: VIK, priority: P1, format: pdf, url: "https://vik.bme.hu/document/8274/"}
+  - {id: vik_tajekoztato_szd_bprof, title: Tájékoztató a szakdolgozatról (BProf, 2026 ősz), short: Szakdolgozat-tájékoztató (BProf), scope: VIK, priority: P1, format: pdf, url: "https://vik.bme.hu/document/8273/"}
+  - {id: vik_tajekoztato_dt_msc, title: Tájékoztató a diplomatervről (MSc, 2026 ősz), short: Diplomaterv-tájékoztató (MSc), scope: VIK, priority: P1, format: pdf, url: "https://vik.bme.hu/document/8275/"}
+  # vik_titkositott_dt (https://vik.bme.hu/files/00004025.pdf) kihagyva: a portal.vik.bme.hu-ra irányít át, ami 403-at ad.
+  - {id: vik_felzarkozas, title: A felzárkózást segítő szabadon választható tantárgyakról, short: Felzárkózást segítő tárgyak, scope: VIK, priority: P1, format: pdf, url: "https://vik.bme.hu/document/205/"}
+  - {id: vik_keresztfeleves, title: Keresztféléves kurzusok indítása, short: Keresztféléves kurzusok, scope: VIK, priority: P1, format: pdf, url: "https://vik.bme.hu/document/217/"}
+  - {id: vik_mi_hasznalat, title: Irányelvek hallgatóknak és oktatóknak az MI alkalmazásáról, short: MI-használati irányelvek, scope: VIK, priority: P1, format: html, url: "https://vik.bme.hu/hallgatoknak/altalanos/mi-hasznalat-ajanlasok"}
+
+  # ───────────────────────── P2: opcionális ─────────────────────────
+  - {id: kepzesi_kodex, title: BME Képzési Kódex, short: Képzési Kódex, scope: egyetemi, priority: P2, format: pdf, url: "https://www.kth.bme.hu/document/2909/original/BME_Kepzesi_Kodex_mod_20221002_T.pdf"}
+  - {id: vik_bprof_kooperativ, title: BProf kooperatív képzés szabályzat, short: BProf kooperatív képzés, scope: VIK, priority: P2, format: pdf, url: "https://vik.bme.hu/document/4748/"}
+  - {id: vik_szmsz, title: VIK Szervezeti és Működési Szabályzat, short: VIK SzMSz, scope: VIK, priority: P2, format: pdf, url: "https://vik.bme.hu/document/6357/"}

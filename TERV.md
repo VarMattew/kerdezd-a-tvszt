@@ -148,6 +148,10 @@ A diasor ívét követjük: naive → advanced → (könnyített) modular RAG. A
 - A nyers fájlok a `data/raw/` mappába kerülnek. Ha a licenc / közzététel kérdéses, a repóba csak a letöltőszkript és a feldolgozott chunkok kerülnek (a HF Space-hez úgyis a kész index kell).
 - **Tárgyadatlapok:** a TVSZ-től eltérő parser kell. A chunkok mezőalapúak (`tárgy:VIMIAA01:követelmények`), a hivatkozás formája pedig „Tárgyadatlap VIMIAA01 › Követelmények”.
 
+**F1 eredménye (2026-11-25):** 43 dokumentum letöltve (`scripts/fetch.py`, részletek a `data/sources.yaml`-ban): TVSZ, TJSZ, a tanév időbeosztása, a Képzési Kódex, 3 záróvizsga-szabályzat, specializációválasztási és szakmai gyakorlati szabályzatok, 8 VIK-es HTML-tájékoztató, 10 szak 2026-os képzési programja (mintatantervekkel) és további tájékoztatók.
+- ⚠️ **portal.vik.bme.hu: HTTP 403 minden kérésre** (a robots.txt-re is) → a tárgyadatlapok automatikusan nem tölthetők le. **Pótlás:** a képzési programok mintatantervei (tárgykód, név, félév, óraszám, követelménytípus, kredit). A tárgyadatlapos kérdéstípus ezért „mintatantervi” kérdés lesz (pl. „Hány kredites és milyen számonkérésű a VIAUAC15?”).
+- ⚠️ **A TJSZ beszkennelt PDF** (110 oldal, szövegréteg nélkül) → OCR (Tesseract, magyar nyelvi modell) vagy szöveges változat kell; a hszi.bme.hu nem volt elérhető.
+
 **Döntések a terjedelemről:**
 - **Tárgyadatlapok – fokozatos bővítés, időkorláttal:**
   1. először a fő BSc-szakok (mérnökinformatikus, villamosmérnök) mintatantervének **kötelező tárgyai** (kb. 60–100 tárgy);
