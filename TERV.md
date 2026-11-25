@@ -86,6 +86,16 @@ A diasor ívét követjük: naive → advanced → (könnyített) modular RAG. A
 3. Fejléc/lábléc (oldalszám), elválasztott szavak („regisztrá-\nció”), tartalomjegyzék → normalizálás, illetve kiszűrés.
 4. A szöveg más §-okra hivatkozik („az 53. § (3) bekezdésben foglaltak szerint”) → regexszel kinyerjük, ezekből lesz a **kereszthivatkozás-gráf**.
 
+#### ✅ F2 eredménye (2026-11-25)
+`uv run python scripts/build_chunks.py` → `data/processed/chunks.jsonl`: **5217 chunk, 43 dokumentumból, ~1,7 M karakter**, kb. 80 s alatt. A modulok az `src/vikrag/ingest/` mappában vannak:
+- `pdf_lines.py`: spanok alapvonal szerinti újracsoportosítása; lábjegyzetjelek leválasztása betűméret alapján (a lábjegyzetszövegek hatályossági metaadatként a chunkba kerülnek); kiskapitális szedés összefűzése („F EJEZET” → „FEJEZET”); fej- és lábléc, tartalomjegyzék kiszűrése; OCR-zaj tisztítása.
+- `structure.py`: melléklet › fejezet › cím › § › (bekezdés) / számozott kari pont; ZV-szabályzatokban a TVSZ-ből átvett blokkok („(TVSZ 150. §)”) külön kezelve.
+- `curriculum.py`: mintatanterv-sorok **három táblázatformátumból**; **472 tantárgyrekord** (kód, név, félév, óraszám, követelmény, kredit, csoport, és ahol van, előtanulmányi feltétel és tárgyfelelős).
+- `html_pages.py`: a VIK-oldalak címsorok szerinti szakaszai (ál-címsorok: félkövér vagy aláhúzott bekezdések; táblázatsorok egy sorba vonva).
+- `build.py`: azonosítók (pl. `tvsz:54:4`, `tjsz:m3:2:1`, `vik_bsc_zv:tvsz138:1`, `kp_bsc_info:targy:VIAUAC15`); hivatkozások (pl. „TVSZ 54. § (4)”); 1800 karakter fölött darabolás felsorolás- és mondathatáron; OCR-minőségszűrő; kereszthivatkozások feloldása (366 chunk).
+- **Audit:** 30 rétegzett véletlen chunkból **30/30 helyes** (`docs/chunk_audit.md`). Az audit közben 4 hibát javítottunk.
+- Ismert korlát: az MSc MI képzési program mintatanterve egyedi formátumú („3 0 0 v 5”), ezért csak folyó szövegként van indexelve.
+
 ### 1.2 Adatmódosítás / dúsítás (dia: *Data Modification*)
 - **Belső dúsítás (internal augmentation):** chunkonként LLM-mel generált **2–3 hipotetikus hallgatói kérdés** (HyQE-szerű), amelyeket a dense indexben a chunkhoz kötünk. Ez **ablációs kísérlet**: ki/be kapcsolva mérjük.
 - **Külső dúsítás:** egy kézzel összeállított **fogalomtár / szinonimaszótár** (`zh` → zárthelyi dolgozat, `Neptun` → TR / tanulmányi rendszer, `KTH` → Központi Tanulmányi Hivatal, `vizsgakurzus`, `aláírás` → félévközi követelmény teljesítése, `IV` → ismételt vizsga stb.). Ez a hallgatói szleng és a jogi szöveg közti szakadékot hidalja át.

@@ -1,0 +1,317 @@
+{
+  "total_chunks": 5217,
+  "total_chars": 1725706,
+  "with_crossrefs": 366,
+  "documents": {
+    "kepzesi_kodex": {
+      "chunks": 75,
+      "chars": 28203,
+      "kinds": {
+        "rule": 75
+      }
+    },
+    "kp_bprof_uzinfo": {
+      "chunks": 244,
+      "chars": 101880,
+      "kinds": {
+        "rule": 191,
+        "curriculum": 53
+      }
+    },
+    "kp_bsc_gain": {
+      "chunks": 219,
+      "chars": 74413,
+      "kinds": {
+        "rule": 175,
+        "curriculum": 44
+      }
+    },
+    "kp_bsc_info": {
+      "chunks": 250,
+      "chars": 99357,
+      "kinds": {
+        "rule": 162,
+        "curriculum": 88
+      }
+    },
+    "kp_bsc_vill": {
+      "chunks": 304,
+      "chars": 102331,
+      "kinds": {
+        "rule": 224,
+        "curriculum": 80
+      }
+    },
+    "kp_msc_ai": {
+      "chunks": 88,
+      "chars": 40574,
+      "kinds": {
+        "rule": 88
+      }
+    },
+    "kp_msc_eum": {
+      "chunks": 339,
+      "chars": 83934,
+      "kinds": {
+        "rule": 298,
+        "curriculum": 41
+      }
+    },
+    "kp_msc_gain": {
+      "chunks": 175,
+      "chars": 71627,
+      "kinds": {
+        "rule": 125,
+        "curriculum": 50
+      }
+    },
+    "kp_msc_info": {
+      "chunks": 323,
+      "chars": 105034,
+      "kinds": {
+        "rule": 285,
+        "curriculum": 38
+      }
+    },
+    "kp_msc_urm": {
+      "chunks": 139,
+      "chars": 50017,
+      "kinds": {
+        "rule": 103,
+        "curriculum": 36
+      }
+    },
+    "kp_msc_vill": {
+      "chunks": 393,
+      "chars": 141248,
+      "kinds": {
+        "rule": 351,
+        "curriculum": 42
+      }
+    },
+    "tanev_2026_27": {
+      "chunks": 27,
+      "chars": 6949,
+      "kinds": {
+        "rule": 27
+      }
+    },
+    "tjsz": {
+      "chunks": 360,
+      "chars": 119132,
+      "kinds": {
+        "rule": 360
+      }
+    },
+    "tvsz": {
+      "chunks": 1296,
+      "chars": 380643,
+      "kinds": {
+        "rule": 1296
+      }
+    },
+    "vik_bprof_kooperativ": {
+      "chunks": 54,
+      "chars": 18908,
+      "kinds": {
+        "rule": 54
+      }
+    },
+    "vik_bprof_specval": {
+      "chunks": 23,
+      "chars": 4494,
+      "kinds": {
+        "rule": 23
+      }
+    },
+    "vik_bprof_specval_du": {
+      "chunks": 7,
+      "chars": 4726,
+      "kinds": {
+        "rule": 7
+      }
+    },
+    "vik_bprof_zv": {
+      "chunks": 104,
+      "chars": 23008,
+      "kinds": {
+        "rule": 104
+      }
+    },
+    "vik_bsc_specval": {
+      "chunks": 26,
+      "chars": 6069,
+      "kinds": {
+        "rule": 26
+      }
+    },
+    "vik_bsc_specval_du": {
+      "chunks": 9,
+      "chars": 5142,
+      "kinds": {
+        "rule": 9
+      }
+    },
+    "vik_bsc_zv": {
+      "chunks": 94,
+      "chars": 22422,
+      "kinds": {
+        "rule": 94
+      }
+    },
+    "vik_bsc_zv_msc_felveteli": {
+      "chunks": 47,
+      "chars": 13484,
+      "kinds": {
+        "rule": 47
+      }
+    },
+    "vik_elotanulmanyi_rendek": {
+      "chunks": 1,
+      "chars": 250,
+      "kinds": {
+        "page": 1
+      }
+    },
+    "vik_felzarkozas": {
+      "chunks": 4,
+      "chars": 3581,
+      "kinds": {
+        "rule": 4
+      }
+    },
+    "vik_kepzesi_tajekoztato": {
+      "chunks": 22,
+      "chars": 17687,
+      "kinds": {
+        "page": 22
+      }
+    },
+    "vik_keresztfeleves": {
+      "chunks": 8,
+      "chars": 3635,
+      "kinds": {
+        "rule": 8
+      }
+    },
+    "vik_kervenyek": {
+      "chunks": 1,
+      "chars": 414,
+      "kinds": {
+        "page": 1
+      }
+    },
+    "vik_mi_hasznalat": {
+      "chunks": 24,
+      "chars": 20817,
+      "kinds": {
+        "page": 24
+      }
+    },
+    "vik_msc_zv": {
+      "chunks": 108,
+      "chars": 29224,
+      "kinds": {
+        "rule": 108
+      }
+    },
+    "vik_nyelvi_kreditek": {
+      "chunks": 15,
+      "chars": 9321,
+      "kinds": {
+        "rule": 15
+      }
+    },
+    "vik_projekttargyak": {
+      "chunks": 14,
+      "chars": 2856,
+      "kinds": {
+        "rule": 14
+      }
+    },
+    "vik_szabval_targyak": {
+      "chunks": 2,
+      "chars": 1733,
+      "kinds": {
+        "page": 2
+      }
+    },
+    "vik_szakmai_gyak_bsc": {
+      "chunks": 45,
+      "chars": 25007,
+      "kinds": {
+        "rule": 45
+      }
+    },
+    "vik_szakmai_gyak_msc": {
+      "chunks": 47,
+      "chars": 26710,
+      "kinds": {
+        "rule": 47
+      }
+    },
+    "vik_szamonkeresek": {
+      "chunks": 3,
+      "chars": 2267,
+      "kinds": {
+        "page": 3
+      }
+    },
+    "vik_szmsz": {
+      "chunks": 299,
+      "chars": 65864,
+      "kinds": {
+        "rule": 299
+      }
+    },
+    "vik_tajekoztato_dt_msc": {
+      "chunks": 6,
+      "chars": 3019,
+      "kinds": {
+        "rule": 6
+      }
+    },
+    "vik_tajekoztato_szd_bprof": {
+      "chunks": 10,
+      "chars": 4009,
+      "kinds": {
+        "rule": 10
+      }
+    },
+    "vik_tajekoztato_szd_bsc": {
+      "chunks": 8,
+      "chars": 3596,
+      "kinds": {
+        "rule": 8
+      }
+    },
+    "vik_tanev_kieg_1": {
+      "chunks": 1,
+      "chars": 298,
+      "kinds": {
+        "page": 1
+      }
+    },
+    "vik_tanev_kieg_2": {
+      "chunks": 1,
+      "chars": 117,
+      "kinds": {
+        "page": 1
+      }
+    },
+    "vik_valaszthato_targyak": {
+      "chunks": 1,
+      "chars": 1160,
+      "kinds": {
+        "page": 1
+      }
+    },
+    "vik_zv_targyak": {
+      "chunks": 1,
+      "chars": 546,
+      "kinds": {
+        "page": 1
+      }
+    }
+  }
+}

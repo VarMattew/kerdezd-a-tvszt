@@ -72,6 +72,34 @@
 - Minőség: a mintaoldal szövege jól olvasható; a § és a bekezdésjelek felismerhetők. Tipikus hibák: szavanként szétesett sorkizárt sorok, „?” és „!” a lábjegyzetjelek helyén, összeragadt szavak. → Ezeket a parserben kell kezelni, és a TJSZ-idézetekhez fuzzy ellenőrzés kell.
 - Egy félrevezető részlet: a PDF-be ágyazott egyik képréteg szinte üres maszk volt. A közvetlenül kinyert kép ezért értelmetlennek tűnt, a renderelt oldal viszont rendben volt. → Az OCR-t a renderelt oldalon kell futtatni, nem a beágyazott képen.
 
-**Tanulság**
+---
+
+## 2026-11-25 – F2: szerkezetfelismerő feldolgozás (parser)
+
+**Mit csináltunk**
+1. Az ágens span-szinten (betűméret, félkövér, x/y pozíció) megvizsgálta a különböző dokumentumtípusokat: TVSZ, ZV-szabályzat, specializációválasztási szabályzat, szakmai gyakorlat, nyelvi kreditek, képzési program, OCR-es TJSZ. Ebből egy **közös, soralapú szerkezetfelismerőt** tervezett, a különböző formátumokra kis kiegészítésekkel.
+2. Modulok: `pdf_lines` → `structure` → `build`, valamint `curriculum` (mintatantervek) és `html_pages`. Mindegyiket először egy dokumentumon próbálta ki, és csak utána futtatta az egész korpuszon.
+3. 8 teszt (`tests/test_ingest.py`), köztük egy, amely a felépített korpuszon néz meg ellenőrző pontokat (pl. `tvsz:54:4` = „TVSZ 54. § (4)”, szövegben „2,75”).
+4. 30 chunk rétegzett auditja (`scripts/sample_chunks.py` + `scripts/audit_chunks.py`) → **30/30 helyes**.
+
+**Kulcsfontosságú prompt**
+> „Igen, jöhet az F2”, vagyis az ágens a terv alapján önállóan dolgozott; a felhasználói döntések korábban születtek (OCR, terjedelem).
+
+**Hibák, amelyeket az ágens maga talált és javított (iteratív hibakeresés)**
+- **Kiskapitális fejezetcímek:** „I. F EJEZET”, „Á LTALÁNOS” → a spanokat a vizuális rés alapján fűzi össze, nem mindig szóközzel.
+- **TJSZ-mellékletek:** a §-számozás mellékletenként újraindul → a melléklet külön szint lett (`tjsz:m3:…`). Az OCR-rel beolvasott űrlapok értelmetlen szövegét egy „szóminőség” szűrő dobja ki.
+- **Csendes összeomlás:** a build egy képzési programnál kilépett, kimenet nélkül. Kiderült, hogy a PyMuPDF 1.27 `find_tables` függvénye egy **ONNX elrendezésmodellt** használ, amely szegmentációs hibával összeomlott (és lassú is). → `use_layout=False`: ugyanaz az eredmény, 5–12× gyorsabban. *Tanulság:* a `cmd | tail` csővezeték elnyelte a hibakódot (exit 0), ezért a kimenetet ezentúl fájlba írjuk, és a valódi kilépési kódot nézzük.
+- **Három különböző mintatanterv-formátum**, ezek közül kettőt a hibás vagy hiányzó rekordok számlálása mutatott meg.
+- Az audit során 4 további hiba: a SzMSz tartalomjegyzéke mellékletet nyitott; a ZV-szabályzatban a kari pontok a TVSZ-blokkhoz tapadtak; az MSc mintatantervekben sorszám került a tárgynév helyére; az „5. pont” hivatkozás nem volt egyértelmű. Részletek: `docs/chunk_audit.md`.
+- Egy teszthiba: az ágens első tesztje rossz feltevésre épült (1. oldali címsor). A hiba a tesztben volt, nem a kódban, ezért a tesztet javította.
+
+**Kézi beavatkozás**
+- Nem volt szükség rá. A felhasználó a parser tervezésébe nem szólt bele, az elfogadási kritériumot (≥95% helyes azonosító) a terv rögzítette.
+
+**Tanulság (F2)**
+- Az iteratív „kipróbálás egy dokumentumon → statisztika az egész korpuszon → gyanús esetek megnézése” ciklus sokkal több hibát talált, mint az elsőre megírt kód tesztelése.
+- Az automatikus audit hamis riasztásokat is ad (azonos kezdetű bekezdések, lábjegyzetjelek); ezeket kézzel kell átnézni.
+
+**Tanulság (F1)**
 - A „publikus” forrás sem mindig érhető el gépi úton. Érdemes korán ellenőrizni, és pótforrást keresni.
 - Az ágens biztonsági korlátai a gyakorlatban is előjöttek: tilt, ha egy hozzáférési korlátot kerülne meg, és ha a felhasználó által odatett fájlt törölne.
