@@ -1,0 +1,6690 @@
+{
+ "name": "baseline_answers_test",
+ "split": "test",
+ "date": "2026-11-28T10:53:40",
+ "runs": {
+  "hybrid": {
+   "config": {
+    "mode": "hybrid",
+    "candidates": 50,
+    "rrf_k": 60,
+    "top_k": 5,
+    "models": [
+     "groq:qwen/qwen3.8-27b",
+     "groq:openai/gpt-oss-120b",
+     "gemini:gemini-3.5-flash"
+    ],
+    "prompt": "answer_v1"
+   },
+   "summary": {
+    "n_questions": 59,
+    "retrieval": {
+     "hit@1": 0.6538,
+     "hit@3": 0.8077,
+     "hit@5": 0.8077,
+     "hit@10": 0.8846,
+     "recall@5": 0.774,
+     "recall@10": 0.8462,
+     "mrr": 0.7347,
+     "ndcg@10": 0.7409
+    },
+    "retrieval_para": {
+     "para_hit@1": 0.75,
+     "para_hit@3": 0.8654,
+     "para_hit@5": 0.8654,
+     "para_hit@10": 0.9423,
+     "para_recall@5": 0.8317,
+     "para_recall@10": 0.9038,
+     "para_mrr": 0.8174,
+     "para_ndcg@10": 0.8147
+    },
+    "retrieval_by_type": {
+     "curriculum": {
+      "hit@5": 1.0,
+      "mrr": 1.0
+     },
+     "english": {
+      "hit@5": 0.3333,
+      "mrr": 0.256
+     },
+     "fact": {
+      "hit@5": 0.8667,
+      "mrr": 0.7556
+     },
+     "multi": {
+      "hit@5": 0.8571,
+      "mrr": 0.6369
+     },
+     "numeric": {
+      "hit@5": 0.9231,
+      "mrr": 0.9231
+     },
+     "slang": {
+      "hit@5": 0.3333,
+      "mrr": 0.2738
+     }
+    }
+   },
+   "retrieval_rows": [
+    {
+     "id": "q002",
+     "type": "curriculum",
+     "retrieved": [
+      "kp_bsc_info:targy:VIHVAD00",
+      "kp_bprof_uzinfo:p3~18",
+      "kp_bprof_uzinfo:p3~19",
+      "kp_bsc_info:targy:VIMIAD03",
+      "kp_msc_vill:s-6-a-képzés-mintatanterve",
+      "kp_bsc_info:s-a-mobilitási-ablak-féléve-7-félév",
+      "tvsz:146/B:2",
+      "kp_bsc_vill:targy:VIHVAB02",
+      "kp_msc_eum:p1~3",
+      "kp_bsc_info:targy:VISZAA08"
+     ],
+     "ranks": [
+      {
+       "bm25": 1,
+       "dense": 1
+      },
+      {
+       "bm25": 18,
+       "dense": 2
+      },
+      {
+       "bm25": 15,
+       "dense": 16
+      },
+      {
+       "bm25": 37,
+       "dense": 24
+      },
+      {
+       "bm25": 48,
+       "dense": 31
+      },
+      {
+       "bm25": 2
+      },
+      {
+       "bm25": 3
+      },
+      {
+       "dense": 3
+      },
+      {
+       "bm25": 4
+      },
+      {
+       "dense": 4
+      }
+     ],
+     "hit@1": 1.0,
+     "recall@1": 1.0,
+     "hit@3": 1.0,
+     "recall@3": 1.0,
+     "hit@5": 1.0,
+     "recall@5": 1.0,
+     "hit@10": 1.0,
+     "recall@10": 1.0,
+     "mrr": 1.0,
+     "ndcg@10": 1.0,
+     "para_hit@1": 1.0,
+     "para_recall@1": 1.0,
+     "para_hit@3": 1.0,
+     "para_recall@3": 1.0,
+     "para_hit@5": 1.0,
+     "para_recall@5": 1.0,
+     "para_hit@10": 1.0,
+     "para_recall@10": 1.0,
+     "para_mrr": 1.0,
+     "para_ndcg@10": 1.0
+    },
+    {
+     "id": "q003",
+     "type": "curriculum",
+     "retrieved": [
+      "kp_msc_eum:targy:orvosbiológiai-sz-gépes-gyak~2",
+      "kp_msc_eum:targy:orvosbiológiai-sz-gépes-gyak",
+      "kp_msc_eum:targy:orvosbiológiai-méréstechnika",
+      "kp_msc_eum:s-2-a-képzés-tartalma-sajátosságai-és-köve#2",
+      "kp_msc_eum:targy:orvosbiológiai-méréstechnika~2",
+      "vik_szmsz:m3:s-2-a-bme-vik-oktatási-tevékenysége-során-",
+      "kp_msc_info:s-kezdés-az-őszi-félévben",
+      "kp_msc_eum:p1~19",
+      "kp_msc_eum:p8~4",
+      "kp_msc_eum:s-az-esg-minőségbiztosítási-standardoknak-#1"
+     ],
+     "ranks": [
+      {
+       "bm25": 1,
+       "dense": 1
+      },
+      {
+       "bm25": 2,
+       "dense": 2
+      },
+      {
+       "bm25": 5,
+       "dense": 6
+      },
+      {
+       "bm25": 8,
+       "dense": 4
+      },
+      {
+       "bm25": 6,
+       "dense": 7
+      },
+      {
+       "bm25": 7,
+       "dense": 26
+      },
+      {
+       "bm25": 35,
+       "dense": 8
+      },
+      {
+       "bm25": 48,
+       "dense": 9
+      },
+      {
+       "bm25": 25,
+       "dense": 33
+      },
+      {
+       "bm25": 3
+      }
+     ],
+     "hit@1": 1.0,
+     "recall@1": 1.0,
+     "hit@3": 1.0,
+     "recall@3": 1.0,
+     "hit@5": 1.0,
+     "recall@5": 1.0,
+     "hit@10": 1.0,
+     "recall@10": 1.0,
+     "mrr": 1.0,
+     "ndcg@10": 1.0,
+     "para_hit@1": 1.0,
+     "para_recall@1": 1.0,
+     "para_hit@3": 1.0,
+     "para_recall@3": 1.0,
+     "para_hit@5": 1.0,
+     "para_recall@5": 1.0,
+     "para_hit@10": 1.0,
+     "para_recall@10": 1.0,
+     "para_mrr": 1.0,
+     "para_ndcg@10": 1.0
+    },
+    {
+     "id": "q004",
+     "type": "curriculum",
+     "retrieved": [
+      "kp_msc_urm:targy:komplex-űrberendezések-fejlesztésének-ko~2",
+      "kp_msc_urm:targy:komplex-űrberendezések-fejlesztésének-ko",
+      "kp_msc_urm:s-2-5-2-szaknyelvi-kompetenciák",
+      "vik_mi_hasznalat:s14",
+      "tvsz:177:6",
+      "vik_felzarkozas:s-0#3",
+      "tvsz:239:7",
+      "kp_msc_vill:s-2-5-2-szaknyelvi-kompetenciák",
+      "kp_msc_urm:targy:diplomatervezés",
+      "kp_bsc_vill:s-2-5-2-szaknyelvi-kompetenciák"
+     ],
+     "ranks": [
+      {
+       "bm25": 1,
+       "dense": 1
+      },
+      {
+       "bm25": 2,
+       "dense": 2
+      },
+      {
+       "bm25": 8,
+       "dense": 30
+      },
+      {
+       "bm25": 3
+      },
+      {
+       "dense": 3
+      },
+      {
+       "bm25": 4
+      },
+      {
+       "dense": 4
+      },
+      {
+       "bm25": 5
+      },
+      {
+       "dense": 5
+      },
+      {
+       "bm25": 6
+      }
+     ],
+     "hit@1": 1.0,
+     "recall@1": 1.0,
+     "hit@3": 1.0,
+     "recall@3": 1.0,
+     "hit@5": 1.0,
+     "recall@5": 1.0,
+     "hit@10": 1.0,
+     "recall@10": 1.0,
+     "mrr": 1.0,
+     "ndcg@10": 1.0,
+     "para_hit@1": 1.0,
+     "para_recall@1": 1.0,
+     "para_hit@3": 1.0,
+     "para_recall@3": 1.0,
+     "para_hit@5": 1.0,
+     "para_recall@5": 1.0,
+     "para_hit@10": 1.0,
+     "para_recall@10": 1.0,
+     "para_mrr": 1.0,
+     "para_ndcg@10": 1.0
+    },
+    {
+     "id": "q006",
+     "type": "curriculum",
+     "retrieved": [
+      "kp_msc_vill:targy:önálló-laboratórium",
+      "kp_msc_vill:targy:önálló-laboratórium~2",
+      "kp_bsc_vill:targy:önálló-laboratórium",
+      "kp_msc_gain:targy:önálló-laboratórium-1~2",
+      "vik_nyelvi_kreditek:p2~2#1",
+      "kp_msc_info:targy:önálló-laboratórium",
+      "kp_msc_vill:s-2-5-2-szaknyelvi-kompetenciák",
+      "kp_msc_vill:p1~8",
+      "kp_msc_eum:s-2-5-2-szaknyelvi-kompetenciák",
+      "kp_bsc_vill:s-2-5-2-szaknyelvi-kompetenciák"
+     ],
+     "ranks": [
+      {
+       "bm25": 10,
+       "dense": 1
+      },
+      {
+       "bm25": 11,
+       "dense": 2
+      },
+      {
+       "bm25": 17,
+       "dense": 3
+      },
+      {
+       "bm25": 19,
+       "dense": 45
+      },
+      {
+       "bm25": 36,
+       "dense": 31
+      },
+      {
+       "bm25": 25,
+       "dense": 48
+      },
+      {
+       "bm25": 1
+      },
+      {
+       "bm25": 2
+      },
+      {
+       "bm25": 3
+      },
+      {
+       "bm25": 4
+      }
+     ],
+     "hit@1": 1.0,
+     "recall@1": 1.0,
+     "hit@3": 1.0,
+     "recall@3": 1.0,
+     "hit@5": 1.0,
+     "recall@5": 1.0,
+     "hit@10": 1.0,
+     "recall@10": 1.0,
+     "mrr": 1.0,
+     "ndcg@10": 1.0,
+     "para_hit@1": 1.0,
+     "para_recall@1": 1.0,
+     "para_hit@3": 1.0,
+     "para_recall@3": 1.0,
+     "para_hit@5": 1.0,
+     "para_recall@5": 1.0,
+     "para_hit@10": 1.0,
+     "para_recall@10": 1.0,
+     "para_mrr": 1.0,
+     "para_ndcg@10": 1.0
+    },
+    {
+     "id": "q007",
+     "type": "curriculum",
+     "retrieved": [
+      "kp_bsc_info:targy:TEMIBSVANL1-00",
+      "kp_bsc_info:targy:TE90AX57",
+      "kp_bsc_vill:targy:TEMIB-SVMAT1-00",
+      "tanev_2026_27:4:1",
+      "tanev_2026_27:5:1",
+      "kp_msc_ai:s-2-8-3-a-hiányzó-kompetenciák-megszerzésé",
+      "kp_bsc_info:targy:VITMAD01",
+      "kp_bprof_uzinfo:p3:3",
+      "kp_bprof_uzinfo:s-2-5-2-szaknyelvi-kompetenciák",
+      "kp_bsc_info:p4~14#3"
+     ],
+     "ranks": [
+      {
+       "bm25": 1,
+       "dense": 1
+      },
+      {
+       "bm25": 5,
+       "dense": 2
+      },
+      {
+       "bm25": 27,
+       "dense": 3
+      },
+      {
+       "bm25": 2
+      },
+      {
+       "bm25": 3
+      },
+      {
+       "bm25": 4
+      },
+      {
+       "dense": 4
+      },
+      {
+       "dense": 5
+      },
+      {
+       "bm25": 6
+      },
+      {
+       "dense": 6
+      }
+     ],
+     "hit@1": 1.0,
+     "recall@1": 1.0,
+     "hit@3": 1.0,
+     "recall@3": 1.0,
+     "hit@5": 1.0,
+     "recall@5": 1.0,
+     "hit@10": 1.0,
+     "recall@10": 1.0,
+     "mrr": 1.0,
+     "ndcg@10": 1.0,
+     "para_hit@1": 1.0,
+     "para_recall@1": 1.0,
+     "para_hit@3": 1.0,
+     "para_recall@3": 1.0,
+     "para_hit@5": 1.0,
+     "para_recall@5": 1.0,
+     "para_hit@10": 1.0,
+     "para_recall@10": 1.0,
+     "para_mrr": 1.0,
+     "para_ndcg@10": 1.0
+    },
+    {
+     "id": "q008",
+     "type": "curriculum",
+     "retrieved": [
+      "kp_bsc_vill:targy:VITMAB05",
+      "kp_bsc_vill:p3~16",
+      "kp_bsc_vill:s-2-5-2-szaknyelvi-kompetenciák",
+      "kp_bsc_vill:targy:VITMAC10",
+      "kp_msc_vill:s-2-5-2-szaknyelvi-kompetenciák",
+      "kp_bsc_vill:p3~23",
+      "kp_bsc_gain:s-2-5-2-szaknyelvi-kompetenciák",
+      "kp_bsc_vill:targy:VITMAC09",
+      "kp_bsc_vill:p4~9",
+      "kp_bsc_vill:targy:VIIIAB09"
+     ],
+     "ranks": [
+      {
+       "bm25": 1,
+       "dense": 1
+      },
+      {
+       "bm25": 37,
+       "dense": 46
+      },
+      {
+       "bm25": 2
+      },
+      {
+       "dense": 2
+      },
+      {
+       "bm25": 3
+      },
+      {
+       "dense": 3
+      },
+      {
+       "bm25": 4
+      },
+      {
+       "dense": 4
+      },
+      {
+       "bm25": 5
+      },
+      {
+       "dense": 5
+      }
+     ],
+     "hit@1": 1.0,
+     "recall@1": 1.0,
+     "hit@3": 1.0,
+     "recall@3": 1.0,
+     "hit@5": 1.0,
+     "recall@5": 1.0,
+     "hit@10": 1.0,
+     "recall@10": 1.0,
+     "mrr": 1.0,
+     "ndcg@10": 1.0,
+     "para_hit@1": 1.0,
+     "para_recall@1": 1.0,
+     "para_hit@3": 1.0,
+     "para_recall@3": 1.0,
+     "para_hit@5": 1.0,
+     "para_recall@5": 1.0,
+     "para_hit@10": 1.0,
+     "para_recall@10": 1.0,
+     "para_mrr": 1.0,
+     "para_ndcg@10": 1.0
+    },
+    {
+     "id": "q009",
+     "type": "curriculum",
+     "retrieved": [
+      "kp_bsc_vill:targy:VIAUAA01",
+      "kp_bsc_vill:targy:VIHIAA01",
+      "kp_bsc_vill:targy:VISZAA07",
+      "kp_bsc_info:targy:VIEEAA00",
+      "kp_bsc_vill:targy:VIETAA01",
+      "kp_bsc_vill:targy:VIAUAC10",
+      "kp_bsc_vill:targy:VIAUAC11",
+      "kp_bsc_vill:targy:VIEEAB01",
+      "kp_bsc_vill:targy:VIIIAA05",
+      "kp_bsc_vill:targy:VIETAB01"
+     ],
+     "ranks": [
+      {
+       "bm25": 1,
+       "dense": 1
+      },
+      {
+       "bm25": 2,
+       "dense": 2
+      },
+      {
+       "bm25": 7,
+       "dense": 4
+      },
+      {
+       "bm25": 4,
+       "dense": 15
+      },
+      {
+       "bm25": 14,
+       "dense": 5
+      },
+      {
+       "bm25": 19,
+       "dense": 3
+      },
+      {
+       "bm25": 16,
+       "dense": 6
+      },
+      {
+       "bm25": 12,
+       "dense": 11
+      },
+      {
+       "bm25": 13,
+       "dense": 12
+      },
+      {
+       "bm25": 18,
+       "dense": 8
+      }
+     ],
+     "hit@1": 1.0,
+     "recall@1": 1.0,
+     "hit@3": 1.0,
+     "recall@3": 1.0,
+     "hit@5": 1.0,
+     "recall@5": 1.0,
+     "hit@10": 1.0,
+     "recall@10": 1.0,
+     "mrr": 1.0,
+     "ndcg@10": 1.0,
+     "para_hit@1": 1.0,
+     "para_recall@1": 1.0,
+     "para_hit@3": 1.0,
+     "para_recall@3": 1.0,
+     "para_hit@5": 1.0,
+     "para_recall@5": 1.0,
+     "para_hit@10": 1.0,
+     "para_recall@10": 1.0,
+     "para_mrr": 1.0,
+     "para_ndcg@10": 1.0
+    },
+    {
+     "id": "q011",
+     "type": "curriculum",
+     "retrieved": [
+      "kp_bsc_gain:targy:it-architektúrák",
+      "kp_bsc_gain:targy:it-biztonság",
+      "kp_bsc_gain:s-2-5-2-szaknyelvi-kompetenciák",
+      "kp_bsc_gain:targy:it-üzleti-elemzés",
+      "kp_bsc_gain:p11",
+      "kp_bsc_gain:targy:globális-ellátási-lánc-menedzsment",
+      "kp_bsc_gain:targy:specializáció-tantárgy-3-választható-a-b",
+      "kp_bsc_gain:targy:decentralizált-üzleti-együttműködések-és",
+      "kp_bsc_info:targy:VIHIAC07",
+      "kp_bsc_gain:targy:specializáció-tantárgy-3-választható-a-s"
+     ],
+     "ranks": [
+      {
+       "bm25": 1,
+       "dense": 1
+      },
+      {
+       "bm25": 2,
+       "dense": 2
+      },
+      {
+       "bm25": 9,
+       "dense": 8
+      },
+      {
+       "bm25": 8,
+       "dense": 14
+      },
+      {
+       "bm25": 10,
+       "dense": 18
+      },
+      {
+       "bm25": 50,
+       "dense": 15
+      },
+      {
+       "bm25": 36,
+       "dense": 26
+      },
+      {
+       "bm25": 49,
+       "dense": 19
+      },
+      {
+       "bm25": 34,
+       "dense": 37
+      },
+      {
+       "bm25": 37,
+       "dense": 35
+      }
+     ],
+     "hit@1": 1.0,
+     "recall@1": 1.0,
+     "hit@3": 1.0,
+     "recall@3": 1.0,
+     "hit@5": 1.0,
+     "recall@5": 1.0,
+     "hit@10": 1.0,
+     "recall@10": 1.0,
+     "mrr": 1.0,
+     "ndcg@10": 1.0,
+     "para_hit@1": 1.0,
+     "para_recall@1": 1.0,
+     "para_hit@3": 1.0,
+     "para_recall@3": 1.0,
+     "para_hit@5": 1.0,
+     "para_recall@5": 1.0,
+     "para_hit@10": 1.0,
+     "para_recall@10": 1.0,
+     "para_mrr": 1.0,
+     "para_ndcg@10": 1.0
+    },
+    {
+     "id": "q014",
+     "type": "english",
+     "retrieved": [
+      "kp_msc_eum:s-2-a-képzés-tartalma-sajátosságai-és-köve#4",
+      "tvsz:52:8",
+      "kp_msc_eum:p5~5",
+      "tvsz:57:3a",
+      "kp_msc_eum:s-2-a-képzés-tartalma-sajátosságai-és-köve#2",
+      "tvsz:231#18",
+      "tvsz:146/F:1",
+      "tjsz:15:2",
+      "kp_msc_vill:p9~5#2",
+      "tvsz:237:1"
+     ],
+     "ranks": [
+      {
+       "bm25": 1
+      },
+      {
+       "dense": 1
+      },
+      {
+       "bm25": 2
+      },
+      {
+       "dense": 2
+      },
+      {
+       "bm25": 3
+      },
+      {
+       "dense": 3
+      },
+      {
+       "bm25": 4
+      },
+      {
+       "dense": 4
+      },
+      {
+       "bm25": 5
+      },
+      {
+       "dense": 5
+      }
+     ],
+     "hit@1": 0.0,
+     "recall@1": 0.0,
+     "hit@3": 1.0,
+     "recall@3": 1.0,
+     "hit@5": 1.0,
+     "recall@5": 1.0,
+     "hit@10": 1.0,
+     "recall@10": 1.0,
+     "mrr": 0.5,
+     "ndcg@10": 0.6309297535714575,
+     "para_hit@1": 0.0,
+     "para_recall@1": 0.0,
+     "para_hit@3": 1.0,
+     "para_recall@3": 1.0,
+     "para_hit@5": 1.0,
+     "para_recall@5": 1.0,
+     "para_hit@10": 1.0,
+     "para_recall@10": 1.0,
+     "para_mrr": 0.5,
+     "para_ndcg@10": 0.6309297535714575
+    },
+    {
+     "id": "q016",
+     "type": "english",
+     "retrieved": [
+      "vik_bprof_specval:1:1",
+      "vik_tajekoztato_szd_bprof:s-0",
+      "kp_msc_vill:p9~9#1",
+      "vik_bprof_kooperativ:4:3",
+      "kp_msc_ai:s-a-szak-megnevezése",
+      "vik_bprof_kooperativ:6:4",
+      "kp_msc_vill:p9~9#2",
+      "vik_bprof_kooperativ:7:9",
+      "vik_szmsz:3:1",
+      "vik_bprof_kooperativ:6:3"
+     ],
+     "ranks": [
+      {
+       "bm25": 37,
+       "dense": 27
+      },
+      {
+       "bm25": 32,
+       "dense": 48
+      },
+      {
+       "bm25": 1
+      },
+      {
+       "dense": 1
+      },
+      {
+       "bm25": 2
+      },
+      {
+       "dense": 2
+      },
+      {
+       "bm25": 3
+      },
+      {
+       "dense": 3
+      },
+      {
+       "bm25": 4
+      },
+      {
+       "dense": 4
+      }
+     ],
+     "hit@1": 0.0,
+     "recall@1": 0.0,
+     "hit@3": 0.0,
+     "recall@3": 0.0,
+     "hit@5": 0.0,
+     "recall@5": 0.0,
+     "hit@10": 1.0,
+     "recall@10": 1.0,
+     "mrr": 0.125,
+     "ndcg@10": 0.31546487678572877,
+     "para_hit@1": 0.0,
+     "para_recall@1": 0.0,
+     "para_hit@3": 0.0,
+     "para_recall@3": 0.0,
+     "para_hit@5": 0.0,
+     "para_recall@5": 0.0,
+     "para_hit@10": 1.0,
+     "para_recall@10": 1.0,
+     "para_mrr": 0.125,
+     "para_ndcg@10": 0.31546487678572877
+    },
+    {
+     "id": "q017",
+     "type": "english",
+     "retrieved": [
+      "vik_bprof_specval:3:3",
+      "vik_bprof_specval:3:1",
+      "kp_bprof_uzinfo:s-végzettségi-szint",
+      "vik_bprof_specval:1:1",
+      "vik_bprof_specval:5:3",
+      "kp_msc_vill:p9~9#1",
+      "vik_bprof_specval:3:2",
+      "kp_msc_vill:p9~9#2",
+      "kp_msc_ai:s-2-a-képzés-tartalma-sajátosságai-és-köve#2",
+      "vik_szmsz:m2:s-1-a-kar-tanszékei"
+     ],
+     "ranks": [
+      {
+       "bm25": 37,
+       "dense": 2
+      },
+      {
+       "bm25": 42,
+       "dense": 3
+      },
+      {
+       "bm25": 8,
+       "dense": 42
+      },
+      {
+       "bm25": 39,
+       "dense": 27
+      },
+      {
+       "bm25": 38,
+       "dense": 46
+      },
+      {
+       "bm25": 1
+      },
+      {
+       "dense": 1
+      },
+      {
+       "bm25": 2
+      },
+      {
+       "bm25": 3
+      },
+      {
+       "bm25": 4
+      }
+     ],
+     "hit@1": 0.0,
+     "recall@1": 0.0,
+     "hit@3": 0.0,
+     "recall@3": 0.0,
+     "hit@5": 0.0,
+     "recall@5": 0.0,
+     "hit@10": 1.0,
+     "recall@10": 0.5,
+     "mrr": 0.14285714285714285,
+     "ndcg@10": 0.20438239758848611,
+     "para_hit@1": 1.0,
+     "para_recall@1": 0.5,
+     "para_hit@3": 1.0,
+     "para_recall@3": 0.5,
+     "para_hit@5": 1.0,
+     "para_recall@5": 0.5,
+     "para_hit@10": 1.0,
+     "para_recall@10": 0.5,
+     "para_mrr": 1.0,
+     "para_ndcg@10": 0.6131471927654584
+    },
+    {
+     "id": "q018",
+     "type": "fact",
+     "retrieved": [
+      "vik_bsc_zv_msc_felveteli:p5",
+      "vik_bsc_zv_msc_felveteli:p4",
+      "kp_msc_vill:p2~9",
+      "vik_bsc_zv_msc_felveteli:p6",
+      "vik_bsc_zv_msc_felveteli:p10",
+      "vik_bsc_zv_msc_felveteli:p8",
+      "kp_bsc_vill:targy:VIHVAB02",
+      "kp_bsc_vill:targy:VIHVAA03",
+      "kp_bsc_vill:p2~13",
+      "vik_felzarkozas:s-0#1"
+     ],
+     "ranks": [
+      {
+       "bm25": 1,
+       "dense": 1
+      },
+      {
+       "bm25": 3,
+       "dense": 4
+      },
+      {
+       "bm25": 2,
+       "dense": 9
+      },
+      {
+       "bm25": 5,
+       "dense": 8
+      },
+      {
+       "bm25": 7,
+       "dense": 6
+      },
+      {
+       "bm25": 13,
+       "dense": 7
+      },
+      {
+       "bm25": 24,
+       "dense": 2
+      },
+      {
+       "bm25": 25,
+       "dense": 3
+      },
+      {
+       "bm25": 32,
+       "dense": 5
+      },
+      {
+       "bm25": 11,
+       "dense": 35
+      }
+     ],
+     "hit@1": 1.0,
+     "recall@1": 1.0,
+     "hit@3": 1.0,
+     "recall@3": 1.0,
+     "hit@5": 1.0,
+     "recall@5": 1.0,
+     "hit@10": 1.0,
+     "recall@10": 1.0,
+     "mrr": 1.0,
+     "ndcg@10": 1.0,
+     "para_hit@1": 1.0,
+     "para_recall@1": 1.0,
+     "para_hit@3": 1.0,
+     "para_recall@3": 1.0,
+     "para_hit@5": 1.0,
+     "para_recall@5": 1.0,
+     "para_hit@10": 1.0,
+     "para_recall@10": 1.0,
+     "para_mrr": 1.0,
+     "para_ndcg@10": 1.0
+    },
+    {
+     "id": "q020",
+     "type": "fact",
+     "retrieved": [
+      "vik_mi_hasznalat:s10",
+      "vik_mi_hasznalat:s20",
+      "vik_mi_hasznalat:s6",
+      "vik_mi_hasznalat:s19",
+      "vik_mi_hasznalat:s17",
+      "vik_mi_hasznalat:s5#2",
+      "vik_mi_hasznalat:s15",
+      "vik_mi_hasznalat:s18",
+      "vik_mi_hasznalat:s5#1",
+      "vik_mi_hasznalat:s9"
+     ],
+     "ranks": [
+      {
+       "bm25": 1,
+       "dense": 1
+      },
+      {
+       "bm25": 2,
+       "dense": 3
+      },
+      {
+       "bm25": 6,
+       "dense": 5
+      },
+      {
+       "bm25": 4,
+       "dense": 9
+      },
+      {
+       "bm25": 12,
+       "dense": 2
+      },
+      {
+       "bm25": 13,
+       "dense": 4
+      },
+      {
+       "bm25": 3,
+       "dense": 15
+      },
+      {
+       "bm25": 5,
+       "dense": 14
+      },
+      {
+       "bm25": 10,
+       "dense": 11
+      },
+      {
+       "bm25": 15,
+       "dense": 8
+      }
+     ],
+     "hit@1": 1.0,
+     "recall@1": 1.0,
+     "hit@3": 1.0,
+     "recall@3": 1.0,
+     "hit@5": 1.0,
+     "recall@5": 1.0,
+     "hit@10": 1.0,
+     "recall@10": 1.0,
+     "mrr": 1.0,
+     "ndcg@10": 1.0,
+     "para_hit@1": 1.0,
+     "para_recall@1": 1.0,
+     "para_hit@3": 1.0,
+     "para_recall@3": 1.0,
+     "para_hit@5": 1.0,
+     "para_recall@5": 1.0,
+     "para_hit@10": 1.0,
+     "para_recall@10": 1.0,
+     "para_mrr": 1.0,
+     "para_ndcg@10": 1.0
+    },
+    {
+     "id": "q021",
+     "type": "fact",
+     "retrieved": [
+      "vik_bprof_zv:tvsz149:2",
+      "vik_msc_zv:tvsz149:3",
+      "vik_bprof_zv:tvsz149:3",
+      "vik_msc_zv:tvsz149:2",
+      "vik_bsc_zv:tvsz149:3",
+      "tvsz:149:3",
+      "vik_bsc_zv:tvsz149:2",
+      "tvsz:149:2",
+      "tvsz:238:2",
+      "vik_szakmai_gyak_msc:s-1-kapcsolódó-jogszabályok-dokumentumok-2"
+     ],
+     "ranks": [
+      {
+       "bm25": 1,
+       "dense": 6
+      },
+      {
+       "bm25": 5,
+       "dense": 2
+      },
+      {
+       "bm25": 7,
+       "dense": 1
+      },
+      {
+       "bm25": 3,
+       "dense": 7
+      },
+      {
+       "bm25": 6,
+       "dense": 4
+      },
+      {
+       "bm25": 8,
+       "dense": 3
+      },
+      {
+       "bm25": 2,
+       "dense": 11
+      },
+      {
+       "bm25": 4,
+       "dense": 14
+      },
+      {
+       "bm25": 12,
+       "dense": 12
+      },
+      {
+       "bm25": 10,
+       "dense": 15
+      }
+     ],
+     "hit@1": 0.0,
+     "recall@1": 0.0,
+     "hit@3": 1.0,
+     "recall@3": 1.0,
+     "hit@5": 1.0,
+     "recall@5": 1.0,
+     "hit@10": 1.0,
+     "recall@10": 1.0,
+     "mrr": 0.5,
+     "ndcg@10": 0.6309297535714575,
+     "para_hit@1": 0.0,
+     "para_recall@1": 0.0,
+     "para_hit@3": 1.0,
+     "para_recall@3": 1.0,
+     "para_hit@5": 1.0,
+     "para_recall@5": 1.0,
+     "para_hit@10": 1.0,
+     "para_recall@10": 1.0,
+     "para_mrr": 0.5,
+     "para_ndcg@10": 0.6309297535714575
+    },
+    {
+     "id": "q024",
+     "type": "fact",
+     "retrieved": [
+      "vik_mi_hasznalat:s21",
+      "vik_mi_hasznalat:s7",
+      "vik_szmsz:m3:s-1-a-bme-vik-en-folytatott-képzések-és-tu",
+      "vik_bsc_zv_msc_felveteli:p16",
+      "kp_bsc_info:targy:gazdhum-3-gtk-vagy-vik-csoport",
+      "kp_msc_vill:s-2-4-5-specializációk#3",
+      "kp_bsc_vill:targy:gazdhum-3-gtk-vagy-vik-csoport",
+      "tvsz:173:2",
+      "tvsz:104:5",
+      "vik_mi_hasznalat:s6"
+     ],
+     "ranks": [
+      {
+       "bm25": 8,
+       "dense": 1
+      },
+      {
+       "bm25": 32,
+       "dense": 4
+      },
+      {
+       "bm25": 1
+      },
+      {
+       "bm25": 2
+      },
+      {
+       "dense": 2
+      },
+      {
+       "bm25": 3
+      },
+      {
+       "dense": 3
+      },
+      {
+       "bm25": 4
+      },
+      {
+       "bm25": 5
+      },
+      {
+       "dense": 5
+      }
+     ],
+     "hit@1": 0.0,
+     "recall@1": 0.0,
+     "hit@3": 0.0,
+     "recall@3": 0.0,
+     "hit@5": 0.0,
+     "recall@5": 0.0,
+     "hit@10": 0.0,
+     "recall@10": 0.0,
+     "mrr": 0.0,
+     "ndcg@10": 0.0,
+     "para_hit@1": 0.0,
+     "para_recall@1": 0.0,
+     "para_hit@3": 0.0,
+     "para_recall@3": 0.0,
+     "para_hit@5": 0.0,
+     "para_recall@5": 0.0,
+     "para_hit@10": 0.0,
+     "para_recall@10": 0.0,
+     "para_mrr": 0.0,
+     "para_ndcg@10": 0.0
+    },
+    {
+     "id": "q025",
+     "type": "fact",
+     "retrieved": [
+      "tvsz:160:2a",
+      "tvsz:160:2b",
+      "tvsz:138:1",
+      "vik_bsc_zv:tvsz160:1",
+      "vik_msc_zv:tvsz160:1",
+      "vik_bsc_zv:1",
+      "vik_bprof_zv:tvsz160:2",
+      "tvsz:160:2",
+      "vik_bsc_zv:tvsz160:2",
+      "tvsz:161:2"
+     ],
+     "ranks": [
+      {
+       "bm25": 1,
+       "dense": 1
+      },
+      {
+       "bm25": 3,
+       "dense": 6
+      },
+      {
+       "bm25": 18,
+       "dense": 11
+      },
+      {
+       "bm25": 9,
+       "dense": 21
+      },
+      {
+       "bm25": 8,
+       "dense": 26
+      },
+      {
+       "bm25": 23,
+       "dense": 13
+      },
+      {
+       "bm25": 43,
+       "dense": 3
+      },
+      {
+       "bm25": 47,
+       "dense": 2
+      },
+      {
+       "bm25": 45,
+       "dense": 4
+      },
+      {
+       "bm25": 36,
+       "dense": 8
+      }
+     ],
+     "hit@1": 1.0,
+     "recall@1": 1.0,
+     "hit@3": 1.0,
+     "recall@3": 1.0,
+     "hit@5": 1.0,
+     "recall@5": 1.0,
+     "hit@10": 1.0,
+     "recall@10": 1.0,
+     "mrr": 1.0,
+     "ndcg@10": 1.0,
+     "para_hit@1": 1.0,
+     "para_recall@1": 1.0,
+     "para_hit@3": 1.0,
+     "para_recall@3": 1.0,
+     "para_hit@5": 1.0,
+     "para_recall@5": 1.0,
+     "para_hit@10": 1.0,
+     "para_recall@10": 1.0,
+     "para_mrr": 1.0,
+     "para_ndcg@10": 1.0
+    },
+    {
+     "id": "q027",
+     "type": "fact",
+     "retrieved": [
+      "tvsz:229:1",
+      "tvsz:215:1",
+      "tvsz:215:2",
+      "tvsz:214:4",
+      "tvsz:213:2",
+      "tvsz:213:4",
+      "tvsz:216/C:8",
+      "tvsz:213:1",
+      "tvsz:214:2",
+      "tvsz:213:5"
+     ],
+     "ranks": [
+      {
+       "bm25": 1,
+       "dense": 4
+      },
+      {
+       "bm25": 9,
+       "dense": 2
+      },
+      {
+       "bm25": 11,
+       "dense": 1
+      },
+      {
+       "bm25": 8,
+       "dense": 7
+      },
+      {
+       "bm25": 4,
+       "dense": 12
+      },
+      {
+       "bm25": 7,
+       "dense": 9
+      },
+      {
+       "bm25": 19,
+       "dense": 3
+      },
+      {
+       "bm25": 13,
+       "dense": 10
+      },
+      {
+       "bm25": 12,
+       "dense": 13
+      },
+      {
+       "bm25": 3,
+       "dense": 26
+      }
+     ],
+     "hit@1": 0.0,
+     "recall@1": 0.0,
+     "hit@3": 1.0,
+     "recall@3": 0.5,
+     "hit@5": 1.0,
+     "recall@5": 0.5,
+     "hit@10": 1.0,
+     "recall@10": 1.0,
+     "mrr": 0.3333333333333333,
+     "ndcg@10": 0.5,
+     "para_hit@1": 0.0,
+     "para_recall@1": 0.0,
+     "para_hit@3": 1.0,
+     "para_recall@3": 0.5,
+     "para_hit@5": 1.0,
+     "para_recall@5": 1.0,
+     "para_hit@10": 1.0,
+     "para_recall@10": 1.0,
+     "para_mrr": 0.5,
+     "para_ndcg@10": 0.6240505200038379
+    },
+    {
+     "id": "q028",
+     "type": "fact",
+     "retrieved": [
+      "vik_bprof_kooperativ:8:5",
+      "vik_bprof_kooperativ:4:4",
+      "vik_bprof_kooperativ:4:1",
+      "kp_bprof_uzinfo:p2~2",
+      "vik_bprof_kooperativ:9:1",
+      "vik_bprof_kooperativ:3:1",
+      "vik_bprof_kooperativ:4:2",
+      "vik_bprof_kooperativ:7:10",
+      "vik_bprof_kooperativ:10:1",
+      "kp_bprof_uzinfo:p4~2"
+     ],
+     "ranks": [
+      {
+       "bm25": 1,
+       "dense": 1
+      },
+      {
+       "bm25": 13,
+       "dense": 3
+      },
+      {
+       "bm25": 16,
+       "dense": 2
+      },
+      {
+       "bm25": 18,
+       "dense": 6
+      },
+      {
+       "bm25": 17,
+       "dense": 8
+      },
+      {
+       "bm25": 23,
+       "dense": 4
+      },
+      {
+       "bm25": 24,
+       "dense": 7
+      },
+      {
+       "bm25": 11,
+       "dense": 24
+      },
+      {
+       "bm25": 9,
+       "dense": 29
+      },
+      {
+       "bm25": 27,
+       "dense": 11
+      }
+     ],
+     "hit@1": 1.0,
+     "recall@1": 0.5,
+     "hit@3": 1.0,
+     "recall@3": 0.5,
+     "hit@5": 1.0,
+     "recall@5": 1.0,
+     "hit@10": 1.0,
+     "recall@10": 1.0,
+     "mrr": 1.0,
+     "ndcg@10": 0.8772153153380493,
+     "para_hit@1": 1.0,
+     "para_recall@1": 0.5,
+     "para_hit@3": 1.0,
+     "para_recall@3": 0.5,
+     "para_hit@5": 1.0,
+     "para_recall@5": 1.0,
+     "para_hit@10": 1.0,
+     "para_recall@10": 1.0,
+     "para_mrr": 1.0,
+     "para_ndcg@10": 0.8772153153380493
+    },
+    {
+     "id": "q031",
+     "type": "fact",
+     "retrieved": [
+      "tvsz:147:6",
+      "tvsz:56:1a",
+      "tvsz:147:3",
+      "tvsz:147:5",
+      "tvsz:147:2",
+      "tvsz:147:1",
+      "tvsz:148:1",
+      "tvsz:10/A:3",
+      "tvsz:55:1",
+      "tvsz:147:4"
+     ],
+     "ranks": [
+      {
+       "bm25": 1,
+       "dense": 1
+      },
+      {
+       "bm25": 3,
+       "dense": 10
+      },
+      {
+       "bm25": 13,
+       "dense": 6
+      },
+      {
+       "bm25": 12,
+       "dense": 8
+      },
+      {
+       "bm25": 19,
+       "dense": 3
+      },
+      {
+       "bm25": 26,
+       "dense": 5
+      },
+      {
+       "bm25": 15,
+       "dense": 15
+      },
+      {
+       "bm25": 34,
+       "dense": 4
+      },
+      {
+       "bm25": 7,
+       "dense": 44
+      },
+      {
+       "bm25": 14,
+       "dense": 34
+      }
+     ],
+     "hit@1": 1.0,
+     "recall@1": 1.0,
+     "hit@3": 1.0,
+     "recall@3": 1.0,
+     "hit@5": 1.0,
+     "recall@5": 1.0,
+     "hit@10": 1.0,
+     "recall@10": 1.0,
+     "mrr": 1.0,
+     "ndcg@10": 1.0,
+     "para_hit@1": 1.0,
+     "para_recall@1": 1.0,
+     "para_hit@3": 1.0,
+     "para_recall@3": 1.0,
+     "para_hit@5": 1.0,
+     "para_recall@5": 1.0,
+     "para_hit@10": 1.0,
+     "para_recall@10": 1.0,
+     "para_mrr": 1.0,
+     "para_ndcg@10": 1.0
+    },
+    {
+     "id": "q032",
+     "type": "fact",
+     "retrieved": [
+      "tvsz:105:2",
+      "kp_bsc_gain:targy:termelésmenedzsment",
+      "tvsz:105:3",
+      "kp_bsc_gain:targy:kvantuminformatikai-alkalmazások",
+      "tvsz:105:1",
+      "kp_bsc_gain:targy:felhasználói-élmény-tervezése",
+      "tvsz:104:1",
+      "kp_bsc_gain:targy:számvitel-ii",
+      "tvsz:57:3a",
+      "kp_bsc_gain:targy:kapcsolati-hálók-logikája"
+     ],
+     "ranks": [
+      {
+       "bm25": 1,
+       "dense": 1
+      },
+      {
+       "bm25": 2
+      },
+      {
+       "dense": 2
+      },
+      {
+       "bm25": 3
+      },
+      {
+       "dense": 3
+      },
+      {
+       "bm25": 4
+      },
+      {
+       "dense": 4
+      },
+      {
+       "bm25": 5
+      },
+      {
+       "dense": 5
+      },
+      {
+       "bm25": 6
+      }
+     ],
+     "hit@1": 1.0,
+     "recall@1": 0.5,
+     "hit@3": 1.0,
+     "recall@3": 1.0,
+     "hit@5": 1.0,
+     "recall@5": 1.0,
+     "hit@10": 1.0,
+     "recall@10": 1.0,
+     "mrr": 1.0,
+     "ndcg@10": 0.9197207891481876,
+     "para_hit@1": 1.0,
+     "para_recall@1": 1.0,
+     "para_hit@3": 1.0,
+     "para_recall@3": 1.0,
+     "para_hit@5": 1.0,
+     "para_recall@5": 1.0,
+     "para_hit@10": 1.0,
+     "para_recall@10": 1.0,
+     "para_mrr": 1.0,
+     "para_ndcg@10": 1.0
+    },
+    {
+     "id": "q034",
+     "type": "fact",
+     "retrieved": [
+      "tvsz:57:1",
+      "tvsz:57:3",
+      "tjsz:48:7",
+      "tvsz:57:9",
+      "tvsz:56:9",
+      "tvsz:61:2",
+      "tvsz:177:1",
+      "tvsz:88:2",
+      "tvsz:56:7",
+      "tvsz:239:2"
+     ],
+     "ranks": [
+      {
+       "bm25": 4,
+       "dense": 3
+      },
+      {
+       "bm25": 9,
+       "dense": 1
+      },
+      {
+       "bm25": 1,
+       "dense": 13
+      },
+      {
+       "bm25": 18,
+       "dense": 2
+      },
+      {
+       "bm25": 8,
+       "dense": 15
+      },
+      {
+       "bm25": 19,
+       "dense": 10
+      },
+      {
+       "bm25": 2,
+       "dense": 41
+      },
+      {
+       "bm25": 3,
+       "dense": 39
+      },
+      {
+       "bm25": 25,
+       "dense": 12
+      },
+      {
+       "bm25": 10,
+       "dense": 36
+      }
+     ],
+     "hit@1": 0.0,
+     "recall@1": 0.0,
+     "hit@3": 1.0,
+     "recall@3": 1.0,
+     "hit@5": 1.0,
+     "recall@5": 1.0,
+     "hit@10": 1.0,
+     "recall@10": 1.0,
+     "mrr": 0.5,
+     "ndcg@10": 0.6309297535714575,
+     "para_hit@1": 1.0,
+     "para_recall@1": 1.0,
+     "para_hit@3": 1.0,
+     "para_recall@3": 1.0,
+     "para_hit@5": 1.0,
+     "para_recall@5": 1.0,
+     "para_hit@10": 1.0,
+     "para_recall@10": 1.0,
+     "para_mrr": 1.0,
+     "para_ndcg@10": 1.0
+    },
+    {
+     "id": "q035",
+     "type": "fact",
+     "retrieved": [
+      "vik_kepzesi_tajekoztato:s7",
+      "tvsz:132:5",
+      "tvsz:74/A:4",
+      "tvsz:96:3",
+      "tvsz:216/C:3",
+      "tvsz:74/D:1",
+      "tvsz:96:2",
+      "tvsz:194:7",
+      "tvsz:132:3",
+      "tjsz:10:6"
+     ],
+     "ranks": [
+      {
+       "bm25": 1,
+       "dense": 1
+      },
+      {
+       "bm25": 3,
+       "dense": 11
+      },
+      {
+       "bm25": 6,
+       "dense": 21
+      },
+      {
+       "bm25": 27,
+       "dense": 8
+      },
+      {
+       "bm25": 15,
+       "dense": 24
+      },
+      {
+       "bm25": 37,
+       "dense": 22
+      },
+      {
+       "bm25": 24,
+       "dense": 44
+      },
+      {
+       "bm25": 46,
+       "dense": 48
+      },
+      {
+       "bm25": 49,
+       "dense": 50
+      },
+      {
+       "bm25": 2
+      }
+     ],
+     "hit@1": 1.0,
+     "recall@1": 1.0,
+     "hit@3": 1.0,
+     "recall@3": 1.0,
+     "hit@5": 1.0,
+     "recall@5": 1.0,
+     "hit@10": 1.0,
+     "recall@10": 1.0,
+     "mrr": 1.0,
+     "ndcg@10": 1.0,
+     "para_hit@1": 1.0,
+     "para_recall@1": 1.0,
+     "para_hit@3": 1.0,
+     "para_recall@3": 1.0,
+     "para_hit@5": 1.0,
+     "para_recall@5": 1.0,
+     "para_hit@10": 1.0,
+     "para_recall@10": 1.0,
+     "para_mrr": 1.0,
+     "para_ndcg@10": 1.0
+    },
+    {
+     "id": "q036",
+     "type": "fact",
+     "retrieved": [
+      "tjsz:m4:2:1",
+      "tjsz:m4:2:9",
+      "tjsz:m4:2:10",
+      "tjsz:m4:2:2",
+      "tjsz:m4:2:3",
+      "tjsz:48:3",
+      "tjsz:m4:1:1",
+      "tjsz:m3:4:7",
+      "tjsz:m4:1:2",
+      "tjsz:m4:2:6"
+     ],
+     "ranks": [
+      {
+       "bm25": 3,
+       "dense": 1
+      },
+      {
+       "bm25": 2,
+       "dense": 2
+      },
+      {
+       "bm25": 5,
+       "dense": 7
+      },
+      {
+       "bm25": 1,
+       "dense": 15
+      },
+      {
+       "bm25": 4,
+       "dense": 11
+      },
+      {
+       "bm25": 10,
+       "dense": 5
+      },
+      {
+       "bm25": 8,
+       "dense": 10
+      },
+      {
+       "bm25": 9,
+       "dense": 9
+      },
+      {
+       "bm25": 6,
+       "dense": 13
+      },
+      {
+       "bm25": 16,
+       "dense": 4
+      }
+     ],
+     "hit@1": 0.0,
+     "recall@1": 0.0,
+     "hit@3": 0.0,
+     "recall@3": 0.0,
+     "hit@5": 0.0,
+     "recall@5": 0.0,
+     "hit@10": 0.0,
+     "recall@10": 0.0,
+     "mrr": 0.0,
+     "ndcg@10": 0.0,
+     "para_hit@1": 1.0,
+     "para_recall@1": 1.0,
+     "para_hit@3": 1.0,
+     "para_recall@3": 1.0,
+     "para_hit@5": 1.0,
+     "para_recall@5": 1.0,
+     "para_hit@10": 1.0,
+     "para_recall@10": 1.0,
+     "para_mrr": 1.0,
+     "para_ndcg@10": 1.0
+    },
+    {
+     "id": "q037",
+     "type": "fact",
+     "retrieved": [
+      "tjsz:9:1",
+      "tjsz:13:1",
+      "tjsz:11:1",
+      "tjsz:15:3",
+      "tjsz:13:2",
+      "tjsz:11:6",
+      "vik_kepzesi_tajekoztato:s3",
+      "tjsz:m2:1:2",
+      "tjsz:m2:1:1#1",
+      "tjsz:14:2"
+     ],
+     "ranks": [
+      {
+       "bm25": 3,
+       "dense": 1
+      },
+      {
+       "bm25": 2,
+       "dense": 2
+      },
+      {
+       "bm25": 1,
+       "dense": 12
+      },
+      {
+       "bm25": 6,
+       "dense": 7
+      },
+      {
+       "bm25": 12,
+       "dense": 3
+      },
+      {
+       "bm25": 5,
+       "dense": 14
+      },
+      {
+       "bm25": 18,
+       "dense": 10
+      },
+      {
+       "bm25": 8,
+       "dense": 26
+      },
+      {
+       "bm25": 34,
+       "dense": 5
+      },
+      {
+       "bm25": 32,
+       "dense": 9
+      }
+     ],
+     "hit@1": 1.0,
+     "recall@1": 1.0,
+     "hit@3": 1.0,
+     "recall@3": 1.0,
+     "hit@5": 1.0,
+     "recall@5": 1.0,
+     "hit@10": 1.0,
+     "recall@10": 1.0,
+     "mrr": 1.0,
+     "ndcg@10": 1.0,
+     "para_hit@1": 1.0,
+     "para_recall@1": 1.0,
+     "para_hit@3": 1.0,
+     "para_recall@3": 1.0,
+     "para_hit@5": 1.0,
+     "para_recall@5": 1.0,
+     "para_hit@10": 1.0,
+     "para_recall@10": 1.0,
+     "para_mrr": 1.0,
+     "para_ndcg@10": 1.0
+    },
+    {
+     "id": "q038",
+     "type": "fact",
+     "retrieved": [
+      "tjsz:14:5",
+      "tjsz:11:2",
+      "tjsz:11:6",
+      "tjsz:48:12",
+      "tjsz:11:1",
+      "tjsz:m4:2:10",
+      "tjsz:11:4",
+      "tjsz:53:1",
+      "tjsz:14:6",
+      "tjsz:11:5"
+     ],
+     "ranks": [
+      {
+       "bm25": 1,
+       "dense": 2
+      },
+      {
+       "bm25": 15,
+       "dense": 1
+      },
+      {
+       "bm25": 9,
+       "dense": 7
+      },
+      {
+       "bm25": 14,
+       "dense": 5
+      },
+      {
+       "bm25": 19,
+       "dense": 3
+      },
+      {
+       "bm25": 12,
+       "dense": 9
+      },
+      {
+       "bm25": 18,
+       "dense": 6
+      },
+      {
+       "bm25": 5,
+       "dense": 20
+      },
+      {
+       "bm25": 4,
+       "dense": 22
+      },
+      {
+       "bm25": 24,
+       "dense": 4
+      }
+     ],
+     "hit@1": 1.0,
+     "recall@1": 1.0,
+     "hit@3": 1.0,
+     "recall@3": 1.0,
+     "hit@5": 1.0,
+     "recall@5": 1.0,
+     "hit@10": 1.0,
+     "recall@10": 1.0,
+     "mrr": 1.0,
+     "ndcg@10": 1.0,
+     "para_hit@1": 1.0,
+     "para_recall@1": 1.0,
+     "para_hit@3": 1.0,
+     "para_recall@3": 1.0,
+     "para_hit@5": 1.0,
+     "para_recall@5": 1.0,
+     "para_hit@10": 1.0,
+     "para_recall@10": 1.0,
+     "para_mrr": 1.0,
+     "para_ndcg@10": 1.0
+    },
+    {
+     "id": "q039",
+     "type": "fact",
+     "retrieved": [
+      "vik_szakmai_gyak_bsc:s-4-2-hallgatók-által-választott-gyakorlóh",
+      "vik_szakmai_gyak_msc:s-4-2-hallgatók-által-választott-gyakorlóh",
+      "vik_szakmai_gyak_bsc:s-7-2-jelentkezés-a-hallgatók-által-válasz#1",
+      "vik_szakmai_gyak_bsc:s-mellékletek",
+      "vik_szakmai_gyak_bsc:s-4-1-tanszékek-által-felajánlott-gyakorló",
+      "vik_szakmai_gyak_bsc:s-7-2-jelentkezés-a-hallgatók-által-válasz#3",
+      "vik_szakmai_gyak_bsc:s-7-2-jelentkezés-a-hallgatók-által-válasz#2",
+      "vik_szakmai_gyak_bsc:s-4-a-szakmai-gyakorlat-gyakorlóhelyei-és-",
+      "vik_szakmai_gyak_bsc:s-4-3-iskolaszövetkezeten-keresztül-végzet",
+      "vik_szakmai_gyak_msc:s-4-1-tanszékek-által-felajánlott-gyakorló"
+     ],
+     "ranks": [
+      {
+       "bm25": 1,
+       "dense": 1
+      },
+      {
+       "bm25": 4,
+       "dense": 2
+      },
+      {
+       "bm25": 6,
+       "dense": 7
+      },
+      {
+       "bm25": 2,
+       "dense": 14
+      },
+      {
+       "bm25": 13,
+       "dense": 4
+      },
+      {
+       "bm25": 5,
+       "dense": 15
+      },
+      {
+       "bm25": 9,
+       "dense": 11
+      },
+      {
+       "bm25": 26,
+       "dense": 3
+      },
+      {
+       "bm25": 14,
+       "dense": 13
+      },
+      {
+       "bm25": 16,
+       "dense": 12
+      }
+     ],
+     "hit@1": 1.0,
+     "recall@1": 1.0,
+     "hit@3": 1.0,
+     "recall@3": 1.0,
+     "hit@5": 1.0,
+     "recall@5": 1.0,
+     "hit@10": 1.0,
+     "recall@10": 1.0,
+     "mrr": 1.0,
+     "ndcg@10": 1.0,
+     "para_hit@1": 1.0,
+     "para_recall@1": 1.0,
+     "para_hit@3": 1.0,
+     "para_recall@3": 1.0,
+     "para_hit@5": 1.0,
+     "para_recall@5": 1.0,
+     "para_hit@10": 1.0,
+     "para_recall@10": 1.0,
+     "para_mrr": 1.0,
+     "para_ndcg@10": 1.0
+    },
+    {
+     "id": "q040",
+     "type": "multi",
+     "retrieved": [
+      "tvsz:100:4",
+      "tvsz:100:6",
+      "tvsz:100:5",
+      "vik_felzarkozas:s-0#3",
+      "tvsz:100:2",
+      "tvsz:100:7",
+      "tvsz:26:6",
+      "kp_bsc_info:s-speciális-megfeleltetések",
+      "kp_msc_info:s-2-4-5-specializációk#2",
+      "tvsz:129:9"
+     ],
+     "ranks": [
+      {
+       "bm25": 1,
+       "dense": 1
+      },
+      {
+       "bm25": 8,
+       "dense": 3
+      },
+      {
+       "bm25": 23,
+       "dense": 2
+      },
+      {
+       "bm25": 6,
+       "dense": 22
+      },
+      {
+       "bm25": 26,
+       "dense": 13
+      },
+      {
+       "bm25": 18,
+       "dense": 26
+      },
+      {
+       "bm25": 2
+      },
+      {
+       "bm25": 3
+      },
+      {
+       "bm25": 4
+      },
+      {
+       "dense": 4
+      }
+     ],
+     "hit@1": 1.0,
+     "recall@1": 0.5,
+     "hit@3": 1.0,
+     "recall@3": 1.0,
+     "hit@5": 1.0,
+     "recall@5": 1.0,
+     "hit@10": 1.0,
+     "recall@10": 1.0,
+     "mrr": 1.0,
+     "ndcg@10": 0.9197207891481876,
+     "para_hit@1": 1.0,
+     "para_recall@1": 1.0,
+     "para_hit@3": 1.0,
+     "para_recall@3": 1.0,
+     "para_hit@5": 1.0,
+     "para_recall@5": 1.0,
+     "para_hit@10": 1.0,
+     "para_recall@10": 1.0,
+     "para_mrr": 1.0,
+     "para_ndcg@10": 1.0
+    },
+    {
+     "id": "q042",
+     "type": "multi",
+     "retrieved": [
+      "tvsz:129/B:5",
+      "tvsz:129/B:7",
+      "tvsz:129/B:2",
+      "tvsz:129/B:6",
+      "tvsz:129/B:4",
+      "tvsz:129/B:1",
+      "tvsz:129/B:3",
+      "tvsz:23:2",
+      "tvsz:128:7",
+      "kp_bsc_vill:s-2-5-2-szaknyelvi-kompetenciák"
+     ],
+     "ranks": [
+      {
+       "bm25": 4,
+       "dense": 1
+      },
+      {
+       "bm25": 2,
+       "dense": 7
+      },
+      {
+       "bm25": 3,
+       "dense": 6
+      },
+      {
+       "bm25": 1,
+       "dense": 9
+      },
+      {
+       "bm25": 9,
+       "dense": 2
+      },
+      {
+       "bm25": 10,
+       "dense": 3
+      },
+      {
+       "bm25": 14,
+       "dense": 14
+      },
+      {
+       "bm25": 16,
+       "dense": 31
+      },
+      {
+       "bm25": 26,
+       "dense": 22
+      },
+      {
+       "bm25": 27,
+       "dense": 45
+      }
+     ],
+     "hit@1": 1.0,
+     "recall@1": 0.5,
+     "hit@3": 1.0,
+     "recall@3": 0.5,
+     "hit@5": 1.0,
+     "recall@5": 1.0,
+     "hit@10": 1.0,
+     "recall@10": 1.0,
+     "mrr": 1.0,
+     "ndcg@10": 0.8503449055347546,
+     "para_hit@1": 1.0,
+     "para_recall@1": 1.0,
+     "para_hit@3": 1.0,
+     "para_recall@3": 1.0,
+     "para_hit@5": 1.0,
+     "para_recall@5": 1.0,
+     "para_hit@10": 1.0,
+     "para_recall@10": 1.0,
+     "para_mrr": 1.0,
+     "para_ndcg@10": 1.0
+    },
+    {
+     "id": "q043",
+     "type": "multi",
+     "retrieved": [
+      "tvsz:122:8",
+      "tvsz:100:6",
+      "tvsz:100:7",
+      "vik_mi_hasznalat:s14",
+      "tvsz:231#7",
+      "tvsz:100:1",
+      "tvsz:100:8",
+      "vik_mi_hasznalat:s13",
+      "kp_bsc_gain:s-2-4-5-specializációk#3",
+      "vik_szabval_targyak:s2"
+     ],
+     "ranks": [
+      {
+       "bm25": 5,
+       "dense": 5
+      },
+      {
+       "bm25": 22,
+       "dense": 2
+      },
+      {
+       "bm25": 50,
+       "dense": 1
+      },
+      {
+       "bm25": 20,
+       "dense": 29
+      },
+      {
+       "bm25": 16,
+       "dense": 42
+      },
+      {
+       "bm25": 48,
+       "dense": 13
+      },
+      {
+       "bm25": 43,
+       "dense": 27
+      },
+      {
+       "bm25": 1
+      },
+      {
+       "bm25": 2
+      },
+      {
+       "bm25": 3
+      }
+     ],
+     "hit@1": 0.0,
+     "recall@1": 0.0,
+     "hit@3": 1.0,
+     "recall@3": 1.0,
+     "hit@5": 1.0,
+     "recall@5": 1.0,
+     "hit@10": 1.0,
+     "recall@10": 1.0,
+     "mrr": 0.5,
+     "ndcg@10": 0.6934264036172708,
+     "para_hit@1": 0.0,
+     "para_recall@1": 0.0,
+     "para_hit@3": 1.0,
+     "para_recall@3": 1.0,
+     "para_hit@5": 1.0,
+     "para_recall@5": 1.0,
+     "para_hit@10": 1.0,
+     "para_recall@10": 1.0,
+     "para_mrr": 0.5,
+     "para_ndcg@10": 0.6309297535714575
+    },
+    {
+     "id": "q044",
+     "type": "multi",
+     "retrieved": [
+      "kp_msc_info:p4~24",
+      "tvsz:75/A:2",
+      "tvsz:75/A:5",
+      "kp_msc_info:s-4-mobilitási-ablak",
+      "tvsz:75/A:1",
+      "kp_bsc_info:p4~14#1",
+      "kp_msc_info:p2~25",
+      "kp_bsc_info:p2~16",
+      "tvsz:75/A:7",
+      "kp_msc_vill:p4~27"
+     ],
+     "ranks": [
+      {
+       "bm25": 2,
+       "dense": 1
+      },
+      {
+       "bm25": 1,
+       "dense": 4
+      },
+      {
+       "bm25": 5,
+       "dense": 8
+      },
+      {
+       "bm25": 9,
+       "dense": 6
+      },
+      {
+       "bm25": 3,
+       "dense": 13
+      },
+      {
+       "bm25": 15,
+       "dense": 5
+      },
+      {
+       "bm25": 20,
+       "dense": 3
+      },
+      {
+       "bm25": 24,
+       "dense": 2
+      },
+      {
+       "bm25": 6,
+       "dense": 22
+      },
+      {
+       "bm25": 4,
+       "dense": 28
+      }
+     ],
+     "hit@1": 0.0,
+     "recall@1": 0.0,
+     "hit@3": 1.0,
+     "recall@3": 0.5,
+     "hit@5": 1.0,
+     "recall@5": 0.5,
+     "hit@10": 1.0,
+     "recall@10": 0.5,
+     "mrr": 0.3333333333333333,
+     "ndcg@10": 0.3065735963827292,
+     "para_hit@1": 0.0,
+     "para_recall@1": 0.0,
+     "para_hit@3": 1.0,
+     "para_recall@3": 1.0,
+     "para_hit@5": 1.0,
+     "para_recall@5": 1.0,
+     "para_hit@10": 1.0,
+     "para_recall@10": 1.0,
+     "para_mrr": 0.5,
+     "para_ndcg@10": 0.6309297535714575
+    },
+    {
+     "id": "q046",
+     "type": "multi",
+     "retrieved": [
+      "tvsz:125:4",
+      "tvsz:114:3",
+      "tvsz:125:6",
+      "vik_szakmai_gyak_msc:s-5-3-szakmai-gyakorlat-a-mintatanterv-sze",
+      "vik_szakmai_gyak_bsc:s-5-3-szakmai-gyakorlat-a-mintatanterv-sze",
+      "kp_msc_eum:p5~5",
+      "tvsz:139:5",
+      "vik_szmsz:m6:12:6",
+      "tvsz:135:3",
+      "tvsz:129:6"
+     ],
+     "ranks": [
+      {
+       "bm25": 2,
+       "dense": 2
+      },
+      {
+       "bm25": 6,
+       "dense": 29
+      },
+      {
+       "bm25": 16,
+       "dense": 17
+      },
+      {
+       "bm25": 22,
+       "dense": 28
+      },
+      {
+       "bm25": 21,
+       "dense": 42
+      },
+      {
+       "bm25": 1
+      },
+      {
+       "dense": 1
+      },
+      {
+       "bm25": 3
+      },
+      {
+       "dense": 3
+      },
+      {
+       "bm25": 4
+      }
+     ],
+     "hit@1": 1.0,
+     "recall@1": 0.5,
+     "hit@3": 1.0,
+     "recall@3": 1.0,
+     "hit@5": 1.0,
+     "recall@5": 1.0,
+     "hit@10": 1.0,
+     "recall@10": 1.0,
+     "mrr": 1.0,
+     "ndcg@10": 0.9197207891481876,
+     "para_hit@1": 1.0,
+     "para_recall@1": 1.0,
+     "para_hit@3": 1.0,
+     "para_recall@3": 1.0,
+     "para_hit@5": 1.0,
+     "para_recall@5": 1.0,
+     "para_hit@10": 1.0,
+     "para_recall@10": 1.0,
+     "para_mrr": 1.0,
+     "para_ndcg@10": 1.0
+    },
+    {
+     "id": "q047",
+     "type": "multi",
+     "retrieved": [
+      "tvsz:129:9",
+      "tvsz:231#17",
+      "tjsz:24:7",
+      "tvsz:100:5",
+      "tvsz:231#11",
+      "tvsz:231#13",
+      "tvsz:128:7",
+      "tvsz:231#12",
+      "tjsz:m4:2:8",
+      "tjsz:m2:3:2"
+     ],
+     "ranks": [
+      {
+       "bm25": 2,
+       "dense": 3
+      },
+      {
+       "bm25": 5,
+       "dense": 1
+      },
+      {
+       "bm25": 1,
+       "dense": 6
+      },
+      {
+       "bm25": 4,
+       "dense": 5
+      },
+      {
+       "bm25": 11,
+       "dense": 2
+      },
+      {
+       "bm25": 14,
+       "dense": 4
+      },
+      {
+       "bm25": 10,
+       "dense": 10
+      },
+      {
+       "bm25": 15,
+       "dense": 7
+      },
+      {
+       "bm25": 3
+      },
+      {
+       "bm25": 6
+      }
+     ],
+     "hit@1": 0.0,
+     "recall@1": 0.0,
+     "hit@3": 1.0,
+     "recall@3": 1.0,
+     "hit@5": 1.0,
+     "recall@5": 1.0,
+     "hit@10": 1.0,
+     "recall@10": 1.0,
+     "mrr": 0.5,
+     "ndcg@10": 0.6309297535714575,
+     "para_hit@1": 0.0,
+     "para_recall@1": 0.0,
+     "para_hit@3": 1.0,
+     "para_recall@3": 1.0,
+     "para_hit@5": 1.0,
+     "para_recall@5": 1.0,
+     "para_hit@10": 1.0,
+     "para_recall@10": 1.0,
+     "para_mrr": 0.5,
+     "para_ndcg@10": 0.6309297535714575
+    },
+    {
+     "id": "q049",
+     "type": "multi",
+     "retrieved": [
+      "vik_bsc_zv_msc_felveteli:3~2",
+      "vik_bsc_zv_msc_felveteli:p11",
+      "vik_nyelvi_kreditek:s-i-bevezetés",
+      "vik_szakmai_gyak_bsc:s-1-kapcsolódó-jogszabályok-dokumentumok-2",
+      "vik_bprof_zv:p35",
+      "kp_bsc_vill:s-2-5-2-szaknyelvi-kompetenciák",
+      "vik_bsc_zv:p7",
+      "vik_bsc_zv:tvsz149:2",
+      "tvsz:146/F:2",
+      "vik_bsc_zv:tvsz149:1"
+     ],
+     "ranks": [
+      {
+       "bm25": 7,
+       "dense": 8
+      },
+      {
+       "bm25": 3,
+       "dense": 16
+      },
+      {
+       "bm25": 36,
+       "dense": 2
+      },
+      {
+       "bm25": 39,
+       "dense": 6
+      },
+      {
+       "bm25": 41,
+       "dense": 26
+      },
+      {
+       "bm25": 49,
+       "dense": 50
+      },
+      {
+       "bm25": 1
+      },
+      {
+       "dense": 1
+      },
+      {
+       "bm25": 2
+      },
+      {
+       "dense": 3
+      }
+     ],
+     "hit@1": 0.0,
+     "recall@1": 0.0,
+     "hit@3": 0.0,
+     "recall@3": 0.0,
+     "hit@5": 0.0,
+     "recall@5": 0.0,
+     "hit@10": 1.0,
+     "recall@10": 0.25,
+     "mrr": 0.125,
+     "ndcg@10": 0.123151194370365,
+     "para_hit@1": 0.0,
+     "para_recall@1": 0.0,
+     "para_hit@3": 0.0,
+     "para_recall@3": 0.0,
+     "para_hit@5": 0.0,
+     "para_recall@5": 0.0,
+     "para_hit@10": 1.0,
+     "para_recall@10": 0.25,
+     "para_mrr": 0.125,
+     "para_ndcg@10": 0.123151194370365
+    },
+    {
+     "id": "q050",
+     "type": "numeric",
+     "retrieved": [
+      "vik_bsc_zv_msc_felveteli:p2",
+      "vik_bsc_zv_msc_felveteli:p3",
+      "vik_bsc_zv_msc_felveteli:p13",
+      "vik_bsc_zv:p28",
+      "vik_bsc_zv_msc_felveteli:p28",
+      "vik_bsc_zv_msc_felveteli:p7",
+      "vik_bsc_zv_msc_felveteli:p3~2",
+      "vik_bsc_zv_msc_felveteli:p27",
+      "vik_bsc_zv_msc_felveteli:p26",
+      "vik_bsc_zv_msc_felveteli:p12"
+     ],
+     "ranks": [
+      {
+       "bm25": 7,
+       "dense": 1
+      },
+      {
+       "bm25": 6,
+       "dense": 3
+      },
+      {
+       "bm25": 1,
+       "dense": 9
+      },
+      {
+       "bm25": 2,
+       "dense": 16
+      },
+      {
+       "bm25": 17,
+       "dense": 2
+      },
+      {
+       "bm25": 8,
+       "dense": 11
+      },
+      {
+       "bm25": 13,
+       "dense": 12
+      },
+      {
+       "bm25": 22,
+       "dense": 8
+      },
+      {
+       "bm25": 3,
+       "dense": 33
+      },
+      {
+       "bm25": 32,
+       "dense": 5
+      }
+     ],
+     "hit@1": 1.0,
+     "recall@1": 1.0,
+     "hit@3": 1.0,
+     "recall@3": 1.0,
+     "hit@5": 1.0,
+     "recall@5": 1.0,
+     "hit@10": 1.0,
+     "recall@10": 1.0,
+     "mrr": 1.0,
+     "ndcg@10": 1.0,
+     "para_hit@1": 1.0,
+     "para_recall@1": 1.0,
+     "para_hit@3": 1.0,
+     "para_recall@3": 1.0,
+     "para_hit@5": 1.0,
+     "para_recall@5": 1.0,
+     "para_hit@10": 1.0,
+     "para_recall@10": 1.0,
+     "para_mrr": 1.0,
+     "para_ndcg@10": 1.0
+    },
+    {
+     "id": "q052",
+     "type": "numeric",
+     "retrieved": [
+      "vik_msc_zv:p34",
+      "vik_msc_zv:tvsz152:2",
+      "tvsz:239:6",
+      "kp_msc_ai:s-2-5-6-záróvizsga",
+      "kp_msc_vill:targy:szabadon-választható-tantárgy~3",
+      "tvsz:152:2",
+      "kp_msc_vill:targy:szabadon-választható-tantárgy~2",
+      "kp_msc_gain:s-2-5-6-záróvizsga#1",
+      "kp_msc_vill:targy:szabadon-választható-tantárgy~6",
+      "vik_bprof_zv:tvsz152:2"
+     ],
+     "ranks": [
+      {
+       "bm25": 1,
+       "dense": 1
+      },
+      {
+       "bm25": 2
+      },
+      {
+       "dense": 2
+      },
+      {
+       "bm25": 3
+      },
+      {
+       "dense": 3
+      },
+      {
+       "bm25": 4
+      },
+      {
+       "dense": 4
+      },
+      {
+       "bm25": 5
+      },
+      {
+       "dense": 5
+      },
+      {
+       "bm25": 6
+      }
+     ],
+     "hit@1": 1.0,
+     "recall@1": 0.5,
+     "hit@3": 1.0,
+     "recall@3": 0.5,
+     "hit@5": 1.0,
+     "recall@5": 0.5,
+     "hit@10": 1.0,
+     "recall@10": 1.0,
+     "mrr": 1.0,
+     "ndcg@10": 0.8065735963827293,
+     "para_hit@1": 1.0,
+     "para_recall@1": 0.5,
+     "para_hit@3": 1.0,
+     "para_recall@3": 0.5,
+     "para_hit@5": 1.0,
+     "para_recall@5": 0.5,
+     "para_hit@10": 1.0,
+     "para_recall@10": 1.0,
+     "para_mrr": 1.0,
+     "para_ndcg@10": 0.8065735963827293
+    },
+    {
+     "id": "q053",
+     "type": "numeric",
+     "retrieved": [
+      "tvsz:216/B:4",
+      "tvsz:215:2",
+      "tvsz:216/B:6",
+      "tvsz:79:4",
+      "tvsz:215:1",
+      "tvsz:124/A:3",
+      "tvsz:79:5",
+      "tvsz:4:5",
+      "tvsz:79:6",
+      "tvsz:132:1"
+     ],
+     "ranks": [
+      {
+       "bm25": 1,
+       "dense": 1
+      },
+      {
+       "bm25": 2,
+       "dense": 5
+      },
+      {
+       "bm25": 3,
+       "dense": 6
+      },
+      {
+       "bm25": 7,
+       "dense": 9
+      },
+      {
+       "bm25": 15,
+       "dense": 3
+      },
+      {
+       "bm25": 24,
+       "dense": 2
+      },
+      {
+       "bm25": 22,
+       "dense": 4
+      },
+      {
+       "bm25": 13,
+       "dense": 11
+      },
+      {
+       "bm25": 6,
+       "dense": 20
+      },
+      {
+       "bm25": 21,
+       "dense": 7
+      }
+     ],
+     "hit@1": 1.0,
+     "recall@1": 1.0,
+     "hit@3": 1.0,
+     "recall@3": 1.0,
+     "hit@5": 1.0,
+     "recall@5": 1.0,
+     "hit@10": 1.0,
+     "recall@10": 1.0,
+     "mrr": 1.0,
+     "ndcg@10": 1.0,
+     "para_hit@1": 1.0,
+     "para_recall@1": 1.0,
+     "para_hit@3": 1.0,
+     "para_recall@3": 1.0,
+     "para_hit@5": 1.0,
+     "para_recall@5": 1.0,
+     "para_hit@10": 1.0,
+     "para_recall@10": 1.0,
+     "para_mrr": 1.0,
+     "para_ndcg@10": 1.0
+    },
+    {
+     "id": "q054",
+     "type": "numeric",
+     "retrieved": [
+      "tanev_2026_27:m1:s-téli-szünet",
+      "tanev_2026_27:7:1",
+      "tanev_2026_27:m1:s-regisztrációs-időszak",
+      "tanev_2026_27:m1:s-tavaszi-szünet",
+      "vik_kepzesi_tajekoztato:s6#2",
+      "tanev_2026_27:3:2",
+      "vik_kepzesi_tajekoztato:s6#1",
+      "tanev_2026_27:6:1",
+      "tanev_2026_27:5:1",
+      "tanev_2026_27:m1:s-a-2026/2027-tanév-időbeosztása"
+     ],
+     "ranks": [
+      {
+       "bm25": 2,
+       "dense": 1
+      },
+      {
+       "bm25": 1,
+       "dense": 6
+      },
+      {
+       "bm25": 6,
+       "dense": 2
+      },
+      {
+       "bm25": 4,
+       "dense": 5
+      },
+      {
+       "bm25": 5,
+       "dense": 4
+      },
+      {
+       "bm25": 9,
+       "dense": 3
+      },
+      {
+       "bm25": 12,
+       "dense": 7
+      },
+      {
+       "bm25": 7,
+       "dense": 13
+      },
+      {
+       "bm25": 11,
+       "dense": 10
+      },
+      {
+       "bm25": 8,
+       "dense": 15
+      }
+     ],
+     "hit@1": 1.0,
+     "recall@1": 0.5,
+     "hit@3": 1.0,
+     "recall@3": 0.5,
+     "hit@5": 1.0,
+     "recall@5": 1.0,
+     "hit@10": 1.0,
+     "recall@10": 1.0,
+     "mrr": 1.0,
+     "ndcg@10": 0.8503449055347546,
+     "para_hit@1": 1.0,
+     "para_recall@1": 0.5,
+     "para_hit@3": 1.0,
+     "para_recall@3": 0.5,
+     "para_hit@5": 1.0,
+     "para_recall@5": 1.0,
+     "para_hit@10": 1.0,
+     "para_recall@10": 1.0,
+     "para_mrr": 1.0,
+     "para_ndcg@10": 0.8503449055347546
+    },
+    {
+     "id": "q055",
+     "type": "numeric",
+     "retrieved": [
+      "kp_bsc_gain:s-2-5-2-szaknyelvi-kompetenciák",
+      "kp_bsc_vill:s-2-5-2-szaknyelvi-kompetenciák",
+      "kp_bsc_info:s-2-5-2-szaknyelvi-kompetenciák",
+      "vik_nyelvi_kreditek:s-ii-nyelvi-kreditek-megszerzése",
+      "kp_msc_vill:s-2-5-2-szaknyelvi-kompetenciák",
+      "kp_msc_urm:s-2-5-2-szaknyelvi-kompetenciák",
+      "kp_msc_eum:s-2-5-2-szaknyelvi-kompetenciák",
+      "tvsz:146/C:1",
+      "kp_bprof_uzinfo:s-2-5-2-szaknyelvi-kompetenciák",
+      "tvsz:146/B:2"
+     ],
+     "ranks": [
+      {
+       "bm25": 4,
+       "dense": 1
+      },
+      {
+       "bm25": 5,
+       "dense": 2
+      },
+      {
+       "bm25": 8,
+       "dense": 3
+      },
+      {
+       "bm25": 3,
+       "dense": 11
+      },
+      {
+       "bm25": 11,
+       "dense": 6
+      },
+      {
+       "bm25": 14,
+       "dense": 5
+      },
+      {
+       "bm25": 18,
+       "dense": 4
+      },
+      {
+       "bm25": 12,
+       "dense": 9
+      },
+      {
+       "bm25": 16,
+       "dense": 7
+      },
+      {
+       "bm25": 1,
+       "dense": 28
+      }
+     ],
+     "hit@1": 1.0,
+     "recall@1": 0.25,
+     "hit@3": 1.0,
+     "recall@3": 0.5,
+     "hit@5": 1.0,
+     "recall@5": 0.75,
+     "hit@10": 1.0,
+     "recall@10": 0.75,
+     "mrr": 1.0,
+     "ndcg@10": 0.75369761125927,
+     "para_hit@1": 1.0,
+     "para_recall@1": 0.25,
+     "para_hit@3": 1.0,
+     "para_recall@3": 0.5,
+     "para_hit@5": 1.0,
+     "para_recall@5": 0.75,
+     "para_hit@10": 1.0,
+     "para_recall@10": 0.75,
+     "para_mrr": 1.0,
+     "para_ndcg@10": 0.75369761125927
+    },
+    {
+     "id": "q056",
+     "type": "numeric",
+     "retrieved": [
+      "tvsz:23:2",
+      "tvsz:112:6",
+      "tvsz:106:1",
+      "tvsz:146/B:2",
+      "tvsz:13:8",
+      "tvsz:26:1",
+      "tvsz:13:3",
+      "tvsz:13:2",
+      "kepzesi_kodex:8:1",
+      "tvsz:88:4"
+     ],
+     "ranks": [
+      {
+       "bm25": 1,
+       "dense": 1
+      },
+      {
+       "bm25": 4,
+       "dense": 35
+      },
+      {
+       "bm25": 29,
+       "dense": 29
+      },
+      {
+       "bm25": 2
+      },
+      {
+       "dense": 2
+      },
+      {
+       "bm25": 3
+      },
+      {
+       "dense": 3
+      },
+      {
+       "dense": 4
+      },
+      {
+       "bm25": 5
+      },
+      {
+       "dense": 5
+      }
+     ],
+     "hit@1": 1.0,
+     "recall@1": 1.0,
+     "hit@3": 1.0,
+     "recall@3": 1.0,
+     "hit@5": 1.0,
+     "recall@5": 1.0,
+     "hit@10": 1.0,
+     "recall@10": 1.0,
+     "mrr": 1.0,
+     "ndcg@10": 1.0,
+     "para_hit@1": 1.0,
+     "para_recall@1": 1.0,
+     "para_hit@3": 1.0,
+     "para_recall@3": 1.0,
+     "para_hit@5": 1.0,
+     "para_recall@5": 1.0,
+     "para_hit@10": 1.0,
+     "para_recall@10": 1.0,
+     "para_mrr": 1.0,
+     "para_ndcg@10": 1.0
+    },
+    {
+     "id": "q057",
+     "type": "numeric",
+     "retrieved": [
+      "tjsz:10:6",
+      "tjsz:10:9#1",
+      "tjsz:10:10",
+      "tjsz:10:9#2",
+      "tjsz:10:5",
+      "tjsz:10:8",
+      "tjsz:10:7",
+      "tvsz:74/E:4",
+      "tvsz:55:5",
+      "tjsz:m2:2:2"
+     ],
+     "ranks": [
+      {
+       "bm25": 1,
+       "dense": 1
+      },
+      {
+       "bm25": 4,
+       "dense": 2
+      },
+      {
+       "bm25": 5,
+       "dense": 10
+      },
+      {
+       "bm25": 13,
+       "dense": 4
+      },
+      {
+       "bm25": 9,
+       "dense": 8
+      },
+      {
+       "bm25": 22,
+       "dense": 3
+      },
+      {
+       "bm25": 7,
+       "dense": 21
+      },
+      {
+       "bm25": 3,
+       "dense": 35
+      },
+      {
+       "bm25": 10,
+       "dense": 26
+      },
+      {
+       "bm25": 38,
+       "dense": 7
+      }
+     ],
+     "hit@1": 1.0,
+     "recall@1": 1.0,
+     "hit@3": 1.0,
+     "recall@3": 1.0,
+     "hit@5": 1.0,
+     "recall@5": 1.0,
+     "hit@10": 1.0,
+     "recall@10": 1.0,
+     "mrr": 1.0,
+     "ndcg@10": 1.0,
+     "para_hit@1": 1.0,
+     "para_recall@1": 1.0,
+     "para_hit@3": 1.0,
+     "para_recall@3": 1.0,
+     "para_hit@5": 1.0,
+     "para_recall@5": 1.0,
+     "para_hit@10": 1.0,
+     "para_recall@10": 1.0,
+     "para_mrr": 1.0,
+     "para_ndcg@10": 1.0
+    },
+    {
+     "id": "q058",
+     "type": "numeric",
+     "retrieved": [
+      "tvsz:103:3",
+      "tvsz:57:4",
+      "tvsz:103:4",
+      "tvsz:239:3",
+      "tvsz:177:2",
+      "tvsz:122:2",
+      "tvsz:74/D:1",
+      "tvsz:103:5",
+      "tjsz:22:8",
+      "tvsz:103:1"
+     ],
+     "ranks": [
+      {
+       "bm25": 1,
+       "dense": 1
+      },
+      {
+       "bm25": 2,
+       "dense": 3
+      },
+      {
+       "bm25": 3,
+       "dense": 9
+      },
+      {
+       "bm25": 22,
+       "dense": 4
+      },
+      {
+       "bm25": 17,
+       "dense": 10
+      },
+      {
+       "bm25": 40,
+       "dense": 2
+      },
+      {
+       "bm25": 24,
+       "dense": 19
+      },
+      {
+       "bm25": 13,
+       "dense": 49
+      },
+      {
+       "bm25": 19,
+       "dense": 39
+      },
+      {
+       "bm25": 4
+      }
+     ],
+     "hit@1": 1.0,
+     "recall@1": 1.0,
+     "hit@3": 1.0,
+     "recall@3": 1.0,
+     "hit@5": 1.0,
+     "recall@5": 1.0,
+     "hit@10": 1.0,
+     "recall@10": 1.0,
+     "mrr": 1.0,
+     "ndcg@10": 1.0,
+     "para_hit@1": 1.0,
+     "para_recall@1": 1.0,
+     "para_hit@3": 1.0,
+     "para_recall@3": 1.0,
+     "para_hit@5": 1.0,
+     "para_recall@5": 1.0,
+     "para_hit@10": 1.0,
+     "para_recall@10": 1.0,
+     "para_mrr": 1.0,
+     "para_ndcg@10": 1.0
+    },
+    {
+     "id": "q059",
+     "type": "numeric",
+     "retrieved": [
+      "tanev_2026_27:4:2",
+      "tvsz:237:1",
+      "tvsz:61:2",
+      "tvsz:104:1",
+      "tvsz:180:4",
+      "tanev_2026_27:3:4",
+      "tvsz:78:1",
+      "tanev_2026_27:4:1",
+      "tvsz:99:4",
+      "tvsz:56:7"
+     ],
+     "ranks": [
+      {
+       "bm25": 1,
+       "dense": 1
+      },
+      {
+       "bm25": 3,
+       "dense": 10
+      },
+      {
+       "bm25": 2,
+       "dense": 18
+      },
+      {
+       "bm25": 13,
+       "dense": 9
+      },
+      {
+       "bm25": 10,
+       "dense": 17
+      },
+      {
+       "bm25": 6,
+       "dense": 25
+      },
+      {
+       "bm25": 5,
+       "dense": 28
+      },
+      {
+       "bm25": 30,
+       "dense": 4
+      },
+      {
+       "bm25": 8,
+       "dense": 27
+      },
+      {
+       "dense": 2
+      }
+     ],
+     "hit@1": 1.0,
+     "recall@1": 1.0,
+     "hit@3": 1.0,
+     "recall@3": 1.0,
+     "hit@5": 1.0,
+     "recall@5": 1.0,
+     "hit@10": 1.0,
+     "recall@10": 1.0,
+     "mrr": 1.0,
+     "ndcg@10": 1.0,
+     "para_hit@1": 1.0,
+     "para_recall@1": 1.0,
+     "para_hit@3": 1.0,
+     "para_recall@3": 1.0,
+     "para_hit@5": 1.0,
+     "para_recall@5": 1.0,
+     "para_hit@10": 1.0,
+     "para_recall@10": 1.0,
+     "para_mrr": 1.0,
+     "para_ndcg@10": 1.0
+    },
+    {
+     "id": "q061",
+     "type": "numeric",
+     "retrieved": [
+      "vik_kepzesi_tajekoztato:s14",
+      "vik_kepzesi_tajekoztato:s15",
+      "vik_bprof_specval:3:5",
+      "vik_bsc_specval:3:6",
+      "vik_kepzesi_tajekoztato:s13",
+      "vik_bsc_specval_du:s-3-speciális-esetek",
+      "vik_bprof_specval_du:s-5-speciális-esetek",
+      "kp_bsc_info:p2~9#2",
+      "tvsz:146/C:1",
+      "tvsz:204:3"
+     ],
+     "ranks": [
+      {
+       "bm25": 1,
+       "dense": 1
+      },
+      {
+       "bm25": 22,
+       "dense": 2
+      },
+      {
+       "bm25": 18,
+       "dense": 12
+      },
+      {
+       "bm25": 19,
+       "dense": 15
+      },
+      {
+       "bm25": 42,
+       "dense": 3
+      },
+      {
+       "bm25": 17,
+       "dense": 27
+      },
+      {
+       "bm25": 41,
+       "dense": 9
+      },
+      {
+       "bm25": 35,
+       "dense": 47
+      },
+      {
+       "bm25": 2
+      },
+      {
+       "bm25": 3
+      }
+     ],
+     "hit@1": 1.0,
+     "recall@1": 1.0,
+     "hit@3": 1.0,
+     "recall@3": 1.0,
+     "hit@5": 1.0,
+     "recall@5": 1.0,
+     "hit@10": 1.0,
+     "recall@10": 1.0,
+     "mrr": 1.0,
+     "ndcg@10": 1.0,
+     "para_hit@1": 1.0,
+     "para_recall@1": 1.0,
+     "para_hit@3": 1.0,
+     "para_recall@3": 1.0,
+     "para_hit@5": 1.0,
+     "para_recall@5": 1.0,
+     "para_hit@10": 1.0,
+     "para_recall@10": 1.0,
+     "para_mrr": 1.0,
+     "para_ndcg@10": 1.0
+    },
+    {
+     "id": "q062",
+     "type": "numeric",
+     "retrieved": [
+      "tvsz:151:3",
+      "vik_bsc_zv:tvsz151:3",
+      "vik_bprof_zv:tvsz151:3",
+      "tvsz:120:3",
+      "vik_msc_zv:tvsz151:3",
+      "tvsz:98:5",
+      "tvsz:98:4",
+      "tvsz:120:4",
+      "tvsz:57:1",
+      "tvsz:102:1"
+     ],
+     "ranks": [
+      {
+       "bm25": 2,
+       "dense": 1
+      },
+      {
+       "bm25": 4,
+       "dense": 3
+      },
+      {
+       "bm25": 6,
+       "dense": 2
+      },
+      {
+       "bm25": 3,
+       "dense": 5
+      },
+      {
+       "bm25": 5,
+       "dense": 4
+      },
+      {
+       "bm25": 1,
+       "dense": 16
+      },
+      {
+       "bm25": 8,
+       "dense": 13
+      },
+      {
+       "bm25": 15,
+       "dense": 20
+      },
+      {
+       "bm25": 29,
+       "dense": 10
+      },
+      {
+       "bm25": 37,
+       "dense": 39
+      }
+     ],
+     "hit@1": 1.0,
+     "recall@1": 1.0,
+     "hit@3": 1.0,
+     "recall@3": 1.0,
+     "hit@5": 1.0,
+     "recall@5": 1.0,
+     "hit@10": 1.0,
+     "recall@10": 1.0,
+     "mrr": 1.0,
+     "ndcg@10": 1.0,
+     "para_hit@1": 1.0,
+     "para_recall@1": 1.0,
+     "para_hit@3": 1.0,
+     "para_recall@3": 1.0,
+     "para_hit@5": 1.0,
+     "para_recall@5": 1.0,
+     "para_hit@10": 1.0,
+     "para_recall@10": 1.0,
+     "para_mrr": 1.0,
+     "para_ndcg@10": 1.0
+    },
+    {
+     "id": "q063",
+     "type": "numeric",
+     "retrieved": [
+      "vik_tajekoztato_szd_bprof:s-záróvizsga-időszak",
+      "tanev_2026_27:3:2",
+      "vik_tajekoztato_szd_bsc:s-időpontról-történő-hiányzása-a-hallgatót",
+      "vik_bsc_zv_msc_felveteli:p25",
+      "vik_tajekoztato_szd_bprof:s-időszakból-kizárja-és-záróvizsga-lehetős",
+      "vik_bsc_zv_msc_felveteli:p10",
+      "tanev_2026_27:m1:s-regisztrációs-időszak",
+      "kp_bsc_vill:p1~11",
+      "kp_bsc_vill:targy:VIMIAC17",
+      "vik_kepzesi_tajekoztato:s6#2"
+     ],
+     "ranks": [
+      {
+       "bm25": 1,
+       "dense": 1
+      },
+      {
+       "bm25": 4,
+       "dense": 5
+      },
+      {
+       "bm25": 2,
+       "dense": 8
+      },
+      {
+       "bm25": 9,
+       "dense": 2
+      },
+      {
+       "bm25": 5,
+       "dense": 25
+      },
+      {
+       "bm25": 45,
+       "dense": 4
+      },
+      {
+       "bm25": 34,
+       "dense": 28
+      },
+      {
+       "bm25": 42,
+       "dense": 24
+      },
+      {
+       "bm25": 35,
+       "dense": 31
+      },
+      {
+       "bm25": 30,
+       "dense": 37
+      }
+     ],
+     "hit@1": 1.0,
+     "recall@1": 1.0,
+     "hit@3": 1.0,
+     "recall@3": 1.0,
+     "hit@5": 1.0,
+     "recall@5": 1.0,
+     "hit@10": 1.0,
+     "recall@10": 1.0,
+     "mrr": 1.0,
+     "ndcg@10": 1.0,
+     "para_hit@1": 1.0,
+     "para_recall@1": 1.0,
+     "para_hit@3": 1.0,
+     "para_recall@3": 1.0,
+     "para_hit@5": 1.0,
+     "para_recall@5": 1.0,
+     "para_hit@10": 1.0,
+     "para_recall@10": 1.0,
+     "para_mrr": 1.0,
+     "para_ndcg@10": 1.0
+    },
+    {
+     "id": "q067",
+     "type": "numeric",
+     "retrieved": [
+      "tvsz:37:4",
+      "tvsz:57:8",
+      "tvsz:69:1",
+      "tvsz:57:2",
+      "vik_keresztfeleves:p5#2",
+      "vik_bprof_specval:3:4",
+      "tvsz:57:4",
+      "tvsz:57:1",
+      "tvsz:57:3",
+      "tvsz:78:3"
+     ],
+     "ranks": [
+      {
+       "bm25": 3,
+       "dense": 4
+      },
+      {
+       "bm25": 5,
+       "dense": 3
+      },
+      {
+       "bm25": 6,
+       "dense": 8
+      },
+      {
+       "bm25": 8,
+       "dense": 6
+      },
+      {
+       "bm25": 15,
+       "dense": 1
+      },
+      {
+       "bm25": 1,
+       "dense": 23
+      },
+      {
+       "bm25": 12,
+       "dense": 9
+      },
+      {
+       "bm25": 17,
+       "dense": 5
+      },
+      {
+       "bm25": 11,
+       "dense": 13
+      },
+      {
+       "bm25": 20,
+       "dense": 10
+      }
+     ],
+     "hit@1": 0.0,
+     "recall@1": 0.0,
+     "hit@3": 0.0,
+     "recall@3": 0.0,
+     "hit@5": 0.0,
+     "recall@5": 0.0,
+     "hit@10": 0.0,
+     "recall@10": 0.0,
+     "mrr": 0.0,
+     "ndcg@10": 0.0,
+     "para_hit@1": 0.0,
+     "para_recall@1": 0.0,
+     "para_hit@3": 0.0,
+     "para_recall@3": 0.0,
+     "para_hit@5": 0.0,
+     "para_recall@5": 0.0,
+     "para_hit@10": 0.0,
+     "para_recall@10": 0.0,
+     "para_mrr": 0.0,
+     "para_ndcg@10": 0.0
+    },
+    {
+     "id": "q068",
+     "type": "slang",
+     "retrieved": [
+      "vik_bprof_zv:p3",
+      "vik_bprof_specval:1:1",
+      "vik_tajekoztato_szd_bprof:s-a-félév-időbeosztása-szorgalmi-időszak-2",
+      "vik_bprof_zv:1",
+      "vik_bprof_zv:p20",
+      "vik_bprof_zv:p9:8",
+      "kp_bprof_uzinfo:p5~2",
+      "vik_bprof_zv:4",
+      "vik_bprof_zv:p10",
+      "vik_bprof_zv:p8"
+     ],
+     "ranks": [
+      {
+       "bm25": 8,
+       "dense": 3
+      },
+      {
+       "bm25": 7,
+       "dense": 12
+      },
+      {
+       "bm25": 42,
+       "dense": 2
+      },
+      {
+       "bm25": 11,
+       "dense": 29
+      },
+      {
+       "bm25": 5,
+       "dense": 44
+      },
+      {
+       "bm25": 15,
+       "dense": 26
+      },
+      {
+       "bm25": 26,
+       "dense": 15
+      },
+      {
+       "bm25": 16,
+       "dense": 25
+      },
+      {
+       "bm25": 19,
+       "dense": 32
+      },
+      {
+       "bm25": 18,
+       "dense": 35
+      }
+     ],
+     "hit@1": 0.0,
+     "recall@1": 0.0,
+     "hit@3": 0.0,
+     "recall@3": 0.0,
+     "hit@5": 0.0,
+     "recall@5": 0.0,
+     "hit@10": 0.0,
+     "recall@10": 0.0,
+     "mrr": 0.0,
+     "ndcg@10": 0.0,
+     "para_hit@1": 0.0,
+     "para_recall@1": 0.0,
+     "para_hit@3": 0.0,
+     "para_recall@3": 0.0,
+     "para_hit@5": 0.0,
+     "para_recall@5": 0.0,
+     "para_hit@10": 0.0,
+     "para_recall@10": 0.0,
+     "para_mrr": 0.0,
+     "para_ndcg@10": 0.0
+    },
+    {
+     "id": "q069",
+     "type": "slang",
+     "retrieved": [
+      "vik_bprof_zv:p10",
+      "kp_bprof_uzinfo:s-2-5-2-szaknyelvi-kompetenciák",
+      "kp_bprof_uzinfo:p3~4",
+      "vik_bprof_zv:tvsz162:1",
+      "vik_nyelvi_kreditek:s-ii-nyelvi-kreditek-megszerzése",
+      "vik_bprof_zv:tvsz159:1",
+      "vik_nyelvi_kreditek:p2~2#2",
+      "tvsz:146/C:1",
+      "vik_bprof_zv:tvsz159:2",
+      "vik_nyelvi_kreditek:p5"
+     ],
+     "ranks": [
+      {
+       "bm25": 2,
+       "dense": 1
+      },
+      {
+       "bm25": 4,
+       "dense": 4
+      },
+      {
+       "bm25": 3,
+       "dense": 11
+      },
+      {
+       "bm25": 1,
+       "dense": 16
+      },
+      {
+       "bm25": 5,
+       "dense": 12
+      },
+      {
+       "bm25": 11,
+       "dense": 15
+      },
+      {
+       "bm25": 37,
+       "dense": 2
+      },
+      {
+       "bm25": 23,
+       "dense": 23
+      },
+      {
+       "bm25": 29,
+       "dense": 20
+      },
+      {
+       "bm25": 12,
+       "dense": 42
+      }
+     ],
+     "hit@1": 0.0,
+     "recall@1": 0.0,
+     "hit@3": 0.0,
+     "recall@3": 0.0,
+     "hit@5": 0.0,
+     "recall@5": 0.0,
+     "hit@10": 1.0,
+     "recall@10": 1.0,
+     "mrr": 0.14285714285714285,
+     "ndcg@10": 0.3333333333333333,
+     "para_hit@1": 0.0,
+     "para_recall@1": 0.0,
+     "para_hit@3": 0.0,
+     "para_recall@3": 0.0,
+     "para_hit@5": 0.0,
+     "para_recall@5": 0.0,
+     "para_hit@10": 1.0,
+     "para_recall@10": 1.0,
+     "para_mrr": 0.14285714285714285,
+     "para_ndcg@10": 0.3333333333333333
+    },
+    {
+     "id": "q070",
+     "type": "slang",
+     "retrieved": [
+      "tvsz:154:7",
+      "tvsz:116:5",
+      "tvsz:154:3",
+      "tvsz:115:7",
+      "tvsz:154:2",
+      "vik_msc_zv:p1~2",
+      "vik_msc_zv:p14:5",
+      "vik_bsc_zv:p3",
+      "vik_bsc_zv:p10:5",
+      "vik_msc_zv:p23"
+     ],
+     "ranks": [
+      {
+       "bm25": 1,
+       "dense": 1
+      },
+      {
+       "bm25": 2,
+       "dense": 5
+      },
+      {
+       "bm25": 6,
+       "dense": 14
+      },
+      {
+       "bm25": 21,
+       "dense": 2
+      },
+      {
+       "bm25": 8,
+       "dense": 15
+      },
+      {
+       "bm25": 4,
+       "dense": 22
+      },
+      {
+       "bm25": 10,
+       "dense": 19
+      },
+      {
+       "bm25": 5,
+       "dense": 33
+      },
+      {
+       "bm25": 11,
+       "dense": 25
+      },
+      {
+       "bm25": 41,
+       "dense": 3
+      }
+     ],
+     "hit@1": 1.0,
+     "recall@1": 1.0,
+     "hit@3": 1.0,
+     "recall@3": 1.0,
+     "hit@5": 1.0,
+     "recall@5": 1.0,
+     "hit@10": 1.0,
+     "recall@10": 1.0,
+     "mrr": 1.0,
+     "ndcg@10": 1.0,
+     "para_hit@1": 1.0,
+     "para_recall@1": 1.0,
+     "para_hit@3": 1.0,
+     "para_recall@3": 1.0,
+     "para_hit@5": 1.0,
+     "para_recall@5": 1.0,
+     "para_hit@10": 1.0,
+     "para_recall@10": 1.0,
+     "para_mrr": 1.0,
+     "para_ndcg@10": 1.0
+    },
+    {
+     "id": "q073",
+     "type": "slang",
+     "retrieved": [
+      "tjsz:m2:1:2",
+      "tjsz:22:8",
+      "tjsz:12:4",
+      "kp_msc_eum:p5~5",
+      "tjsz:10:8",
+      "tvsz:104:2",
+      "tjsz:14:4",
+      "kp_bsc_gain:p1~12",
+      "tjsz:15:8",
+      "kp_bsc_vill:p1~13"
+     ],
+     "ranks": [
+      {
+       "bm25": 22,
+       "dense": 12
+      },
+      {
+       "bm25": 31,
+       "dense": 20
+      },
+      {
+       "bm25": 23,
+       "dense": 46
+      },
+      {
+       "bm25": 1
+      },
+      {
+       "dense": 1
+      },
+      {
+       "bm25": 2
+      },
+      {
+       "dense": 2
+      },
+      {
+       "bm25": 3
+      },
+      {
+       "dense": 3
+      },
+      {
+       "bm25": 4
+      }
+     ],
+     "hit@1": 0.0,
+     "recall@1": 0.0,
+     "hit@3": 0.0,
+     "recall@3": 0.0,
+     "hit@5": 0.0,
+     "recall@5": 0.0,
+     "hit@10": 0.0,
+     "recall@10": 0.0,
+     "mrr": 0.0,
+     "ndcg@10": 0.0,
+     "para_hit@1": 1.0,
+     "para_recall@1": 0.5,
+     "para_hit@3": 1.0,
+     "para_recall@3": 0.5,
+     "para_hit@5": 1.0,
+     "para_recall@5": 0.5,
+     "para_hit@10": 1.0,
+     "para_recall@10": 0.5,
+     "para_mrr": 1.0,
+     "para_ndcg@10": 0.6131471927654584
+    },
+    {
+     "id": "q075",
+     "type": "slang",
+     "retrieved": [
+      "vik_msc_zv:tvsz152:4",
+      "vik_msc_zv:p41",
+      "vik_msc_zv:p23",
+      "vik_bsc_zv_msc_felveteli:p26",
+      "vik_msc_zv:tvsz155:7",
+      "vik_msc_zv:tvsz160:1",
+      "vik_msc_zv:p6",
+      "kp_msc_eum:p15~4",
+      "vik_msc_zv:tvsz149:4",
+      "kp_msc_eum:p14~6"
+     ],
+     "ranks": [
+      {
+       "bm25": 41,
+       "dense": 6
+      },
+      {
+       "bm25": 44,
+       "dense": 9
+      },
+      {
+       "bm25": 37,
+       "dense": 14
+      },
+      {
+       "bm25": 39,
+       "dense": 21
+      },
+      {
+       "bm25": 29,
+       "dense": 31
+      },
+      {
+       "bm25": 50,
+       "dense": 24
+      },
+      {
+       "bm25": 45,
+       "dense": 38
+      },
+      {
+       "bm25": 1
+      },
+      {
+       "dense": 1
+      },
+      {
+       "bm25": 2
+      }
+     ],
+     "hit@1": 0.0,
+     "recall@1": 0.0,
+     "hit@3": 0.0,
+     "recall@3": 0.0,
+     "hit@5": 0.0,
+     "recall@5": 0.0,
+     "hit@10": 0.0,
+     "recall@10": 0.0,
+     "mrr": 0.0,
+     "ndcg@10": 0.0,
+     "para_hit@1": 0.0,
+     "para_recall@1": 0.0,
+     "para_hit@3": 0.0,
+     "para_recall@3": 0.0,
+     "para_hit@5": 0.0,
+     "para_recall@5": 0.0,
+     "para_hit@10": 1.0,
+     "para_recall@10": 1.0,
+     "para_mrr": 0.1111111111111111,
+     "para_ndcg@10": 0.3010299956639812
+    },
+    {
+     "id": "q076",
+     "type": "slang",
+     "retrieved": [
+      "tjsz:24:7",
+      "tjsz:24:5",
+      "tjsz:24:2",
+      "tjsz:39:6",
+      "tjsz:39:2",
+      "tjsz:24:4",
+      "tjsz:24:6",
+      "tjsz:24:1",
+      "tjsz:20:4",
+      "tjsz:35:2"
+     ],
+     "ranks": [
+      {
+       "bm25": 5,
+       "dense": 2
+      },
+      {
+       "bm25": 1,
+       "dense": 7
+      },
+      {
+       "bm25": 2,
+       "dense": 6
+      },
+      {
+       "bm25": 3,
+       "dense": 8
+      },
+      {
+       "bm25": 9,
+       "dense": 4
+      },
+      {
+       "bm25": 4,
+       "dense": 16
+      },
+      {
+       "bm25": 7,
+       "dense": 13
+      },
+      {
+       "bm25": 17,
+       "dense": 10
+      },
+      {
+       "bm25": 15,
+       "dense": 26
+      },
+      {
+       "bm25": 8,
+       "dense": 38
+      }
+     ],
+     "hit@1": 0.0,
+     "recall@1": 0.0,
+     "hit@3": 1.0,
+     "recall@3": 1.0,
+     "hit@5": 1.0,
+     "recall@5": 1.0,
+     "hit@10": 1.0,
+     "recall@10": 1.0,
+     "mrr": 0.5,
+     "ndcg@10": 0.6309297535714575,
+     "para_hit@1": 1.0,
+     "para_recall@1": 1.0,
+     "para_hit@3": 1.0,
+     "para_recall@3": 1.0,
+     "para_hit@5": 1.0,
+     "para_recall@5": 1.0,
+     "para_hit@10": 1.0,
+     "para_recall@10": 1.0,
+     "para_mrr": 1.0,
+     "para_ndcg@10": 1.0
+    },
+    {
+     "id": "q077",
+     "type": "unanswerable",
+     "retrieved": [
+      "tjsz:48:13",
+      "tjsz:11:2",
+      "vik_tajekoztato_szd_bprof:s-a-hallgatói-jogállás-megszűnésével-kapcs",
+      "tjsz:11:1",
+      "tjsz:11:5",
+      "vik_tajekoztato_dt_msc:s-a-hallgatói-jogállás-megszűnésével-kapcs",
+      "tjsz:48:11",
+      "vik_tajekoztato_szd_bsc:s-a-hallgatói-jogállás-megszűnésével-kapcs",
+      "tjsz:19:7",
+      "tjsz:m4:3:1"
+     ],
+     "ranks": [
+      {
+       "bm25": 1,
+       "dense": 8
+      },
+      {
+       "bm25": 8,
+       "dense": 6
+      },
+      {
+       "bm25": 7,
+       "dense": 7
+      },
+      {
+       "bm25": 2,
+       "dense": 14
+      },
+      {
+       "bm25": 9,
+       "dense": 9
+      },
+      {
+       "bm25": 6,
+       "dense": 15
+      },
+      {
+       "bm25": 11,
+       "dense": 10
+      },
+      {
+       "bm25": 5,
+       "dense": 18
+      },
+      {
+       "bm25": 3,
+       "dense": 22
+      },
+      {
+       "bm25": 4,
+       "dense": 29
+      }
+     ]
+    },
+    {
+     "id": "q079",
+     "type": "unanswerable",
+     "retrieved": [
+      "vik_szmsz:m2:s-2-fejlesztőközpont",
+      "tjsz:m2:3:1",
+      "vik_szmsz:5:2",
+      "tjsz:m2:1:1#3",
+      "vik_szakmai_gyak_msc:s-az-elvégzendő-feladat-részletezése",
+      "tjsz:m2:1:1#2",
+      "vik_szakmai_gyak_bsc:s-az-elvégzendő-feladat-részletezése",
+      "tjsz:m3:2:1#6",
+      "tvsz:128:5",
+      "vik_kepzesi_tajekoztato:s15"
+     ],
+     "ranks": [
+      {
+       "bm25": 1
+      },
+      {
+       "dense": 1
+      },
+      {
+       "bm25": 2
+      },
+      {
+       "dense": 2
+      },
+      {
+       "bm25": 3
+      },
+      {
+       "dense": 3
+      },
+      {
+       "bm25": 4
+      },
+      {
+       "dense": 4
+      },
+      {
+       "bm25": 5
+      },
+      {
+       "dense": 5
+      }
+     ]
+    },
+    {
+     "id": "q080",
+     "type": "unanswerable",
+     "retrieved": [
+      "kp_bsc_info:p1~3",
+      "kp_bsc_info:p3~12",
+      "kp_bsc_info:p10",
+      "tvsz:146/B:2",
+      "vik_bsc_zv_msc_felveteli:p6",
+      "vik_bsc_zv_msc_felveteli:p28",
+      "kp_bsc_info:targy:VITMAC14",
+      "tjsz:m3:3:4",
+      "kp_bsc_info:targy:VITMAC13",
+      "tvsz:173:7"
+     ],
+     "ranks": [
+      {
+       "bm25": 29,
+       "dense": 13
+      },
+      {
+       "bm25": 49,
+       "dense": 23
+      },
+      {
+       "bm25": 43,
+       "dense": 46
+      },
+      {
+       "bm25": 1
+      },
+      {
+       "dense": 1
+      },
+      {
+       "bm25": 2
+      },
+      {
+       "dense": 2
+      },
+      {
+       "bm25": 3
+      },
+      {
+       "dense": 3
+      },
+      {
+       "bm25": 4
+      }
+     ]
+    },
+    {
+     "id": "q082",
+     "type": "unanswerable",
+     "retrieved": [
+      "kp_bsc_gain:p8~5",
+      "kp_bsc_vill:p4~15",
+      "kp_bsc_gain:s-jogszabályban-felvételi-szabályzatban-és#4",
+      "kp_bprof_uzinfo:p9~2#1",
+      "kp_msc_info:p8~12",
+      "kp_msc_vill:p8~5",
+      "kp_bsc_gain:p2~22",
+      "kp_bprof_uzinfo:p3~5",
+      "vik_mi_hasznalat:s14",
+      "kp_msc_vill:p9~4#1"
+     ],
+     "ranks": [
+      {
+       "bm25": 1
+      },
+      {
+       "dense": 1
+      },
+      {
+       "bm25": 2
+      },
+      {
+       "dense": 2
+      },
+      {
+       "bm25": 3
+      },
+      {
+       "dense": 3
+      },
+      {
+       "bm25": 4
+      },
+      {
+       "dense": 4
+      },
+      {
+       "bm25": 5
+      },
+      {
+       "dense": 5
+      }
+     ]
+    },
+    {
+     "id": "q083",
+     "type": "unanswerable",
+     "retrieved": [
+      "tvsz:210/A:4",
+      "tjsz:9:1",
+      "kp_msc_ai:p6",
+      "tjsz:m2:3:1",
+      "kp_bsc_gain:p6~5",
+      "tjsz:12:4",
+      "kp_msc_urm:p6~4",
+      "tjsz:m3:2:1#6",
+      "kp_bsc_info:p6~5",
+      "tjsz:m2:1:1#2"
+     ],
+     "ranks": [
+      {
+       "bm25": 1
+      },
+      {
+       "dense": 1
+      },
+      {
+       "bm25": 2
+      },
+      {
+       "dense": 2
+      },
+      {
+       "bm25": 3
+      },
+      {
+       "dense": 3
+      },
+      {
+       "bm25": 4
+      },
+      {
+       "dense": 4
+      },
+      {
+       "bm25": 5
+      },
+      {
+       "dense": 5
+      }
+     ]
+    },
+    {
+     "id": "q084",
+     "type": "unanswerable",
+     "retrieved": [
+      "tanev_2026_27:m1:s-téli-szünet",
+      "tanev_2026_27:m1:s-tavaszi-szünet",
+      "vik_tanev_kieg_2:s1",
+      "tanev_2026_27:3:2",
+      "tanev_2026_27:7:1",
+      "tanev_2026_27:6:1",
+      "tanev_2026_27:5:1",
+      "vik_kepzesi_tajekoztato:s6#2",
+      "tanev_2026_27:m1:s-a-2026/2027-tanév-időbeosztása",
+      "tanev_2026_27:s-melléklet"
+     ],
+     "ranks": [
+      {
+       "bm25": 1,
+       "dense": 2
+      },
+      {
+       "bm25": 2,
+       "dense": 3
+      },
+      {
+       "bm25": 3,
+       "dense": 8
+      },
+      {
+       "bm25": 14,
+       "dense": 1
+      },
+      {
+       "bm25": 7,
+       "dense": 7
+      },
+      {
+       "bm25": 9,
+       "dense": 6
+      },
+      {
+       "bm25": 12,
+       "dense": 4
+      },
+      {
+       "bm25": 8,
+       "dense": 9
+      },
+      {
+       "bm25": 10,
+       "dense": 18
+      },
+      {
+       "bm25": 6,
+       "dense": 29
+      }
+     ]
+    },
+    {
+     "id": "q086",
+     "type": "unanswerable",
+     "retrieved": [
+      "vik_kepzesi_tajekoztato:s4",
+      "vik_kepzesi_tajekoztato:s12",
+      "vik_szmsz:5:1",
+      "tvsz:74/E:2",
+      "tvsz:13/A:8",
+      "vik_kepzesi_tajekoztato:s13",
+      "tvsz:202:2",
+      "tvsz:13:8",
+      "tvsz:216/C:7",
+      "kp_bsc_info:p2~16"
+     ],
+     "ranks": [
+      {
+       "bm25": 3,
+       "dense": 1
+      },
+      {
+       "bm25": 13,
+       "dense": 11
+      },
+      {
+       "bm25": 1
+      },
+      {
+       "bm25": 2
+      },
+      {
+       "dense": 2
+      },
+      {
+       "dense": 3
+      },
+      {
+       "bm25": 4
+      },
+      {
+       "dense": 4
+      },
+      {
+       "bm25": 5
+      },
+      {
+       "dense": 5
+      }
+     ]
+    }
+   ],
+   "answer_summary": {
+    "correctness": 0.8017,
+    "false_refusal": 0.1538,
+    "cit_precision": 0.8225,
+    "cit_recall": 0.8261,
+    "para_cit_precision": 0.8333,
+    "para_cit_recall": 0.837,
+    "quote_verified": 0.8561,
+    "context_hit": 0.8077,
+    "abstain_correct": 1.0,
+    "verdicts": {
+     "correct": 45,
+     "partial": 3,
+     "incorrect": 10,
+     "null": 1
+    },
+    "by_type": {
+     "curriculum": {
+      "correctness": 0.9375
+     },
+     "english": {
+      "correctness": 0.3333
+     },
+     "fact": {
+      "correctness": 0.8333
+     },
+     "multi": {
+      "correctness": 0.8571
+     },
+     "numeric": {
+      "correctness": 0.875
+     },
+     "slang": {
+      "correctness": 0.3333
+     },
+     "unanswerable": {
+      "correctness": 1.0
+     }
+    }
+   },
+   "answer_rows": [
+    {
+     "id": "q002",
+     "type": "curriculum",
+     "answerable_gold": true,
+     "answer": "A Rendszerelmélet (VIHVAD00) tantárgy a Mérnökinformatikus BSc képzésben 5 kredites, és az őszi félévben hirdetik meg. [Mérnökinformatikus BSc képzési program – mintatanterv: VIHVAD00 Rendszerelmélet]",
+     "answerable_pred": true,
+     "model": "groq:qwen/qwen3.8-27b",
+     "error": "",
+     "citations": [
+      {
+       "source": "S1",
+       "chunk_id": "kp_bsc_info:targy:VIHVAD00",
+       "citation": "Mérnökinformatikus BSc képzési program – mintatanterv: VIHVAD00 Rendszerelmélet",
+       "quote": "Ajánlott félév: őszi félévben meghirdetve. ... Kredit: 5.",
+       "quote_score": 82.45614035087719,
+       "verified": false
+      }
+     ],
+     "context": [
+      "kp_bsc_info:targy:VIHVAD00",
+      "kp_bprof_uzinfo:p3~18",
+      "kp_bprof_uzinfo:p3~19",
+      "kp_bsc_info:targy:VIMIAD03",
+      "kp_msc_vill:s-6-a-képzés-mintatanterve"
+     ],
+     "verdict": "correct",
+     "judge_reason": "A rendszer válasza tartalmazza a referenciaszöveg lényeges elemeit (5 kredit, őszi félév), és nem állít azzal ellentéteset.",
+     "judge_model": "gemini:gemini-3.5-flash-lite",
+     "correctness": 1.0,
+     "false_refusal": 0.0,
+     "cit_precision": 1.0,
+     "cit_recall": 1.0,
+     "para_cit_precision": 1.0,
+     "para_cit_recall": 1.0,
+     "quote_verified": 0.0,
+     "context_hit": 1.0
+    },
+    {
+     "id": "q003",
+     "type": "curriculum",
+     "answerable_gold": true,
+     "answer": "Az Orvosbiológiai sz.gépes gyak. tantárgy ajánlott féléve a 3. félév [Egészségügyi mérnöki MSc képzési program – mintatanterv: Orvosbiológiai sz.gépes gyak.][Egészségügyi mérnöki MSc képzési program – mintatanterv: Orvosbiológiai sz.gépes gyak.].",
+     "answerable_pred": true,
+     "model": "groq:qwen/qwen3.8-27b",
+     "error": "",
+     "citations": [
+      {
+       "source": "S1",
+       "chunk_id": "kp_msc_eum:targy:orvosbiológiai-sz-gépes-gyak~2",
+       "citation": "Egészségügyi mérnöki MSc képzési program – mintatanterv: Orvosbiológiai sz.gépes gyak.",
+       "quote": "Ajánlott félév: 3.",
+       "quote_score": 100.0,
+       "verified": true
+      },
+      {
+       "source": "S2",
+       "chunk_id": "kp_msc_eum:targy:orvosbiológiai-sz-gépes-gyak",
+       "citation": "Egészségügyi mérnöki MSc képzési program – mintatanterv: Orvosbiológiai sz.gépes gyak.",
+       "quote": "Ajánlott félév: 3.",
+       "quote_score": 100.0,
+       "verified": true
+      }
+     ],
+     "context": [
+      "kp_msc_eum:targy:orvosbiológiai-sz-gépes-gyak~2",
+      "kp_msc_eum:targy:orvosbiológiai-sz-gépes-gyak",
+      "kp_msc_eum:targy:orvosbiológiai-méréstechnika",
+      "kp_msc_eum:s-2-a-képzés-tartalma-sajátosságai-és-köve#2",
+      "kp_msc_eum:targy:orvosbiológiai-méréstechnika~2"
+     ],
+     "verdict": "correct",
+     "judge_reason": "A rendszer válasza helyesen azonosítja a 3. félévet, ami megegyezik a referenciaválasz tartalmával.",
+     "judge_model": "gemini:gemini-3.5-flash-lite",
+     "correctness": 1.0,
+     "false_refusal": 0.0,
+     "cit_precision": 1.0,
+     "cit_recall": 1.0,
+     "para_cit_precision": 1.0,
+     "para_cit_recall": 1.0,
+     "quote_verified": 1.0,
+     "context_hit": 1.0
+    },
+    {
+     "id": "q004",
+     "type": "curriculum",
+     "answerable_gold": true,
+     "answer": "A „Komplex űrberendezések fejlesztésének koordinálása” tantárgy felvételére az 1. félév javasolt, és 3 kreditet kap belőle a hallgató. [Űrmérnök MSc képzési program – mintatanterv: Komplex űrberendezések fejlesztésének koordinálása]",
+     "answerable_pred": true,
+     "model": "groq:qwen/qwen3.8-27b",
+     "error": "",
+     "citations": [
+      {
+       "source": "S1",
+       "chunk_id": "kp_msc_urm:targy:komplex-űrberendezések-fejlesztésének-ko~2",
+       "citation": "Űrmérnök MSc képzési program – mintatanterv: Komplex űrberendezések fejlesztésének koordinálása",
+       "quote": "Ajánlott félév: 1. ... Kredit: 3.",
+       "quote_score": 69.6969696969697,
+       "verified": false
+      }
+     ],
+     "context": [
+      "kp_msc_urm:targy:komplex-űrberendezések-fejlesztésének-ko~2",
+      "kp_msc_urm:targy:komplex-űrberendezések-fejlesztésének-ko",
+      "kp_msc_urm:s-2-5-2-szaknyelvi-kompetenciák",
+      "vik_mi_hasznalat:s14",
+      "tvsz:177:6"
+     ],
+     "verdict": "correct",
+     "judge_reason": "A rendszer válasza pontosan tartalmazza mind a félévet (1. félév), mind a kreditek számát (3 kredit), megegyezve a referenciaválasszal.",
+     "judge_model": "gemini:gemini-3.5-flash-lite",
+     "correctness": 1.0,
+     "false_refusal": 0.0,
+     "cit_precision": 1.0,
+     "cit_recall": 1.0,
+     "para_cit_precision": 1.0,
+     "para_cit_recall": 1.0,
+     "quote_verified": 0.0,
+     "context_hit": 1.0
+    },
+    {
+     "id": "q006",
+     "type": "curriculum",
+     "answerable_gold": true,
+     "answer": "A Villamosmérnöki MSc képzésben az 'Önálló laboratórium' tantárgyért 5 kreditet lehet szerezni [Villamosmérnöki MSc képzési program – mintatanterv: Önálló laboratórium][Villamosmérnöki MSc képzési program – mintatanterv: Önálló laboratórium]. A források két eltérő ajánlott félévet tartalmaznak: az egyik forrás szerint a 1. félévre, a másik szerint a 0. félévre javasolt a felvétel [Villamosmérnöki MSc képzési program – mintatanterv: Önálló laboratórium][Villamosmérnöki MSc képzési program – mintatanterv: Önálló laboratórium].",
+     "answerable_pred": true,
+     "model": "groq:qwen/qwen3.8-27b",
+     "error": "",
+     "citations": [
+      {
+       "source": "S1",
+       "chunk_id": "kp_msc_vill:targy:önálló-laboratórium",
+       "citation": "Villamosmérnöki MSc képzési program – mintatanterv: Önálló laboratórium",
+       "quote": "Ajánlott félév: 1. ... Kredit: 5.",
+       "quote_score": 69.6969696969697,
+       "verified": false
+      },
+      {
+       "source": "S2",
+       "chunk_id": "kp_msc_vill:targy:önálló-laboratórium~2",
+       "citation": "Villamosmérnöki MSc képzési program – mintatanterv: Önálló laboratórium",
+       "quote": "Ajánlott félév: 0. ... Kredit: 5.",
+       "quote_score": 69.6969696969697,
+       "verified": false
+      }
+     ],
+     "context": [
+      "kp_msc_vill:targy:önálló-laboratórium",
+      "kp_msc_vill:targy:önálló-laboratórium~2",
+      "kp_bsc_vill:targy:önálló-laboratórium",
+      "kp_msc_gain:targy:önálló-laboratórium-1~2",
+      "vik_nyelvi_kreditek:p2~2#1"
+     ],
+     "verdict": "partial",
+     "judge_reason": "A kreditszámot helyesen adta meg (5), de a félévre vonatkozóan bizonytalan és ellentmondásos információt közöl a referenciaválaszhoz képest.",
+     "judge_model": "gemini:gemini-3.5-flash-lite",
+     "correctness": 0.5,
+     "false_refusal": 0.0,
+     "cit_precision": 1.0,
+     "cit_recall": 1.0,
+     "para_cit_precision": 1.0,
+     "para_cit_recall": 1.0,
+     "quote_verified": 0.0,
+     "context_hit": 1.0
+    },
+    {
+     "id": "q007",
+     "type": "curriculum",
+     "answerable_gold": true,
+     "answer": "A TEMIBSVANL1-00 Analízis 1 informatikusoknak tantárgy 8 kreditet ér, és az 1. félévre javasolt felvenni [Mérnökinformatikus BSc képzési program – mintatanterv: TEMIBSVANL1-00 Analízis 1 informatikusoknak].",
+     "answerable_pred": true,
+     "model": "groq:qwen/qwen3.8-27b",
+     "error": "",
+     "citations": [
+      {
+       "source": "S1",
+       "chunk_id": "kp_bsc_info:targy:TEMIBSVANL1-00",
+       "citation": "Mérnökinformatikus BSc képzési program – mintatanterv: TEMIBSVANL1-00 Analízis 1 informatikusoknak",
+       "quote": "Ajánlott félév: 1. ... Kredit: 8.",
+       "quote_score": 69.6969696969697,
+       "verified": false
+      }
+     ],
+     "context": [
+      "kp_bsc_info:targy:TEMIBSVANL1-00",
+      "kp_bsc_info:targy:TE90AX57",
+      "kp_bsc_vill:targy:TEMIB-SVMAT1-00",
+      "tanev_2026_27:4:1",
+      "tanev_2026_27:5:1"
+     ],
+     "verdict": "correct",
+     "judge_reason": "A rendszer válasza pontosan tartalmazza a kredit értékét (8) és a javasolt félévet (1. félév), megegyezve a referenciaválasszal.",
+     "judge_model": "gemini:gemini-3.5-flash-lite",
+     "correctness": 1.0,
+     "false_refusal": 0.0,
+     "cit_precision": 1.0,
+     "cit_recall": 1.0,
+     "para_cit_precision": 1.0,
+     "para_cit_recall": 1.0,
+     "quote_verified": 0.0,
+     "context_hit": 1.0
+    },
+    {
+     "id": "q008",
+     "type": "curriculum",
+     "answerable_gold": true,
+     "answer": "A VITMAB05 Infokommunikáció tárgy a Villamosmérnöki BSc programban 6 kreditet ér [Villamosmérnöki BSc képzési program – mintatanterv: VITMAB05 Infokommunikáció].",
+     "answerable_pred": true,
+     "model": "groq:qwen/qwen3.8-27b",
+     "error": "",
+     "citations": [
+      {
+       "source": "S1",
+       "chunk_id": "kp_bsc_vill:targy:VITMAB05",
+       "citation": "Villamosmérnöki BSc képzési program – mintatanterv: VITMAB05 Infokommunikáció",
+       "quote": "Kredit: 6.",
+       "quote_score": 100.0,
+       "verified": true
+      }
+     ],
+     "context": [
+      "kp_bsc_vill:targy:VITMAB05",
+      "kp_bsc_vill:p3~16",
+      "kp_bsc_vill:s-2-5-2-szaknyelvi-kompetenciák",
+      "kp_bsc_vill:targy:VITMAC10",
+      "kp_msc_vill:s-2-5-2-szaknyelvi-kompetenciák"
+     ],
+     "verdict": "correct",
+     "judge_reason": "A rendszer válasza pontosan megegyezik a referenciaválasszal, megadva a 6 kredites értéket.",
+     "judge_model": "gemini:gemini-3.5-flash-lite",
+     "correctness": 1.0,
+     "false_refusal": 0.0,
+     "cit_precision": 1.0,
+     "cit_recall": 1.0,
+     "para_cit_precision": 1.0,
+     "para_cit_recall": 1.0,
+     "quote_verified": 1.0,
+     "context_hit": 1.0
+    },
+    {
+     "id": "q009",
+     "type": "curriculum",
+     "answerable_gold": true,
+     "answer": "A \"A programozás alapjai 2\" (VIAUAA01) tárgyra a Villamosmérnöki BSc képzésben 6 kreditpont jár, és a 2. félévre ajánlják felvenni [Villamosmérnöki BSc képzési program – mintatanterv: VIAUAA01 A programozás alapjai 2].",
+     "answerable_pred": true,
+     "model": "groq:qwen/qwen3.8-27b",
+     "error": "",
+     "citations": [
+      {
+       "source": "S1",
+       "chunk_id": "kp_bsc_vill:targy:VIAUAA01",
+       "citation": "Villamosmérnöki BSc képzési program – mintatanterv: VIAUAA01 A programozás alapjai 2",
+       "quote": "Ajánlott félév: 2. ... Kredit: 6.",
+       "quote_score": 69.6969696969697,
+       "verified": false
+      }
+     ],
+     "context": [
+      "kp_bsc_vill:targy:VIAUAA01",
+      "kp_bsc_vill:targy:VIHIAA01",
+      "kp_bsc_vill:targy:VISZAA07",
+      "kp_bsc_info:targy:VIEEAA00",
+      "kp_bsc_vill:targy:VIETAA01"
+     ],
+     "verdict": "correct",
+     "judge_reason": "A rendszer válasza pontosan tartalmazza a referenciaválaszban szereplő összes információt (6 kreditpont, 2. félév).",
+     "judge_model": "gemini:gemini-3.5-flash-lite",
+     "correctness": 1.0,
+     "false_refusal": 0.0,
+     "cit_precision": 1.0,
+     "cit_recall": 1.0,
+     "para_cit_precision": 1.0,
+     "para_cit_recall": 1.0,
+     "quote_verified": 0.0,
+     "context_hit": 1.0
+    },
+    {
+     "id": "q011",
+     "type": "curriculum",
+     "answerable_gold": true,
+     "answer": "Az IT architektúrák tantárgyért 4 kreditet kapsz, és a követelmény egy gyakorlati jegy (félévközi érdemjegy) teljesítése. [Gazdaságinformatikus BSc képzési program – mintatanterv: IT architektúrák]",
+     "answerable_pred": true,
+     "model": "groq:qwen/qwen3.8-27b",
+     "error": "",
+     "citations": [
+      {
+       "source": "S1",
+       "chunk_id": "kp_bsc_gain:targy:it-architektúrák",
+       "citation": "Gazdaságinformatikus BSc képzési program – mintatanterv: IT architektúrák",
+       "quote": "Követelmény: gyakorlati jegy (félévközi érdemjegy) (gyj). Kredit: 4.",
+       "quote_score": 100.0,
+       "verified": true
+      }
+     ],
+     "context": [
+      "kp_bsc_gain:targy:it-architektúrák",
+      "kp_bsc_gain:targy:it-biztonság",
+      "kp_bsc_gain:s-2-5-2-szaknyelvi-kompetenciák",
+      "kp_bsc_gain:targy:it-üzleti-elemzés",
+      "kp_bsc_gain:p11"
+     ],
+     "verdict": "correct",
+     "judge_reason": "A rendszer válasza pontosan tartalmazza a kredit értéket és a követelmény típusát a referenciának megfelelően.",
+     "judge_model": "gemini:gemini-3.5-flash-lite",
+     "correctness": 1.0,
+     "false_refusal": 0.0,
+     "cit_precision": 1.0,
+     "cit_recall": 1.0,
+     "para_cit_precision": 1.0,
+     "para_cit_recall": 1.0,
+     "quote_verified": 1.0,
+     "context_hit": 1.0
+    },
+    {
+     "id": "q014",
+     "type": "english",
+     "answerable_gold": true,
+     "answer": "No, if you have overdue tuition payments (payment arrears) towards the University, you are not allowed to enroll, register for an active semester, take a course, or sign up for an exam (or quiz). [TVSZ 52. § (8)]",
+     "answerable_pred": true,
+     "model": "groq:qwen/qwen3.8-27b",
+     "error": "",
+     "citations": [
+      {
+       "source": "S2",
+       "chunk_id": "tvsz:52:8",
+       "citation": "TVSZ 52. § (8)",
+       "quote": "nem iratkozhat be, nem jelentkezhet be aktív félévre, nem vehet fel tantárgyat, nem vehet fel kurzust, nem jelentkezhet vizsgára",
+       "quote_score": 100.0,
+       "verified": true
+      }
+     ],
+     "context": [
+      "kp_msc_eum:s-2-a-képzés-tartalma-sajátosságai-és-köve#4",
+      "tvsz:52:8",
+      "kp_msc_eum:p5~5",
+      "tvsz:57:3a",
+      "kp_msc_eum:s-2-a-képzés-tartalma-sajátosságai-és-köve#2"
+     ],
+     "verdict": "correct",
+     "judge_reason": "A rendszer válasza lényegében és részleteiben is pontosan megegyezik a referenciaválasszal, helyesen tiltja meg az iratkozást, tantárgy- és vizsgajelentkezést hátralék esetén.",
+     "judge_model": "gemini:gemini-3.5-flash-lite",
+     "correctness": 1.0,
+     "false_refusal": 0.0,
+     "cit_precision": 1.0,
+     "cit_recall": 1.0,
+     "para_cit_precision": 1.0,
+     "para_cit_recall": 1.0,
+     "quote_verified": 1.0,
+     "context_hit": 1.0
+    },
+    {
+     "id": "q016",
+     "type": "english",
+     "answerable_gold": true,
+     "answer": "A megadott szabályzatrészletek alapján nem tudom megválaszolni a kérdést, mivel a források nem tartalmazzák a kar által végzett besorolás pontos határidejét a tavaszi vizsgaidőszak után, valamint a hallgatók értesítésének időpontját.",
+     "answerable_pred": false,
+     "model": "groq:qwen/qwen3.8-27b",
+     "error": "",
+     "citations": [],
+     "context": [
+      "vik_bprof_specval:1:1",
+      "vik_tajekoztato_szd_bprof:s-0",
+      "kp_msc_vill:p9~9#1",
+      "vik_bprof_kooperativ:4:3",
+      "kp_msc_ai:s-a-szak-megnevezése"
+     ],
+     "verdict": "incorrect",
+     "judge_reason": "A referenciaválasz tartalmazza a pontos határidőket, de a rendszer válasza azt állítja, hogy a szabályzat nem tartalmazza ezeket, így helytelen.",
+     "judge_model": "gemini:gemini-3.5-flash-lite",
+     "correctness": 0.0,
+     "false_refusal": 1.0,
+     "quote_verified": null,
+     "context_hit": 0.0
+    },
+    {
+     "id": "q017",
+     "type": "english",
+     "answerable_gold": true,
+     "answer": "A megadott források nem tartalmazzák a választ.",
+     "answerable_pred": false,
+     "model": "groq:qwen/qwen3.8-27b",
+     "error": "",
+     "citations": [],
+     "context": [
+      "vik_bprof_specval:3:3",
+      "vik_bprof_specval:3:1",
+      "kp_bprof_uzinfo:s-végzettségi-szint",
+      "vik_bprof_specval:1:1",
+      "vik_bprof_specval:5:3"
+     ],
+     "verdict": "incorrect",
+     "judge_reason": "A referenciaválasz tartalmazza a pontos információt (90 kredittel), míg a rendszer válasza szerint a források nem tartalmazzák a választ.",
+     "judge_model": "gemini:gemini-3.5-flash-lite",
+     "correctness": 0.0,
+     "false_refusal": 1.0,
+     "quote_verified": null,
+     "context_hit": 0.0
+    },
+    {
+     "id": "q018",
+     "type": "fact",
+     "answerable_gold": true,
+     "answer": "A villamosmérnöki szak felvételi vizsgájában a Jelek és rendszerek 2. tantárgyat 1/3 súllyal súlyozzák. [BSc ZV – MSc felvételi 5. pont – FELVÉTELI PONTOZÁSI RENDSZER]",
+     "answerable_pred": true,
+     "model": "groq:qwen/qwen3.8-27b",
+     "error": "",
+     "citations": [
+      {
+       "source": "S1",
+       "chunk_id": "vik_bsc_zv_msc_felveteli:p5",
+       "citation": "BSc ZV – MSc felvételi 5. pont – FELVÉTELI PONTOZÁSI RENDSZER",
+       "quote": "Jelek és rendszerek 2. tantárgy 1/3 súllyal",
+       "quote_score": 100.0,
+       "verified": true
+      }
+     ],
+     "context": [
+      "vik_bsc_zv_msc_felveteli:p5",
+      "vik_bsc_zv_msc_felveteli:p4",
+      "kp_msc_vill:p2~9",
+      "vik_bsc_zv_msc_felveteli:p6",
+      "vik_bsc_zv_msc_felveteli:p10"
+     ],
+     "verdict": "correct",
+     "judge_reason": "A rendszer válasza pontosan tartalmazza a referenciaválasz lényegi információját, azaz az 1/3-os súlyozást.",
+     "judge_model": "gemini:gemini-3.5-flash-lite",
+     "correctness": 1.0,
+     "false_refusal": 0.0,
+     "cit_precision": 1.0,
+     "cit_recall": 1.0,
+     "para_cit_precision": 1.0,
+     "para_cit_recall": 1.0,
+     "quote_verified": 1.0,
+     "context_hit": 1.0
+    },
+    {
+     "id": "q020",
+     "type": "fact",
+     "answerable_gold": true,
+     "answer": "A generatív MI által generált képek és grafikonok esetében a következő hivatkozási kötelezettségek vonatkoznak: \n\n1. Képek generálása illusztrációs célból: Mindig fel kell tüntetni a kép generált mivoltát és az azt generáló alkalmazást. Ha egy létező fotó, felvétel vagy műalkotás a képgenerálás alapja, akkor arra is külön hivatkozást kell adni [MI-használati irányelvek – Szövegblokkok létrehozása].\n2. Adatvizualizáció, grafikonok generálása: A generatív MI által generált grafikonoknál nem maradhat el a hivatkozás, és ezt a használatot a nyilatkozatban is fel kell tüntetni a dokumentum érintett részeinek beazonosításával [MI-használati irányelvek – Szövegblokkok létrehozása].\n3. Általános hivatkozási forma: Ha a generált tartalom olyan információt vagy következtetést tartalmaz, amely nem képezte a prompt részét, azt irodalmi forrásmegjelölésekhez hasonló módon hivatkozni kell, a karon az „MLA” ajánlás követése az előírás. Az irodalomjegyzékben szereplő bejegyzésnek tartalmaznia kell a prompt rövid tartalmát, a modell nevét verziószámmal, a modellt előállító vállalat nevét és a lekérdezés dátumát [MI-használati irányelvek – Generatív MI válaszából átvett információk, következtetések hivatkozása].\n4. Nyilatkozat: A szakdolgozat esetében a generatív MI felhasználásáról szóló nyilatkozat minden esetben szükséges, és a nyilatkozatnak minden felhasználásra ki kell terjednie [MI-használati irányelvek – Hallgatóknak].",
+     "answerable_pred": true,
+     "model": "groq:qwen/qwen3.8-27b",
+     "error": "",
+     "citations": [
+      {
+       "source": "S1",
+       "chunk_id": "vik_mi_hasznalat:s10",
+       "citation": "MI-használati irányelvek – Szövegblokkok létrehozása",
+       "quote": "MI által generált képeknél mindig fel kell tüntetni a kép generált mivoltát és az azt generáló alkalmazást",
+       "quote_score": 100.0,
+       "verified": true
+      },
+      {
+       "source": "S1",
+       "chunk_id": "vik_mi_hasznalat:s10",
+       "citation": "MI-használati irányelvek – Szövegblokkok létrehozása",
+       "quote": "A generatív MI által generált grafikonoknál nem maradhat el a hivatkozás, és ezt a használatot a nyilatkozatban is fel kell tüntetni",
+       "quote_score": 100.0,
+       "verified": true
+      },
+      {
+       "source": "S4",
+       "chunk_id": "vik_mi_hasznalat:s19",
+       "citation": "MI-használati irányelvek – Generatív MI válaszából átvett információk, következtetések hivatkozása",
+       "quote": "a karon az “MLA” ajánlás követése az előírás",
+       "quote_score": 100.0,
+       "verified": true
+      },
+      {
+       "source": "S5",
+       "chunk_id": "vik_mi_hasznalat:s17",
+       "citation": "MI-használati irányelvek – Hallgatóknak",
+       "quote": "Szakdolgozat és diplomamunka esetében a nyilatkozat minden esetben szükséges",
+       "quote_score": 100.0,
+       "verified": true
+      }
+     ],
+     "context": [
+      "vik_mi_hasznalat:s10",
+      "vik_mi_hasznalat:s20",
+      "vik_mi_hasznalat:s6",
+      "vik_mi_hasznalat:s19",
+      "vik_mi_hasznalat:s17"
+     ],
+     "verdict": "correct",
+     "judge_reason": "A rendszer válasza teljes körűen és pontosan tartalmazza a referenciaválasz lényegi információit, kiegészítve azt a hivatkozási formára és nyilatkozatra vonatkozó részletekkel.",
+     "judge_model": "gemini:gemini-3.5-flash-lite",
+     "correctness": 1.0,
+     "false_refusal": 0.0,
+     "cit_precision": 0.3333333333333333,
+     "cit_recall": 1.0,
+     "para_cit_precision": 0.3333333333333333,
+     "para_cit_recall": 1.0,
+     "quote_verified": 1.0,
+     "context_hit": 1.0
+    },
+    {
+     "id": "q021",
+     "type": "fact",
+     "answerable_gold": true,
+     "answer": "A megadott források alapján a végbizonyítvány megszerzését követően a hallgatói jogviszony megszűnése után két éven belül bármelyik záróvizsga-időszakban letehető a záróvizsga [BProf ZV-szabályzat [TVSZ 149. §-hoz] (2)][MSc ZV-szabályzat [TVSZ 149. §-hoz] (2)]. A szabályzatok nem tartalmaznak kifejezett engedélyt vagy lehetőséget a záróvizsga letételére a két éves határidő letelte után, így a források alapján nem teheted meg a régi szakdolgozattal, mivel a határidő már lejárt.",
+     "answerable_pred": true,
+     "model": "groq:qwen/qwen3.8-27b",
+     "error": "",
+     "citations": [
+      {
+       "source": "S1",
+       "chunk_id": "vik_bprof_zv:tvsz149:2",
+       "citation": "BProf ZV-szabályzat [TVSZ 149. §-hoz] (2)",
+       "quote": "a hallgatói jogviszony megszűnése után, két éven belül, bármelyik záróvizsga-időszakban",
+       "quote_score": 100.0,
+       "verified": true
+      },
+      {
+       "source": "S4",
+       "chunk_id": "vik_msc_zv:tvsz149:2",
+       "citation": "MSc ZV-szabályzat [TVSZ 149. §-hoz] (2)",
+       "quote": "a hallgatói jogviszony megszűnése után, két éven belül, bármelyik záróvizsga-időszakban",
+       "quote_score": 100.0,
+       "verified": true
+      }
+     ],
+     "context": [
+      "vik_bprof_zv:tvsz149:2",
+      "vik_msc_zv:tvsz149:3",
+      "vik_bprof_zv:tvsz149:3",
+      "vik_msc_zv:tvsz149:2",
+      "vik_bsc_zv:tvsz149:3"
+     ],
+     "verdict": "incorrect",
+     "judge_reason": "A rendszer válasza ellentmond a referenciaválassznak: a szabályzatok szerint a két év eltelte után is lehetséges a záróvizsga, feltéve, hogy a szakfelelős a szakdolgozatot aktuálisnak fogadja el.",
+     "judge_model": "gemini:gemini-3.5-flash-lite",
+     "correctness": 0.0,
+     "false_refusal": 0.0,
+     "cit_precision": 0.0,
+     "cit_recall": 0.0,
+     "para_cit_precision": 0.0,
+     "para_cit_recall": 0.0,
+     "quote_verified": 1.0,
+     "context_hit": 1.0
+    },
+    {
+     "id": "q024",
+     "type": "fact",
+     "answerable_gold": true,
+     "answer": "A megadott források alapján a ChatGPT használata házi feladathoz (programkód generálására) csak akkor engedélyezett, ha a tantárgy oktatója kifejezetten engedélyezi. Ilyen esetben a generált kódokat meg kell jelölni, és a nyilatkozaton is tételesen szerepeltetni kell őket. Az asszisztív, kód-predikció alapú modellek használata hivatkozás és jelölés nélkül szabadon engedélyezett, de a ChatGPT a forrás szerint a direktív úton generáló eszközök közé tartozik, így az oktató engedélye szükséges. [MI-használati irányelvek – Programkód generálás]",
+     "answerable_pred": true,
+     "model": "groq:qwen/qwen3.8-27b",
+     "error": "",
+     "citations": [
+      {
+       "source": "S2",
+       "chunk_id": "vik_mi_hasznalat:s7",
+       "citation": "MI-használati irányelvek – Programkód generálás",
+       "quote": "Ezek használatát a tantárgy oktatójának kifejezetten engedélyeznie kell",
+       "quote_score": 100.0,
+       "verified": true
+      },
+      {
+       "source": "S2",
+       "chunk_id": "vik_mi_hasznalat:s7",
+       "citation": "MI-használati irányelvek – Programkód generálás",
+       "quote": "a generált kódokat meg kell jelölni és a nyilatkozaton is szükséges tételesen szerepeltetni",
+       "quote_score": 100.0,
+       "verified": true
+      }
+     ],
+     "context": [
+      "vik_mi_hasznalat:s21",
+      "vik_mi_hasznalat:s7",
+      "vik_szmsz:m3:s-1-a-bme-vik-en-folytatott-képzések-és-tu",
+      "vik_bsc_zv_msc_felveteli:p16",
+      "kp_bsc_info:targy:gazdhum-3-gtk-vagy-vik-csoport"
+     ],
+     "verdict": "partial",
+     "judge_reason": "A rendszer válasza túlságosan leszűkíti a programkód generálására, és szigorúbb engedélyezési feltételt állít fel a referenciaválasz általánosabb megengedő elvéhez képest.",
+     "judge_model": "gemini:gemini-3.5-flash-lite",
+     "correctness": 0.5,
+     "false_refusal": 0.0,
+     "cit_precision": 0.0,
+     "cit_recall": 0.0,
+     "para_cit_precision": 0.0,
+     "para_cit_recall": 0.0,
+     "quote_verified": 1.0,
+     "context_hit": 0.0
+    },
+    {
+     "id": "q025",
+     "type": "fact",
+     "answerable_gold": true,
+     "answer": "Ha a szak képzési programja nem írja elő szigorlat letételét és szakdolgozat (diplomamunka) készítését, az oklevéleredményt a 0,5×ZT+0,5×TÁ kifejezéssel kell meghatározni [TVSZ 160. § (2a)]. Az eredményt két tizedesjegyre kell kerekíteni, a közbenső részeredményeket nem szabad kerekíteni [BSc ZV-szabályzat [TVSZ 160. §-hoz] (1)][MSc ZV-szabályzat [TVSZ 160. §-hoz] (1)].",
+     "answerable_pred": true,
+     "model": "groq:qwen/qwen3.8-27b",
+     "error": "",
+     "citations": [
+      {
+       "source": "S1",
+       "chunk_id": "tvsz:160:2a",
+       "citation": "TVSZ 160. § (2a)",
+       "quote": "Amennyiben a szak képzési programja nem írja elő szigorlat letételét és szakdolgozat (diplomamunka) készítését, úgy az oklevéleredményt a 0,5×ZT+0,5×TÁ kifejezéssel kell meghatározni.",
+       "quote_score": 100.0,
+       "verified": true
+      },
+      {
+       "source": "S4",
+       "chunk_id": "vik_bsc_zv:tvsz160:1",
+       "citation": "BSc ZV-szabályzat [TVSZ 160. §-hoz] (1)",
+       "quote": "Az oklevél eredményét két tizedesjegyre kerekítve kell meghatározni, a közbenső részeredményeket nem szabad kerekíteni.",
+       "quote_score": 100.0,
+       "verified": true
+      },
+      {
+       "source": "S5",
+       "chunk_id": "vik_msc_zv:tvsz160:1",
+       "citation": "MSc ZV-szabályzat [TVSZ 160. §-hoz] (1)",
+       "quote": "Az oklevél eredményét két tizedesjegyre kerekítve kell meghatározni, a közbenső részeredményeket nem szabad kerekíteni.",
+       "quote_score": 100.0,
+       "verified": true
+      }
+     ],
+     "context": [
+      "tvsz:160:2a",
+      "tvsz:160:2b",
+      "tvsz:138:1",
+      "vik_bsc_zv:tvsz160:1",
+      "vik_msc_zv:tvsz160:1"
+     ],
+     "verdict": "correct",
+     "judge_reason": "A rendszer válasza tartalmazza a helyes képletet és további releváns részleteket is közöl.",
+     "judge_model": "gemini:gemini-3.5-flash-lite",
+     "correctness": 1.0,
+     "false_refusal": 0.0,
+     "cit_precision": 0.3333333333333333,
+     "cit_recall": 1.0,
+     "para_cit_precision": 0.3333333333333333,
+     "para_cit_recall": 1.0,
+     "quote_verified": 1.0,
+     "context_hit": 1.0
+    },
+    {
+     "id": "q027",
+     "type": "fact",
+     "answerable_gold": true,
+     "answer": "A méltányossági kérelmet a Kari Tanulmányi Bizottság (KTB) bírálja el és hoz határozatot [TVSZ 215. § (2)].",
+     "answerable_pred": true,
+     "model": "groq:qwen/qwen3.8-27b",
+     "error": "",
+     "citations": [
+      {
+       "source": "S3",
+       "chunk_id": "tvsz:215:2",
+       "citation": "TVSZ 215. § (2)",
+       "quote": "A méltányossági kérelmet a KTB kivételes sürgős eljárásban, nyolc napon belül bírálja el és hoz határozatot",
+       "quote_score": 100.0,
+       "verified": true
+      }
+     ],
+     "context": [
+      "tvsz:229:1",
+      "tvsz:215:1",
+      "tvsz:215:2",
+      "tvsz:214:4",
+      "tvsz:213:2"
+     ],
+     "verdict": "correct",
+     "judge_reason": "A rendszer válasza lényegében megegyezik a referenciaválasszal, helyesen jelöli meg a Kari Tanulmányi Bizottságot (KTB) döntéshozóként.",
+     "judge_model": "gemini:gemini-3.5-flash-lite",
+     "correctness": 1.0,
+     "false_refusal": 0.0,
+     "cit_precision": 1.0,
+     "cit_recall": 0.5,
+     "para_cit_precision": 1.0,
+     "para_cit_recall": 0.5,
+     "quote_verified": 1.0,
+     "context_hit": 1.0
+    },
+    {
+     "id": "q028",
+     "type": "fact",
+     "answerable_gold": true,
+     "answer": "A hallgató feladatait a konzulens és a témavezető közösen jelöli ki, míg az értékelés a konzulens és a témavezető együttes felelőssége. [BProf kooperatív képzés 8. § (5)] A konkrét feladatkiírást a témavezető készíti el a konzulenssel és a hallgatóval egyeztetve, a konzulens pedig javaslatot tesz a feladatokra. [BProf kooperatív képzés 9. § (1)] Az értékelésben a vállalati konzulens és a témavezető közösen vesz részt a félév közepén és végén. [Üzemmérnök-informatikus BProf képzési program 2. pont – 2.5.3. Szakmai gyakorlat]",
+     "answerable_pred": true,
+     "model": "groq:qwen/qwen3.8-27b",
+     "error": "",
+     "citations": [
+      {
+       "source": "S1",
+       "chunk_id": "vik_bprof_kooperativ:8:5",
+       "citation": "BProf kooperatív képzés 8. § (5)",
+       "quote": "a hallgató feladatait a konzulens és a témavezető közösen jelöli ki... az értékelés pedig ugyancsak konzulens és témavezető együttes felelőssége.",
+       "quote_score": 78.26086956521739,
+       "verified": false
+      },
+      {
+       "source": "S5",
+       "chunk_id": "vik_bprof_kooperativ:9:1",
+       "citation": "BProf kooperatív képzés 9. § (1)",
+       "quote": "a konzulens tesz javaslatot, majd a témavezető a konzulenssel és a hallgatóval is egyeztetve elkészíti a hallgató számára a végleges feladatkiírást.",
+       "quote_score": 100.0,
+       "verified": true
+      },
+      {
+       "source": "S4",
+       "chunk_id": "kp_bprof_uzinfo:p2~2",
+       "citation": "Üzemmérnök-informatikus BProf képzési program 2. pont – 2.5.3. Szakmai gyakorlat",
+       "quote": "a vállalati konzulens és a témavezető közösen értékeli a hallgató munkáját",
+       "quote_score": 100.0,
+       "verified": true
+      }
+     ],
+     "context": [
+      "vik_bprof_kooperativ:8:5",
+      "vik_bprof_kooperativ:4:4",
+      "vik_bprof_kooperativ:4:1",
+      "kp_bprof_uzinfo:p2~2",
+      "vik_bprof_kooperativ:9:1"
+     ],
+     "verdict": "correct",
+     "judge_reason": "A rendszer válasza teljes körűen és helyesen tartalmazza, hogy a konzulens és a témavezető határozza meg a feladatokat és végzi az értékelést.",
+     "judge_model": "gemini:gemini-3.5-flash-lite",
+     "correctness": 1.0,
+     "false_refusal": 0.0,
+     "cit_precision": 0.6666666666666666,
+     "cit_recall": 1.0,
+     "para_cit_precision": 0.6666666666666666,
+     "para_cit_recall": 1.0,
+     "quote_verified": 0.6666666666666666,
+     "context_hit": 1.0
+    },
+    {
+     "id": "q031",
+     "type": "fact",
+     "answerable_gold": true,
+     "answer": "Igen, a végbizonyítványt megszerző hallgató (volt hallgató) kérésére az Egyetem hiteles másolatot állít ki. [TVSZ 147. § (6)] Ugyancsak a hallgató kérésére a végbizonyítványt elektronikus másolat formájában is ki kell adni, amelyet az Egyetem minősített elektronikus aláírásával és időbélyegzővel kell ellátni. [TVSZ 147. § (6)] A hitelesítésről a szakot (képzést) gondozó kar dékánja gondoskodik. [TVSZ 147. § (6)]",
+     "answerable_pred": true,
+     "model": "groq:qwen/qwen3.8-27b",
+     "error": "",
+     "citations": [
+      {
+       "source": "S1",
+       "chunk_id": "tvsz:147:6",
+       "citation": "TVSZ 147. § (6)",
+       "quote": "A végbizonyítványt megszerző hallgató (volt hallgató) kérésére az Egyetem hiteles másolatot állít ki.",
+       "quote_score": 100.0,
+       "verified": true
+      },
+      {
+       "source": "S1",
+       "chunk_id": "tvsz:147:6",
+       "citation": "TVSZ 147. § (6)",
+       "quote": "A végbizonyítványt megszerző hallgató (volt hallgató) kérésére a végbizonyítványt elektronikus másolat formájában is ki kell adni",
+       "quote_score": 100.0,
+       "verified": true
+      },
+      {
+       "source": "S1",
+       "chunk_id": "tvsz:147:6",
+       "citation": "TVSZ 147. § (6)",
+       "quote": "A hitelesítésről a szakot (képzést) gondozó kar dékánja gondoskodik.",
+       "quote_score": 100.0,
+       "verified": true
+      }
+     ],
+     "context": [
+      "tvsz:147:6",
+      "tvsz:56:1a",
+      "tvsz:147:3",
+      "tvsz:147:5",
+      "tvsz:147:2"
+     ],
+     "verdict": "correct",
+     "judge_reason": "A rendszer válasza teljes körűen és pontosan tartalmazza a referenciaválasz minden lényegi elemét.",
+     "judge_model": "gemini:gemini-3.5-flash-lite",
+     "correctness": 1.0,
+     "false_refusal": 0.0,
+     "cit_precision": 1.0,
+     "cit_recall": 1.0,
+     "para_cit_precision": 1.0,
+     "para_cit_recall": 1.0,
+     "quote_verified": 1.0,
+     "context_hit": 1.0
+    },
+    {
+     "id": "q032",
+     "type": "fact",
+     "answerable_gold": true,
+     "answer": "Az előadások a képzési folyamat szerves részét képezik, így az Egyetem a hallgatóktól elvárja az azokon való jelenlétet [TVSZ 105. § (2)]. Azonban az előadás típusú tanulmányi foglalkozásokon a jelenlét csak akkor kötelező, ha ezt a tantárgykövetelmény előírja [TVSZ 105. § (2)]. Ha a jelenlét kötelező, akkor azt az oktató ellenőrzi, és legfeljebb a foglalkozások összóraszámának hetven százalékán való jelenlét írható elő feltételként [TVSZ 105. § (3)].",
+     "answerable_pred": true,
+     "model": "groq:qwen/qwen3.8-27b",
+     "error": "",
+     "citations": [
+      {
+       "source": "S1",
+       "chunk_id": "tvsz:105:2",
+       "citation": "TVSZ 105. § (2)",
+       "quote": "Az előadások a képzési folyamat szerves részét képezik, így az Egyetem a hallgatóktól elvárja az azokon való jelenlétet.",
+       "quote_score": 100.0,
+       "verified": true
+      },
+      {
+       "source": "S1",
+       "chunk_id": "tvsz:105:2",
+       "citation": "TVSZ 105. § (2)",
+       "quote": "Az előadás típusú tanulmányi foglalkozásokon a jelenlét csak akkor kötelező, ha ezt a tantárgykövetelmény előírja.",
+       "quote_score": 100.0,
+       "verified": true
+      },
+      {
+       "source": "S3",
+       "chunk_id": "tvsz:105:3",
+       "citation": "TVSZ 105. § (3)",
+       "quote": "Előadás esetén legfeljebb a foglalkozások összóraszámának hetven százalékán való jelenlét írható elő feltételként.",
+       "quote_score": 100.0,
+       "verified": true
+      }
+     ],
+     "context": [
+      "tvsz:105:2",
+      "kp_bsc_gain:targy:termelésmenedzsment",
+      "tvsz:105:3",
+      "kp_bsc_gain:targy:kvantuminformatikai-alkalmazások",
+      "tvsz:105:1"
+     ],
+     "verdict": "correct",
+     "judge_reason": "A rendszer válasza teljes körűen és pontosan tartalmazza a referenciaválasz lényegi elemeit a kötelezőség feltételeiről és a 70%-os határról.",
+     "judge_model": "gemini:gemini-3.5-flash-lite",
+     "correctness": 1.0,
+     "false_refusal": 0.0,
+     "cit_precision": 1.0,
+     "cit_recall": 1.0,
+     "para_cit_precision": 1.0,
+     "para_cit_recall": 1.0,
+     "quote_verified": 1.0,
+     "context_hit": 1.0
+    },
+    {
+     "id": "q034",
+     "type": "fact",
+     "answerable_gold": true,
+     "answer": "Ha a hallgató a regisztrációs időszak végéig nem tesz eleget a bejelentkezési kötelezettségének, az adott félévet passzív félévként kell nyilvántartani, és a hallgatói jogviszonya az adott félévben szünetel [TVSZ 57. § (3)].",
+     "answerable_pred": true,
+     "model": "groq:qwen/qwen3.8-27b",
+     "error": "",
+     "citations": [
+      {
+       "source": "S2",
+       "chunk_id": "tvsz:57:3",
+       "citation": "TVSZ 57. § (3)",
+       "quote": "az adott félévet passzív félévként kell nyilvántartani, hallgatói jogviszonya az adott félévben szünetel",
+       "quote_score": 100.0,
+       "verified": true
+      }
+     ],
+     "context": [
+      "tvsz:57:1",
+      "tvsz:57:3",
+      "tjsz:48:7",
+      "tvsz:57:9",
+      "tvsz:56:9"
+     ],
+     "verdict": "correct",
+     "judge_reason": "A rendszer válasza szó szerint és tartalmilag is pontosan megegyezik a referenciaválasszal, tartalmazza a passzív félévként való nyilvántartást és a hallgatói jogviszony szünetelését is.",
+     "judge_model": "gemini:gemini-3.5-flash-lite",
+     "correctness": 1.0,
+     "false_refusal": 0.0,
+     "cit_precision": 1.0,
+     "cit_recall": 1.0,
+     "para_cit_precision": 1.0,
+     "para_cit_recall": 1.0,
+     "quote_verified": 1.0,
+     "context_hit": 1.0
+    },
+    {
+     "id": "q035",
+     "type": "fact",
+     "answerable_gold": true,
+     "answer": "A kérelem benyújtása előtt minden esetben érdemes egyeztetni az esélyegyenlőségi koordinátorral. [VIK Képzési tájékoztató – Hallgatói esélyengyenlőségi bizottság]",
+     "answerable_pred": true,
+     "model": "groq:qwen/qwen3.8-27b",
+     "error": "",
+     "citations": [
+      {
+       "source": "S1",
+       "chunk_id": "vik_kepzesi_tajekoztato:s7",
+       "citation": "VIK Képzési tájékoztató – Hallgatói esélyengyenlőségi bizottság",
+       "quote": "A regisztráció és a kérelem benyújtása előtt minden esetben érdemes egyeztetni előzetesen az esélyegyenlőségi koordinátorral",
+       "quote_score": 100.0,
+       "verified": true
+      }
+     ],
+     "context": [
+      "vik_kepzesi_tajekoztato:s7",
+      "tvsz:132:5",
+      "tvsz:74/A:4",
+      "tvsz:96:3",
+      "tvsz:216/C:3"
+     ],
+     "verdict": "correct",
+     "judge_reason": "A rendszer válasza tartalmazza a lényegi információt, hogy a kérelem benyújtása előtt az esélyegyenlőségi koordinátorral kell egyeztetni.",
+     "judge_model": "gemini:gemini-3.5-flash-lite",
+     "correctness": 1.0,
+     "false_refusal": 0.0,
+     "cit_precision": 1.0,
+     "cit_recall": 1.0,
+     "para_cit_precision": 1.0,
+     "para_cit_recall": 1.0,
+     "quote_verified": 1.0,
+     "context_hit": 1.0
+    },
+    {
+     "id": "q036",
+     "type": "fact",
+     "answerable_gold": true,
+     "answer": "A megadott szabályzatrészletek alapján nem tudom megválaszolni a kérdést, mivel a források csak általános keretrendszerről, a szociális pontszámítás feltételeiről és a pontozás korlátairól szólnak, de nem sorolják fel a konkrét pontozási szempontokat vagy kategóriákat.",
+     "answerable_pred": false,
+     "model": "groq:qwen/qwen3.8-27b",
+     "error": "",
+     "citations": [],
+     "context": [
+      "tjsz:m4:2:1",
+      "tjsz:m4:2:9",
+      "tjsz:m4:2:10",
+      "tjsz:m4:2:2",
+      "tjsz:m4:2:3"
+     ],
+     "verdict": "incorrect",
+     "judge_reason": "A rendszer azt állítja, hogy nem tudja megválaszolni a kérdést, holott a referenciaválasz tartalmazza a pontozás szempontjait.",
+     "judge_model": "gemini:gemini-3.5-flash-lite",
+     "correctness": 0.0,
+     "false_refusal": 1.0,
+     "quote_verified": null,
+     "context_hit": 0.0
+    },
+    {
+     "id": "q037",
+     "type": "fact",
+     "answerable_gold": true,
+     "answer": "A BME-n a hallgatótól az alábbi díjak szedhetők: önköltségi díj és térítési díj [TJSZ 9. § (1)]. A térítési díj magába foglalja a kollégiumi díjat, a szolgáltatási díjat és a különeljárási díjat [TJSZ 9. § (1)].",
+     "answerable_pred": true,
+     "model": "groq:qwen/qwen3.8-27b",
+     "error": "",
+     "citations": [
+      {
+       "source": "S1",
+       "chunk_id": "tjsz:9:1",
+       "citation": "TJSZ 9. § (1)",
+       "quote": "a) önköltségi díj; b) térítési díj, ami magába foglalja: ba) akollégiumi díj; bb) a szolgáltatási díj; bc) akülöneljárási díj.",
+       "quote_score": 100.0,
+       "verified": true
+      }
+     ],
+     "context": [
+      "tjsz:9:1",
+      "tjsz:13:1",
+      "tjsz:11:1",
+      "tjsz:15:3",
+      "tjsz:13:2"
+     ],
+     "verdict": "correct",
+     "judge_reason": "A rendszer válasza pontosan tartalmazza az önköltségi díjat és a térítési díj fajtáit (kollégiumi, szolgáltatási és különeljárási díj), egyezve a referenciaválasszal.",
+     "judge_model": "gemini:gemini-3.5-flash-lite",
+     "correctness": 1.0,
+     "false_refusal": 0.0,
+     "cit_precision": 1.0,
+     "cit_recall": 1.0,
+     "para_cit_precision": 1.0,
+     "para_cit_recall": 1.0,
+     "quote_verified": 1.0,
+     "context_hit": 1.0
+    },
+    {
+     "id": "q038",
+     "type": "fact",
+     "answerable_gold": true,
+     "answer": "Szociális alapon a kollégiumi díj esetén részesülhetsz mentességben, részletfizetési kedvezményben, vagy engedélyezhető részére a fizetési kötelezettség halasztása. [TJSZ 14. § (5)]",
+     "answerable_pred": true,
+     "model": "groq:qwen/qwen3.8-27b",
+     "error": "",
+     "citations": [
+      {
+       "source": "S1",
+       "chunk_id": "tjsz:14:5",
+       "citation": "TJSZ 14. § (5)",
+       "quote": "A hallgató szociális alapon a kollégiumi díj esetén részesülhet mentességben, részletfizetési kedvezményben vagy engedélyezhető részére a fizetési kötelezettség halasztása.",
+       "quote_score": 100.0,
+       "verified": true
+      }
+     ],
+     "context": [
+      "tjsz:14:5",
+      "tjsz:11:2",
+      "tjsz:11:6",
+      "tjsz:48:12",
+      "tjsz:11:1"
+     ],
+     "verdict": "correct",
+     "judge_reason": "A rendszer válasza pontosan tartalmazza a referenciaválaszban szereplő összes lehetőséget (mentesség, részletfizetés, halasztás).",
+     "judge_model": "gemini:gemini-3.5-flash-lite",
+     "correctness": 1.0,
+     "false_refusal": 0.0,
+     "cit_precision": 1.0,
+     "cit_recall": 1.0,
+     "para_cit_precision": 1.0,
+     "para_cit_recall": 1.0,
+     "quote_verified": 1.0,
+     "context_hit": 1.0
+    },
+    {
+     "id": "q039",
+     "type": "fact",
+     "answerable_gold": true,
+     "answer": "Igen, választhatod a saját gyakorlóhelyedet és témádat, ha a megfelelő feltételek teljesülnek [BSc szakmai gyakorlat szabályzat – 4.2. Hallgatók által választott gyakorlóhelyek és témák]. A belföldi szakmai gyakorlat csak olyan gyakorlóhelyen végezhető, mellyel a kar együttműködési megállapodást kötött [BSc szakmai gyakorlat szabályzat – 4.2. Hallgatók által választott gyakorlóhelyek és témák].",
+     "answerable_pred": true,
+     "model": "groq:qwen/qwen3.8-27b",
+     "error": "",
+     "citations": [
+      {
+       "source": "S1",
+       "chunk_id": "vik_szakmai_gyak_bsc:s-4-2-hallgatók-által-választott-gyakorlóh",
+       "citation": "BSc szakmai gyakorlat szabályzat – 4.2. Hallgatók által választott gyakorlóhelyek és témák",
+       "quote": "a kar elfogadja, ha a hallgató maga választja meg a szakmai gyakorlat gyakorlóhelyét és témáját",
+       "quote_score": 100.0,
+       "verified": true
+      },
+      {
+       "source": "S1",
+       "chunk_id": "vik_szakmai_gyak_bsc:s-4-2-hallgatók-által-választott-gyakorlóh",
+       "citation": "BSc szakmai gyakorlat szabályzat – 4.2. Hallgatók által választott gyakorlóhelyek és témák",
+       "quote": "belföldön csak olyan gyakorlóhelyen végezhető, mellyel a kar együttműködési megállapodást kötött",
+       "quote_score": 100.0,
+       "verified": true
+      }
+     ],
+     "context": [
+      "vik_szakmai_gyak_bsc:s-4-2-hallgatók-által-választott-gyakorlóh",
+      "vik_szakmai_gyak_msc:s-4-2-hallgatók-által-választott-gyakorlóh",
+      "vik_szakmai_gyak_bsc:s-7-2-jelentkezés-a-hallgatók-által-válasz#1",
+      "vik_szakmai_gyak_bsc:s-mellékletek",
+      "vik_szakmai_gyak_bsc:s-4-1-tanszékek-által-felajánlott-gyakorló"
+     ],
+     "verdict": "correct",
+     "judge_reason": "A rendszer válasza teljes mértékben megegyezik a referenciaválasszal, tartalmazza az igennel adott választ és a belföldi együttműködési megállapodás feltételét is.",
+     "judge_model": "gemini:gemini-3.5-flash-lite",
+     "correctness": 1.0,
+     "false_refusal": 0.0,
+     "cit_precision": 1.0,
+     "cit_recall": 1.0,
+     "para_cit_precision": 1.0,
+     "para_cit_recall": 1.0,
+     "quote_verified": 1.0,
+     "context_hit": 1.0
+    },
+    {
+     "id": "q040",
+     "type": "multi",
+     "answerable_gold": true,
+     "answer": "Ha javító céllal ismételt tantárgyteljesítés során rosszabb eredményt ér el, a korábbi és az új eredmény közül a hallgató számára kedvezőbbet kell figyelembe venni [TVSZ 100. § (4)]. A korábban az érintett tantárgyból megszerzett kredit nem vehető el [TVSZ 100. § (4)].",
+     "answerable_pred": true,
+     "model": "groq:qwen/qwen3.8-27b",
+     "error": "",
+     "citations": [
+      {
+       "source": "S1",
+       "chunk_id": "tvsz:100:4",
+       "citation": "TVSZ 100. § (4)",
+       "quote": "a korábbi és az új eredmény közül a hallgató számára kedvezőbbet kell figyelembe venni",
+       "quote_score": 100.0,
+       "verified": true
+      },
+      {
+       "source": "S1",
+       "chunk_id": "tvsz:100:4",
+       "citation": "TVSZ 100. § (4)",
+       "quote": "a korábban az érintett tantárgyból megszerzett kredit nem vehető el",
+       "quote_score": 100.0,
+       "verified": true
+      }
+     ],
+     "context": [
+      "tvsz:100:4",
+      "tvsz:100:6",
+      "tvsz:100:5",
+      "vik_felzarkozas:s-0#3",
+      "tvsz:100:2"
+     ],
+     "verdict": "correct",
+     "judge_reason": "A rendszer válasza teljes körűen és pontosan tartalmazza a referenciaválasz lényegi információit: a kedvezőbb jegy számít, és a kredit nem vész el.",
+     "judge_model": "gemini:gemini-3.5-flash-lite",
+     "correctness": 1.0,
+     "false_refusal": 0.0,
+     "cit_precision": 1.0,
+     "cit_recall": 0.5,
+     "para_cit_precision": 1.0,
+     "para_cit_recall": 1.0,
+     "quote_verified": 1.0,
+     "context_hit": 1.0
+    },
+    {
+     "id": "q042",
+     "type": "multi",
+     "answerable_gold": true,
+     "answer": "Az önkéntes tevékenység elismerése során harminc órányi tevékenység ismerhető el egy kredittel [TVSZ 129/B. § (5)]. Nem bármilyen önkéntes munkát ismernek el: kizárólag az az önkéntes tevékenység ismerhető el, amelyet a közérdekű önkéntes tevékenységről szóló 2005. évi LXXXVIII. törvény előírásai szerint végeztek és dokumentáltak, valamint azon képzésen fennálló hallgatói jogviszony keretében végeztek, amelyben azt el kívánják ismertetni [TVSZ 129/B. § (4)].",
+     "answerable_pred": true,
+     "model": "groq:qwen/qwen3.8-27b",
+     "error": "",
+     "citations": [
+      {
+       "source": "S1",
+       "chunk_id": "tvsz:129/B:5",
+       "citation": "TVSZ 129/B. § (5)",
+       "quote": "harminc órányi tevékenység ismerhető el egy kredittel",
+       "quote_score": 100.0,
+       "verified": true
+      },
+      {
+       "source": "S5",
+       "chunk_id": "tvsz:129/B:4",
+       "citation": "TVSZ 129/B. § (4)",
+       "quote": "Kizárólag az az önkéntes tevékenység ismerhető el kredittel, amelyet a) a közérdekű önkéntes tevékenységről szóló 2005. évi LXXXVIII. törvény előírásai szerint végeztek és dokumentáltak",
+       "quote_score": 100.0,
+       "verified": true
+      }
+     ],
+     "context": [
+      "tvsz:129/B:5",
+      "tvsz:129/B:7",
+      "tvsz:129/B:2",
+      "tvsz:129/B:6",
+      "tvsz:129/B:4"
+     ],
+     "verdict": "correct",
+     "judge_reason": "A rendszer válasza pontosan tartalmazza a 30 óra / 1 kredit arányt, valamint a törvényi és hallgatói jogviszonyra vonatkozó feltételeket is.",
+     "judge_model": "gemini:gemini-3.5-flash-lite",
+     "correctness": 1.0,
+     "false_refusal": 0.0,
+     "cit_precision": 1.0,
+     "cit_recall": 1.0,
+     "para_cit_precision": 1.0,
+     "para_cit_recall": 1.0,
+     "quote_verified": 1.0,
+     "context_hit": 1.0
+    },
+    {
+     "id": "q043",
+     "type": "multi",
+     "answerable_gold": true,
+     "answer": "Ugyanazon tantárgy esetében legfeljebb egy alkalommal élhet a hallgató a javító célú ismételt tantárgyteljesítés lehetőségével [TVSZ 100. § (7)]. Javító céllal tantárgyat ismételten teljesíteni a teljes tanulmányi idő alatt legfeljebb a szak képzési és kimeneti követelményeiben az oklevél megszerzéséhez szükséges kreditmennyiség – felfelé kerekített – tíz százalékáig lehet [TVSZ 100. § (6)].",
+     "answerable_pred": true,
+     "model": "groq:qwen/qwen3.8-27b",
+     "error": "",
+     "citations": [
+      {
+       "source": "S3",
+       "chunk_id": "tvsz:100:7",
+       "citation": "TVSZ 100. § (7)",
+       "quote": "Ugyanazon tantárgy esetében legfeljebb egy alkalommal élhet a hallgató a javító célú ismételt tantárgyteljesítés lehetőségével.",
+       "quote_score": 100.0,
+       "verified": true
+      },
+      {
+       "source": "S2",
+       "chunk_id": "tvsz:100:6",
+       "citation": "TVSZ 100. § (6)",
+       "quote": "Javító céllal tantárgyat ismételten teljesíteni a teljes tanulmányi idő alatt legfeljebb a szak képzési és kimeneti követelményeiben az oklevél megszerzéséhez szükséges kreditmennyiség – felfelé kerekített – tíz százalékáig lehet.",
+       "quote_score": 100.0,
+       "verified": true
+      }
+     ],
+     "context": [
+      "tvsz:122:8",
+      "tvsz:100:6",
+      "tvsz:100:7",
+      "vik_mi_hasznalat:s14",
+      "tvsz:231#7"
+     ],
+     "verdict": "correct",
+     "judge_reason": "A rendszer válasza pontosan tartalmazza mindkét feltételt: egy tárgyból legfeljebb egyszer, összesen pedig az oklevélhez szükséges kredit 10%-áig lehet ismételni.",
+     "judge_model": "gemini:gemini-3.5-flash-lite",
+     "correctness": 1.0,
+     "false_refusal": 0.0,
+     "cit_precision": 1.0,
+     "cit_recall": 1.0,
+     "para_cit_precision": 1.0,
+     "para_cit_recall": 1.0,
+     "quote_verified": 1.0,
+     "context_hit": 1.0
+    },
+    {
+     "id": "q044",
+     "type": "multi",
+     "answerable_gold": true,
+     "answer": "A kari kreditátviteli bizottság biztosít tanácsadást a kiutazás előtt a felveendő tantárgyak megtervezésére [Mérnökinformatikus MSc képzési program 4. pont – 4. Mobilitási ablak]. A szabályzatok alapján a külföldön teljesített tantárgyakat akkor ismerik el teljesített mintatantervi tantárgyként, ha legalább 50%-os kompetenciaegyezés áll fenn [Mérnökinformatikus MSc képzési program 4. pont – 4. Mobilitási ablak].",
+     "answerable_pred": true,
+     "model": "groq:qwen/qwen3.8-27b",
+     "error": "",
+     "citations": [
+      {
+       "source": "S1",
+       "chunk_id": "kp_msc_info:p4~24",
+       "citation": "Mérnökinformatikus MSc képzési program 4. pont – 4. Mobilitási ablak",
+       "quote": "A kari kreditátviteli bizottság tanácsadást biztosít a kiutazás előtt a felveendő tantárgyak megtervezésére.",
+       "quote_score": 100.0,
+       "verified": true
+      },
+      {
+       "source": "S1",
+       "chunk_id": "kp_msc_info:p4~24",
+       "citation": "Mérnökinformatikus MSc képzési program 4. pont – 4. Mobilitási ablak",
+       "quote": "legalább 50%-os kompetenciaegyezés esetén a mintatantervi tantárgyat teljesítettnek ismerjük el",
+       "quote_score": 100.0,
+       "verified": true
+      }
+     ],
+     "context": [
+      "kp_msc_info:p4~24",
+      "tvsz:75/A:2",
+      "tvsz:75/A:5",
+      "kp_msc_info:s-4-mobilitási-ablak",
+      "tvsz:75/A:1"
+     ],
+     "verdict": "incorrect",
+     "judge_reason": "A rendszer válasza nem nevezi meg, hogy ki dönti el az egyenértékűséget (a KKB a szakfelelőssel), hanem a tanácsadásról és az 50%-os kompetenciaegyezésről beszél.",
+     "judge_model": "gemini:gemini-3.5-flash-lite",
+     "correctness": 0.0,
+     "false_refusal": 0.0,
+     "cit_precision": 0.0,
+     "cit_recall": 0.0,
+     "para_cit_precision": 0.0,
+     "para_cit_recall": 0.0,
+     "quote_verified": 1.0,
+     "context_hit": 1.0
+    },
+    {
+     "id": "q046",
+     "type": "multi",
+     "answerable_gold": true,
+     "answer": "A vizsgaidőszakban keletkező, a vizsgák teljesítéséhez kapcsolódó iratokat (pl. vizsgadolgozatok) értékelésük után a tantárgy felelősének kell őriznie [TVSZ 125. § (4)]. Amennyiben az iratot nem adták vissza a hallgatónak, a következő szorgalmi időszak kezdetétől számított egy hónap múlva lehet selejtezni [TVSZ 125. § (6)].",
+     "answerable_pred": true,
+     "model": "groq:qwen/qwen3.8-27b",
+     "error": "",
+     "citations": [
+      {
+       "source": "S1",
+       "chunk_id": "tvsz:125:4",
+       "citation": "TVSZ 125. § (4)",
+       "quote": "A vizsgaidőszakban keletkező, a vizsgák és szigorlatok teljesítéséhez kapcsolódó iratokat (pl. vizsgadolgozatok) értékelésük után a tantárgy felelősének kell őriznie.",
+       "quote_score": 100.0,
+       "verified": true
+      },
+      {
+       "source": "S3",
+       "chunk_id": "tvsz:125:6",
+       "citation": "TVSZ 125. § (6)",
+       "quote": "amennyiben azokat nem adták vissza értékelés után a hallgatónak a következő szorgalmi időszak kezdetétől számított egy hónap múlva lehet selejtezni",
+       "quote_score": 100.0,
+       "verified": true
+      }
+     ],
+     "context": [
+      "tvsz:125:4",
+      "tvsz:114:3",
+      "tvsz:125:6",
+      "vik_szakmai_gyak_msc:s-5-3-szakmai-gyakorlat-a-mintatanterv-sze",
+      "vik_szakmai_gyak_bsc:s-5-3-szakmai-gyakorlat-a-mintatanterv-sze"
+     ],
+     "verdict": "correct",
+     "judge_reason": "A rendszer válasza pontosan tartalmazza a referenciaválasz lényegi információit a megőrzésről és a selejtezési határidőről.",
+     "judge_model": "gemini:gemini-3.5-flash-lite",
+     "correctness": 1.0,
+     "false_refusal": 0.0,
+     "cit_precision": 1.0,
+     "cit_recall": 1.0,
+     "para_cit_precision": 1.0,
+     "para_cit_recall": 1.0,
+     "quote_verified": 1.0,
+     "context_hit": 1.0
+    },
+    {
+     "id": "q047",
+     "type": "multi",
+     "answerable_gold": true,
+     "answer": "A korrigált kreditindex a kreditindexből egy, a félév során teljesített és az egyéni tanrendben vállalt kreditek arányának megfelelő szorzótényezővel számítható [TVSZ 231. §]. Az összesített korrigált kreditindex a hallgató több féléven keresztüli teljesítményének mennyiségi és minőségi megítélésére szolgál, és a számításánál félévenkénti harminc kreditet és a teljes időszak alatt felvett és teljesített krediteket kell figyelembe venni [TVSZ 231. §].",
+     "answerable_pred": true,
+     "model": "groq:qwen/qwen3.8-27b",
+     "error": "",
+     "citations": [
+      {
+       "source": "S5",
+       "chunk_id": "tvsz:231#11",
+       "citation": "TVSZ 231. §",
+       "quote": "A korrigált kreditindex a kreditindexből egy, a félév során teljesített és az egyéni tanrendben vállalt kreditek arányának megfelelő szorzótényezővel számítható.",
+       "quote_score": 100.0,
+       "verified": true
+      },
+      {
+       "source": "S2",
+       "chunk_id": "tvsz:231#17",
+       "citation": "TVSZ 231. §",
+       "quote": "Az összesített korrigált kreditindex a hallgató több féléven keresztüli teljesítményének mennyiségi és minőségi megítélésére szolgál.",
+       "quote_score": 100.0,
+       "verified": true
+      }
+     ],
+     "context": [
+      "tvsz:129:9",
+      "tvsz:231#17",
+      "tjsz:24:7",
+      "tvsz:100:5",
+      "tvsz:231#11"
+     ],
+     "verdict": "correct",
+     "judge_reason": "A rendszer válasza lényegében helyesen írja le a kreditindex és a korrigált kreditindex közötti összefüggést, megemlítve a kreditek arányával való szorzást.",
+     "judge_model": "gemini:gemini-3.5-flash-lite",
+     "correctness": 1.0,
+     "false_refusal": 0.0,
+     "cit_precision": 1.0,
+     "cit_recall": 1.0,
+     "para_cit_precision": 1.0,
+     "para_cit_recall": 1.0,
+     "quote_verified": 1.0,
+     "context_hit": 1.0
+    },
+    {
+     "id": "q049",
+     "type": "multi",
+     "answerable_gold": true,
+     "answer": "A BSc képzésen a nyelvvizsga hiányában a szaknyelvi kompetenciák megszerzését és igazolását kell teljesítened, amelyet nyelvi kreditek gyűjtésével tehetsz meg. Ez az abszolutórium kiállításának feltétele, így csak akkor záróvizsgázhatsz, ha nyelvtudásodat így igazoltad. [Nyelvi kreditek – I. Bevezetés]",
+     "answerable_pred": true,
+     "model": "groq:qwen/qwen3.8-27b",
+     "error": "",
+     "citations": [
+      {
+       "source": "S3",
+       "chunk_id": "vik_nyelvi_kreditek:s-i-bevezetés",
+       "citation": "Nyelvi kreditek – I. Bevezetés",
+       "quote": "Amennyiben a hallgató nyelvvizsgával nem rendelkezik, kompetenciáját nyelvi kreditek gyűjtésével igazolhatja.",
+       "quote_score": 100.0,
+       "verified": true
+      },
+      {
+       "source": "S3",
+       "chunk_id": "vik_nyelvi_kreditek:s-i-bevezetés",
+       "citation": "Nyelvi kreditek – I. Bevezetés",
+       "quote": "a hallgató csak akkor záróvizsgázhat, ha nyelvtudását igazolta.",
+       "quote_score": 100.0,
+       "verified": true
+      }
+     ],
+     "context": [
+      "vik_bsc_zv_msc_felveteli:3~2",
+      "vik_bsc_zv_msc_felveteli:p11",
+      "vik_nyelvi_kreditek:s-i-bevezetés",
+      "vik_szakmai_gyak_bsc:s-1-kapcsolódó-jogszabályok-dokumentumok-2",
+      "vik_bprof_zv:p35"
+     ],
+     "verdict": "correct",
+     "judge_reason": "A rendszer válasza lényegében tartalmazza, hogy nyelvizsga helyett nyelvi kreditek teljesítésével (abszolutórium megszerzésével) lehet záróvizsgázni BSc-n.",
+     "judge_model": "gemini:gemini-3.5-flash-lite",
+     "correctness": 1.0,
+     "false_refusal": 0.0,
+     "cit_precision": 0.0,
+     "cit_recall": 0.0,
+     "para_cit_precision": 0.0,
+     "para_cit_recall": 0.0,
+     "quote_verified": 1.0,
+     "context_hit": 0.0
+    },
+    {
+     "id": "q050",
+     "type": "numeric",
+     "answerable_gold": true,
+     "answer": "A BSc záróvizsga – MSc felvételin a hozott átlagért (a mesterképzéshez bementi feltételként előírt alapképzésben elért halmozott súlyozott tanulmányi átlageredmény alapján) 45 pont szerezhető, míg a felvételi vizsgán mutatott teljesítményért és a jelentkező előzetes teljesítménye alapján (szerzett pontszám) további 45 pont jár. [BSc ZV – MSc felvételi 2. pont – FELVÉTELI PONTOZÁSI RENDSZER]",
+     "answerable_pred": true,
+     "model": "groq:qwen/qwen3.8-27b",
+     "error": "",
+     "citations": [
+      {
+       "source": "S1",
+       "chunk_id": "vik_bsc_zv_msc_felveteli:p2",
+       "citation": "BSc ZV – MSc felvételi 2. pont – FELVÉTELI PONTOZÁSI RENDSZER",
+       "quote": "45 pont szerezhető a mesterképzéshez bementi feltételként előírt alapképzésben előírt oklevél megszerzése érdekében folyatott képzés teljes tanulmányi időszakra számított halmozott súlyozott tanulmányi átlageredmény alapján (hozott pontszám), további 45 pont pedig a felvételi vizsgán mutatott teljesítmény, illetve a felvételi eljárás során a jelentkező előzetes teljesítménye alapján (szerzett pontszám).",
+       "quote_score": 100.0,
+       "verified": true
+      }
+     ],
+     "context": [
+      "vik_bsc_zv_msc_felveteli:p2",
+      "vik_bsc_zv_msc_felveteli:p3",
+      "vik_bsc_zv_msc_felveteli:p13",
+      "vik_bsc_zv:p28",
+      "vik_bsc_zv_msc_felveteli:p28"
+     ],
+     "verdict": "correct",
+     "judge_reason": "A rendszer válasza pontosan tartalmazza a referenciaválaszban szereplő pontszámokat a hozott átlagra (45 pont) és a vizsgára/előzetes teljesítményre (45 pont).",
+     "judge_model": "gemini:gemini-3.5-flash-lite",
+     "correctness": 1.0,
+     "false_refusal": 0.0,
+     "cit_precision": 1.0,
+     "cit_recall": 1.0,
+     "para_cit_precision": 1.0,
+     "para_cit_recall": 1.0,
+     "quote_verified": 1.0,
+     "context_hit": 1.0
+    },
+    {
+     "id": "q052",
+     "type": "numeric",
+     "answerable_gold": true,
+     "answer": "A Gazdászinformatikus MSc szakon a záróvizsgára választott tantárgynak legalább 4 kreditesnek kell lennie [MSc ZV-szabályzat 34. pont – A ZÁRÓVIZSGA].",
+     "answerable_pred": true,
+     "model": "groq:qwen/qwen3.8-27b",
+     "error": "",
+     "citations": [
+      {
+       "source": "S1",
+       "chunk_id": "vik_msc_zv:p34",
+       "citation": "MSc ZV-szabályzat 34. pont – A ZÁRÓVIZSGA",
+       "quote": "A tantárgynak legalább 4 kreditesnek kell lennie.",
+       "quote_score": 100.0,
+       "verified": true
+      }
+     ],
+     "context": [
+      "vik_msc_zv:p34",
+      "vik_msc_zv:tvsz152:2",
+      "tvsz:239:6",
+      "kp_msc_ai:s-2-5-6-záróvizsga",
+      "kp_msc_vill:targy:szabadon-választható-tantárgy~3"
+     ],
+     "verdict": "correct",
+     "judge_reason": "A rendszer válasza pontosan tartalmazza a referenciaválasz lényegi információját, azaz a legalább 4 kreditet.",
+     "judge_model": "gemini:gemini-3.5-flash-lite",
+     "correctness": 1.0,
+     "false_refusal": 0.0,
+     "cit_precision": 1.0,
+     "cit_recall": 0.5,
+     "para_cit_precision": 1.0,
+     "para_cit_recall": 0.5,
+     "quote_verified": 1.0,
+     "context_hit": 1.0
+    },
+    {
+     "id": "q053",
+     "type": "numeric",
+     "answerable_gold": true,
+     "answer": "Ha a jogorvoslati kérelem elbírálója a KTH, akkor a kérelem benyújtásától számított három munkanapon belül köteles kikérni a KTB állásfoglalását. [TVSZ 216/B. § (4)]",
+     "answerable_pred": true,
+     "model": "groq:qwen/qwen3.8-27b",
+     "error": "",
+     "citations": [
+      {
+       "source": "S1",
+       "chunk_id": "tvsz:216/B:4",
+       "citation": "TVSZ 216/B. § (4)",
+       "quote": "kikérni hallgató esetén a KTB... állásfoglalását",
+       "quote_score": 70.83333333333333,
+       "verified": false
+      }
+     ],
+     "context": [
+      "tvsz:216/B:4",
+      "tvsz:215:2",
+      "tvsz:216/B:6",
+      "tvsz:79:4",
+      "tvsz:215:1"
+     ],
+     "verdict": "partial",
+     "judge_reason": "A rendszer válasza tartalmazza a kikérésre vonatkozó határidőt (3 munkanap), de hiányzik belőle a KTB válaszadási határidejére vonatkozó információ (5 nap).",
+     "judge_model": "gemini:gemini-3.5-flash-lite",
+     "correctness": 0.5,
+     "false_refusal": 0.0,
+     "cit_precision": 1.0,
+     "cit_recall": 1.0,
+     "para_cit_precision": 1.0,
+     "para_cit_recall": 1.0,
+     "quote_verified": 0.0,
+     "context_hit": 1.0
+    },
+    {
+     "id": "q054",
+     "type": "numeric",
+     "answerable_gold": true,
+     "answer": "A 2026/27-es tanév tavaszi félévében a vizsgaidőszak 20 munkanapos. [Tanév időbeosztása 2026/27 1. sz. melléklet – Téli szünet][VIK Képzési tájékoztató – A tanév és a képzési időszakok időbeosztása]",
+     "answerable_pred": true,
+     "model": "groq:qwen/qwen3.8-27b",
+     "error": "",
+     "citations": [
+      {
+       "source": "S1",
+       "chunk_id": "tanev_2026_27:m1:s-téli-szünet",
+       "citation": "Tanév időbeosztása 2026/27 1. sz. melléklet – Téli szünet",
+       "quote": "22 20 munkanap Vizsgaidőszak időtartama",
+       "quote_score": 100.0,
+       "verified": true
+      },
+      {
+       "source": "S5",
+       "chunk_id": "vik_kepzesi_tajekoztato:s6#2",
+       "citation": "VIK Képzési tájékoztató – A tanév és a képzési időszakok időbeosztása",
+       "quote": "20 munkanap – Vizsgaidőszak időtartama",
+       "quote_score": 100.0,
+       "verified": true
+      }
+     ],
+     "context": [
+      "tanev_2026_27:m1:s-téli-szünet",
+      "tanev_2026_27:7:1",
+      "tanev_2026_27:m1:s-regisztrációs-időszak",
+      "tanev_2026_27:m1:s-tavaszi-szünet",
+      "vik_kepzesi_tajekoztato:s6#2"
+     ],
+     "verdict": "correct",
+     "judge_reason": "A rendszer válasza helyesen tartalmazza a referenciaválasz lényegi információját a 20 munkanapos vizsgaidőszakról.",
+     "judge_model": "gemini:gemini-3.5-flash-lite",
+     "correctness": 1.0,
+     "false_refusal": 0.0,
+     "cit_precision": 1.0,
+     "cit_recall": 1.0,
+     "para_cit_precision": 1.0,
+     "para_cit_recall": 1.0,
+     "quote_verified": 1.0,
+     "context_hit": 1.0
+    },
+    {
+     "id": "q055",
+     "type": "numeric",
+     "answerable_gold": true,
+     "answer": "BSc képzésben, ha nem rendelkezel legalább középfokú komplex nyelvvizsgával, legalább 12 nyelvi kreditet kell összegyűjtened [Gazdaságinformatikus BSc képzési program – 2.5.2. Szaknyelvi kompetenciák][Villamosmérnöki BSc képzési program – 2.5.2. Szaknyelvi kompetenciák][Mérnökinformatikus BSc képzési program – 2.5.2. Szaknyelvi kompetenciák].",
+     "answerable_pred": true,
+     "model": "groq:qwen/qwen3.8-27b",
+     "error": "",
+     "citations": [
+      {
+       "source": "S1",
+       "chunk_id": "kp_bsc_gain:s-2-5-2-szaknyelvi-kompetenciák",
+       "citation": "Gazdaságinformatikus BSc képzési program – 2.5.2. Szaknyelvi kompetenciák",
+       "quote": "legalább 12 nyelvi kreditet szükséges összegyűjteni",
+       "quote_score": 100.0,
+       "verified": true
+      },
+      {
+       "source": "S2",
+       "chunk_id": "kp_bsc_vill:s-2-5-2-szaknyelvi-kompetenciák",
+       "citation": "Villamosmérnöki BSc képzési program – 2.5.2. Szaknyelvi kompetenciák",
+       "quote": "legalább 12 nyelvi kreditet szükséges összegyűjteniük",
+       "quote_score": 100.0,
+       "verified": true
+      },
+      {
+       "source": "S3",
+       "chunk_id": "kp_bsc_info:s-2-5-2-szaknyelvi-kompetenciák",
+       "citation": "Mérnökinformatikus BSc képzési program – 2.5.2. Szaknyelvi kompetenciák",
+       "quote": "legalább 12 nyelvi kreditet szükséges összegyűjteni",
+       "quote_score": 100.0,
+       "verified": true
+      }
+     ],
+     "context": [
+      "kp_bsc_gain:s-2-5-2-szaknyelvi-kompetenciák",
+      "kp_bsc_vill:s-2-5-2-szaknyelvi-kompetenciák",
+      "kp_bsc_info:s-2-5-2-szaknyelvi-kompetenciák",
+      "vik_nyelvi_kreditek:s-ii-nyelvi-kreditek-megszerzése",
+      "kp_msc_vill:s-2-5-2-szaknyelvi-kompetenciák"
+     ],
+     "verdict": "correct",
+     "judge_reason": "A rendszer válasza tartalmazza a helyes kreditszámot BSc képzésre vonatkozóan, összhangban a referenciaválasszal.",
+     "judge_model": "gemini:gemini-3.5-flash-lite",
+     "correctness": 1.0,
+     "false_refusal": 0.0,
+     "cit_precision": 1.0,
+     "cit_recall": 0.5,
+     "para_cit_precision": 1.0,
+     "para_cit_recall": 0.5,
+     "quote_verified": 1.0,
+     "context_hit": 1.0
+    },
+    {
+     "id": "q056",
+     "type": "numeric",
+     "answerable_gold": true,
+     "answer": "A nappali munkarendű teljes idejű képzésekben a tanórák átlagos heti száma – a nyelvi, testnevelés és felzárkóztató tantárgyak kivételével – tizenhat óránál kevesebb, illetve huszonhat óránál több nem lehet. [TVSZ 23. § (2)]",
+     "answerable_pred": true,
+     "model": "groq:qwen/qwen3.8-27b",
+     "error": "",
+     "citations": [
+      {
+       "source": "S1",
+       "chunk_id": "tvsz:23:2",
+       "citation": "TVSZ 23. § (2)",
+       "quote": "heti tizenhat óránál kevesebb, illetve huszonhat óránál több nem lehet",
+       "quote_score": 100.0,
+       "verified": true
+      }
+     ],
+     "context": [
+      "tvsz:23:2",
+      "tvsz:112:6",
+      "tvsz:106:1",
+      "tvsz:146/B:2",
+      "tvsz:13:8"
+     ],
+     "verdict": "correct",
+     "judge_reason": "A rendszer válasza lényegében teljesen egyezik a referenciaválasszal, megadva a 16 és 26 órás határokat, valamint a kivételeket is.",
+     "judge_model": "gemini:gemini-3.5-flash-lite",
+     "correctness": 1.0,
+     "false_refusal": 0.0,
+     "cit_precision": 1.0,
+     "cit_recall": 1.0,
+     "para_cit_precision": 1.0,
+     "para_cit_recall": 1.0,
+     "quote_verified": 1.0,
+     "context_hit": 1.0
+    },
+    {
+     "id": "q057",
+     "type": "numeric",
+     "answerable_gold": true,
+     "answer": "Az önköltségi díj fizetési kötelezettség alóli (részleges) mentességre irányuló kérelem benyújtási határideje az őszi félévben október 1. [TJSZ 10. § (6)]",
+     "answerable_pred": true,
+     "model": "groq:qwen/qwen3.8-27b",
+     "error": "",
+     "citations": [
+      {
+       "source": "S1",
+       "chunk_id": "tjsz:10:6",
+       "citation": "TJSZ 10. § (6)",
+       "quote": "A jelen paragrafus (6) bekezdés szerinti fizetési kötelezettség alóli (részlegesjmentességre irányuló kérelem benyújtási határideje őszi félévben október 1.",
+       "quote_score": 100.0,
+       "verified": true
+      }
+     ],
+     "context": [
+      "tjsz:10:6",
+      "tjsz:10:9#1",
+      "tjsz:10:10",
+      "tjsz:10:9#2",
+      "tjsz:10:5"
+     ],
+     "verdict": "correct",
+     "judge_reason": "A rendszer válasza tartalmazza a helyes határidőt (október 1.) az őszi félévre vonatkozóan, ami egyezik a referenciaválasz lényegi információjával.",
+     "judge_model": "gemini:gemini-3.5-flash-lite",
+     "correctness": 1.0,
+     "false_refusal": 0.0,
+     "cit_precision": 1.0,
+     "cit_recall": 1.0,
+     "para_cit_precision": 1.0,
+     "para_cit_recall": 1.0,
+     "quote_verified": 1.0,
+     "context_hit": 1.0
+    },
+    {
+     "id": "q058",
+     "type": "numeric",
+     "answerable_gold": true,
+     "answer": "A tantárgy utólagos leadását a TR-en keresztül az utolsó oktatási hét első napján 23:59-ig benyújtott kérelemben kérheti a hallgató [TVSZ 103. § (3)].",
+     "answerable_pred": true,
+     "model": "groq:qwen/qwen3.8-27b",
+     "error": "",
+     "citations": [
+      {
+       "source": "S1",
+       "chunk_id": "tvsz:103:3",
+       "citation": "TVSZ 103. § (3)",
+       "quote": "az utolsó oktatási hét első napján 23:59-ig benyújtott kérelemben kérheti tantárgy, illetve kurzus utólagos felvételét vagy leadását",
+       "quote_score": 100.0,
+       "verified": true
+      }
+     ],
+     "context": [
+      "tvsz:103:3",
+      "tvsz:57:4",
+      "tvsz:103:4",
+      "tvsz:239:3",
+      "tvsz:177:2"
+     ],
+     "verdict": null,
+     "judge_reason": "bíró hiba: Invalid \\uXXXX escape: line 1 column 223 (char 222)",
+     "judge_model": "",
+     "correctness": null,
+     "false_refusal": 0.0,
+     "cit_precision": 1.0,
+     "cit_recall": 1.0,
+     "para_cit_precision": 1.0,
+     "para_cit_recall": 1.0,
+     "quote_verified": 1.0,
+     "context_hit": 1.0
+    },
+    {
+     "id": "q059",
+     "type": "numeric",
+     "answerable_gold": true,
+     "answer": "A 2026. évi pótfelvételi eljárásban felvett hallgatók külön kérelem nélkül 2026. szeptember 11. 23:59 óráig vehetnek fel és adhatnak le tantárgyakat és kurzusokat [Tanév időbeosztása 2026/27 4. § (2)].",
+     "answerable_pred": true,
+     "model": "groq:qwen/qwen3.8-27b",
+     "error": "",
+     "citations": [
+      {
+       "source": "S1",
+       "chunk_id": "tanev_2026_27:4:2",
+       "citation": "Tanév időbeosztása 2026/27 4. § (2)",
+       "quote": "külön kérelem nélkül 2026. szeptember 11. 23:59 óráig vehessenek fel és adhassanak le tantárgyakat és kurzusokat",
+       "quote_score": 100.0,
+       "verified": true
+      }
+     ],
+     "context": [
+      "tanev_2026_27:4:2",
+      "tvsz:237:1",
+      "tvsz:61:2",
+      "tvsz:104:1",
+      "tvsz:180:4"
+     ],
+     "verdict": "correct",
+     "judge_reason": "A rendszer válasza pontosan tartalmazza a referenciaválaszban szereplő határidőt és feltételeket.",
+     "judge_model": "gemini:gemini-3.5-flash-lite",
+     "correctness": 1.0,
+     "false_refusal": 0.0,
+     "cit_precision": 1.0,
+     "cit_recall": 1.0,
+     "para_cit_precision": 1.0,
+     "para_cit_recall": 1.0,
+     "quote_verified": 1.0,
+     "context_hit": 1.0
+    },
+    {
+     "id": "q061",
+     "type": "numeric",
+     "answerable_gold": true,
+     "answer": "A B-típusú bérlet ára a BME Sportközpontban 8.500 Ft, és 16 alkalomra jogosít. [VIK Képzési tájékoztató – Létesítmények]",
+     "answerable_pred": true,
+     "model": "groq:qwen/qwen3.8-27b",
+     "error": "",
+     "citations": [
+      {
+       "source": "S1",
+       "chunk_id": "vik_kepzesi_tajekoztato:s14",
+       "citation": "VIK Képzési tájékoztató – Létesítmények",
+       "quote": "B-típusú bérlet­tel látogatható, melynek összege 8.500,-Ft/16 alkalom.",
+       "quote_score": 100.0,
+       "verified": true
+      }
+     ],
+     "context": [
+      "vik_kepzesi_tajekoztato:s14",
+      "vik_kepzesi_tajekoztato:s15",
+      "vik_bprof_specval:3:5",
+      "vik_bsc_specval:3:6",
+      "vik_kepzesi_tajekoztato:s13"
+     ],
+     "verdict": "correct",
+     "judge_reason": "A rendszer válasza pontosan tartalmazza az árra (8500 Ft) és az alkalmak számára (16) vonatkozó információkat a referenciaválasznak megfelelően.",
+     "judge_model": "gemini:gemini-3.5-flash-lite",
+     "correctness": 1.0,
+     "false_refusal": 0.0,
+     "cit_precision": 1.0,
+     "cit_recall": 1.0,
+     "para_cit_precision": 1.0,
+     "para_cit_recall": 1.0,
+     "quote_verified": 1.0,
+     "context_hit": 1.0
+    },
+    {
+     "id": "q062",
+     "type": "numeric",
+     "answerable_gold": true,
+     "answer": "A záróvizsga megkezdése előtt legkésőbb huszonnégy órával kell visszavonni a jelentkezést [TVSZ 151. § (3)][BSc ZV-szabályzat [TVSZ 151. §-hoz] (3)][BProf ZV-szabályzat [TVSZ 151. §-hoz] (3)][MSc ZV-szabályzat [TVSZ 151. §-hoz] (3)].",
+     "answerable_pred": true,
+     "model": "groq:qwen/qwen3.8-27b",
+     "error": "",
+     "citations": [
+      {
+       "source": "S1",
+       "chunk_id": "tvsz:151:3",
+       "citation": "TVSZ 151. § (3)",
+       "quote": "a záróvizsga megkezdése előtt legkésőbb huszonnégy órával",
+       "quote_score": 100.0,
+       "verified": true
+      },
+      {
+       "source": "S2",
+       "chunk_id": "vik_bsc_zv:tvsz151:3",
+       "citation": "BSc ZV-szabályzat [TVSZ 151. §-hoz] (3)",
+       "quote": "a záróvizsga megkezdése előtt legkésőbb huszonnégy órával",
+       "quote_score": 100.0,
+       "verified": true
+      },
+      {
+       "source": "S3",
+       "chunk_id": "vik_bprof_zv:tvsz151:3",
+       "citation": "BProf ZV-szabályzat [TVSZ 151. §-hoz] (3)",
+       "quote": "a záróvizsga megkezdése előtt legkésőbb huszonnégy órával",
+       "quote_score": 100.0,
+       "verified": true
+      },
+      {
+       "source": "S5",
+       "chunk_id": "vik_msc_zv:tvsz151:3",
+       "citation": "MSc ZV-szabályzat [TVSZ 151. §-hoz] (3)",
+       "quote": "a záróvizsga megkezdése előtt legkésőbb huszonnégy órával",
+       "quote_score": 100.0,
+       "verified": true
+      }
+     ],
+     "context": [
+      "tvsz:151:3",
+      "vik_bsc_zv:tvsz151:3",
+      "vik_bprof_zv:tvsz151:3",
+      "tvsz:120:3",
+      "vik_msc_zv:tvsz151:3"
+     ],
+     "verdict": "correct",
+     "judge_reason": "A rendszer válasza helyesen tartalmazza a 24 órás határidőt a záróvizsga előtt, ami megegyezik a referenciaválasz lényegével.",
+     "judge_model": "gemini:gemini-3.5-flash-lite",
+     "correctness": 1.0,
+     "false_refusal": 0.0,
+     "cit_precision": 1.0,
+     "cit_recall": 1.0,
+     "para_cit_precision": 1.0,
+     "para_cit_recall": 1.0,
+     "quote_verified": 1.0,
+     "context_hit": 1.0
+    },
+    {
+     "id": "q063",
+     "type": "numeric",
+     "answerable_gold": true,
+     "answer": "A közös BSc záróvizsga – MSc felvételi vizsga a villamosmérnöki és mérnökinformatikus szakokon 2027. január 4-én lesz. [Szakdolgozat-tájékoztató (BProf) – Záróvizsga időszak:][Szakdolgozat-tájékoztató (BSc) – időpontról történő hiányzása a hallgatót az adott záróvizsga időszakból kizárja és záróvizsga lehetőségeinek számát eggyel csökkenti. Záróvizsga időszak:]",
+     "answerable_pred": true,
+     "model": "groq:qwen/qwen3.8-27b",
+     "error": "",
+     "citations": [
+      {
+       "source": "S1",
+       "chunk_id": "vik_tajekoztato_szd_bprof:s-záróvizsga-időszak",
+       "citation": "Szakdolgozat-tájékoztató (BProf) – Záróvizsga időszak:",
+       "quote": "Közös BSc záróvizsga – MSc felvételi vizsga: 2027. január 4. (vill/info)",
+       "quote_score": 100.0,
+       "verified": true
+      },
+      {
+       "source": "S3",
+       "chunk_id": "vik_tajekoztato_szd_bsc:s-időpontról-történő-hiányzása-a-hallgatót",
+       "citation": "Szakdolgozat-tájékoztató (BSc) – időpontról történő hiányzása a hallgatót az adott záróvizsga időszakból kizárja és záróvizsga lehetőségeinek számát eggyel csökkenti. Záróvizsga időszak:",
+       "quote": "Közös BSc záróvizsga – MSc felvételi vizsga: 2027. január 4. (vill/info)",
+       "quote_score": 100.0,
+       "verified": true
+      }
+     ],
+     "context": [
+      "vik_tajekoztato_szd_bprof:s-záróvizsga-időszak",
+      "tanev_2026_27:3:2",
+      "vik_tajekoztato_szd_bsc:s-időpontról-történő-hiányzása-a-hallgatót",
+      "vik_bsc_zv_msc_felveteli:p25",
+      "vik_tajekoztato_szd_bprof:s-időszakból-kizárja-és-záróvizsga-lehetős"
+     ],
+     "verdict": "correct",
+     "judge_reason": "A rendszer válasza helyesen tartalmazza a villamosmérnöki és mérnökinformatikus szakok 2027. január 4-i záróvizsga időpontját a referenciaválasznak megfelelően.",
+     "judge_model": "gemini:gemini-3.5-flash-lite",
+     "correctness": 1.0,
+     "false_refusal": 0.0,
+     "cit_precision": 1.0,
+     "cit_recall": 1.0,
+     "para_cit_precision": 1.0,
+     "para_cit_recall": 1.0,
+     "quote_verified": 1.0,
+     "context_hit": 1.0
+    },
+    {
+     "id": "q067",
+     "type": "numeric",
+     "answerable_gold": true,
+     "answer": "A megadott szabályzatrészletek alapján nem tudom megválaszolni a kérdést, mivel a források nem tartalmazzák a konkrét maximális passzív félév számát, csak azt, hogy a hallgatói jogviszony megszűnik, ha a 60. § (4) bekezdés szerinti maximális számú passzív félévet már igénybe vette [TVSZ 69. § (1)].",
+     "answerable_pred": false,
+     "model": "groq:qwen/qwen3.8-27b",
+     "error": "",
+     "citations": [
+      {
+       "source": "S3",
+       "chunk_id": "tvsz:69:1",
+       "citation": "TVSZ 69. § (1)",
+       "quote": "",
+       "quote_score": 0.0,
+       "verified": false
+      }
+     ],
+     "context": [
+      "tvsz:37:4",
+      "tvsz:57:8",
+      "tvsz:69:1",
+      "tvsz:57:2",
+      "vik_keresztfeleves:p5#2"
+     ],
+     "verdict": "incorrect",
+     "judge_reason": "A referenciaválasz tartalmazza a pontos adatot (legfeljebb négy félév alapképzésben), míg a rendszer válasza tévesen azt állítja, hogy a források nem tartalmazzák azt.",
+     "judge_model": "gemini:gemini-3.5-flash-lite",
+     "correctness": 0.0,
+     "false_refusal": 1.0,
+     "cit_precision": 0.0,
+     "cit_recall": 0.0,
+     "para_cit_precision": 0.0,
+     "para_cit_recall": 0.0,
+     "quote_verified": null,
+     "context_hit": 0.0
+    },
+    {
+     "id": "q068",
+     "type": "slang",
+     "answerable_gold": true,
+     "answer": "A megadott források alapján nem tudom megválaszolni a kérdést, mivel a szövegek nem tartalmazzák a konkrét felvételi határidőt vagy a félév eleji regisztrációs időszakot, csak azt, hogy a témák meghirdetési határideje a megelőző félév szorgalmi időszakának vége.",
+     "answerable_pred": false,
+     "model": "groq:qwen/qwen3.8-27b",
+     "error": "",
+     "citations": [],
+     "context": [
+      "vik_bprof_zv:p3",
+      "vik_bprof_specval:1:1",
+      "vik_tajekoztato_szd_bprof:s-a-félév-időbeosztása-szorgalmi-időszak-2",
+      "vik_bprof_zv:1",
+      "vik_bprof_zv:p20"
+     ],
+     "verdict": "incorrect",
+     "judge_reason": "A referenciaválasz tartalmazza a pontos időpontot, míg a rendszer válasza szerint nem megválaszolható a kérdés.",
+     "judge_model": "gemini:gemini-3.5-flash-lite",
+     "correctness": 0.0,
+     "false_refusal": 1.0,
+     "quote_verified": null,
+     "context_hit": 0.0
+    },
+    {
+     "id": "q069",
+     "type": "slang",
+     "answerable_gold": true,
+     "answer": "A megadott források alapján nem tudom megválaszolni, hogy a szakdolgozat angol nyelven történő elkészítése önmagában nyelvi kreditet ad-e. A források csak azt írják elő, hogy a szakdolgozat angol nyelven is készíthető a témavezető és a tanszékvezető hozzájárulásával [BProf ZV-szabályzat 10. pont – A SZAKDOLGOZAT][Üzemmérnök-informatikus BProf képzési program 3. pont – 2.5.5. Szakdolgozat-készítés], valamint részletesen leírják a nyelvi kreditek megszerzésének módjait (pl. tantárgyak, részleges idegennyelvi teljesítés, nyelvvizsga) [Üzemmérnök-informatikus BProf képzési program – 2.5.2. Szaknyelvi kompetenciák][Nyelvi kreditek – II. Nyelvi kreditek megszerzése], de nem említik, hogy a szakdolgozat teljesítése beszámít-e a 12 kreditbe.",
+     "answerable_pred": false,
+     "model": "groq:qwen/qwen3.8-27b",
+     "error": "",
+     "citations": [
+      {
+       "source": "S1",
+       "chunk_id": "vik_bprof_zv:p10",
+       "citation": "BProf ZV-szabályzat 10. pont – A SZAKDOLGOZAT",
+       "quote": "",
+       "quote_score": 0.0,
+       "verified": false
+      },
+      {
+       "source": "S3",
+       "chunk_id": "kp_bprof_uzinfo:p3~4",
+       "citation": "Üzemmérnök-informatikus BProf képzési program 3. pont – 2.5.5. Szakdolgozat-készítés",
+       "quote": "",
+       "quote_score": 0.0,
+       "verified": false
+      },
+      {
+       "source": "S2",
+       "chunk_id": "kp_bprof_uzinfo:s-2-5-2-szaknyelvi-kompetenciák",
+       "citation": "Üzemmérnök-informatikus BProf képzési program – 2.5.2. Szaknyelvi kompetenciák",
+       "quote": "",
+       "quote_score": 0.0,
+       "verified": false
+      },
+      {
+       "source": "S5",
+       "chunk_id": "vik_nyelvi_kreditek:s-ii-nyelvi-kreditek-megszerzése",
+       "citation": "Nyelvi kreditek – II. Nyelvi kreditek megszerzése",
+       "quote": "",
+       "quote_score": 0.0,
+       "verified": false
+      }
+     ],
+     "context": [
+      "vik_bprof_zv:p10",
+      "kp_bprof_uzinfo:s-2-5-2-szaknyelvi-kompetenciák",
+      "kp_bprof_uzinfo:p3~4",
+      "vik_bprof_zv:tvsz162:1",
+      "vik_nyelvi_kreditek:s-ii-nyelvi-kreditek-megszerzése"
+     ],
+     "verdict": "incorrect",
+     "judge_reason": "A rendszer azt jelezte, hogy a kérdés nem megválaszolható a forrásokból, miközben a referenciaválasz pontos információt tartalmaz a szakdolgozatért járó kreditekről.",
+     "judge_model": "gemini:gemini-3.5-flash-lite",
+     "correctness": 0.0,
+     "false_refusal": 1.0,
+     "cit_precision": 0.0,
+     "cit_recall": 0.0,
+     "para_cit_precision": 0.0,
+     "para_cit_recall": 0.0,
+     "quote_verified": null,
+     "context_hit": 0.0
+    },
+    {
+     "id": "q070",
+     "type": "slang",
+     "answerable_gold": true,
+     "answer": "Nem, a részvizsga érvénytelen lesz, és eredménye későbbi záróvizsga során nem vehető figyelembe. [TVSZ 154. § (7)]",
+     "answerable_pred": true,
+     "model": "groq:qwen/qwen3.8-27b",
+     "error": "",
+     "citations": [
+      {
+       "source": "S1",
+       "chunk_id": "tvsz:154:7",
+       "citation": "TVSZ 154. § (7)",
+       "quote": "a részvizsga érvénytelen, eredménye későbbi záróvizsga során nem vehető figyelembe",
+       "quote_score": 100.0,
+       "verified": true
+      }
+     ],
+     "context": [
+      "tvsz:154:7",
+      "tvsz:116:5",
+      "tvsz:154:3",
+      "tvsz:115:7",
+      "tvsz:154:2"
+     ],
+     "verdict": "correct",
+     "judge_reason": "A rendszer válasza lényegében teljesen megegyezik a referenciaválasszal, helyesen mutatja rá, hogy a részvizsga érvénytelen lesz és nem vehető figyelembe.",
+     "judge_model": "gemini:gemini-3.5-flash-lite",
+     "correctness": 1.0,
+     "false_refusal": 0.0,
+     "cit_precision": 1.0,
+     "cit_recall": 1.0,
+     "para_cit_precision": 1.0,
+     "para_cit_recall": 1.0,
+     "quote_verified": 1.0,
+     "context_hit": 1.0
+    },
+    {
+     "id": "q073",
+     "type": "slang",
+     "answerable_gold": true,
+     "answer": "A megadott szabályzatrészletek alapján nem tudom megválaszolni a kérdést, mivel a források nem tartalmaznak információt a házi feladatok késedelmes leadásának díjáról vagy határidejéről.",
+     "answerable_pred": false,
+     "model": "groq:qwen/qwen3.8-27b",
+     "error": "",
+     "citations": [],
+     "context": [
+      "tjsz:m2:1:2",
+      "tjsz:22:8",
+      "tjsz:12:4",
+      "kp_msc_eum:p5~5",
+      "tjsz:10:8"
+     ],
+     "verdict": "incorrect",
+     "judge_reason": "A referenciaválasz tartalmazza a késedelmes beadás díját és határidejét, míg a rendszer válasza szerint ezek nem ismerték.",
+     "judge_model": "gemini:gemini-3.5-flash-lite",
+     "correctness": 0.0,
+     "false_refusal": 1.0,
+     "quote_verified": null,
+     "context_hit": 0.0
+    },
+    {
+     "id": "q075",
+     "type": "slang",
+     "answerable_gold": true,
+     "answer": "A megadott források nem tartalmazzák a szabályokat, amelyek alapján nem engednek záróvizsgázni MSc képzésen (pl. hiányzó tantárgyak, féléves követelmények teljesítetlensége). A források csak a záróvizsga időpontját, a megbízás elfogadását, a diplomaterv javítását, a javíthatóságot és a sikeres vizsga nem javíthatóságát írják le.",
+     "answerable_pred": false,
+     "model": "groq:qwen/qwen3.8-27b",
+     "error": "",
+     "citations": [],
+     "context": [
+      "vik_msc_zv:tvsz152:4",
+      "vik_msc_zv:p41",
+      "vik_msc_zv:p23",
+      "vik_bsc_zv_msc_felveteli:p26",
+      "vik_msc_zv:tvsz155:7"
+     ],
+     "verdict": "incorrect",
+     "judge_reason": "A referenciaválasz tartalmazza a záróvizsgára jelentkezés akadályait (tartozások, eszközök vissza nem adása, késedelmes szakdolgozat), de a rendszer azt állítja, hogy a források nem tartalmazzák ezt.",
+     "judge_model": "gemini:gemini-3.5-flash-lite",
+     "correctness": 0.0,
+     "false_refusal": 1.0,
+     "quote_verified": null,
+     "context_hit": 0.0
+    },
+    {
+     "id": "q076",
+     "type": "slang",
+     "answerable_gold": true,
+     "answer": "A passzivitás (szünetelés) nem kizáró ok a tanulmányi ösztöndíj jogosultságból. Ilyen esetben az utolsó aktív félév tanulmányi eredményét kell figyelembe venni [TJSZ 24. § (5)]. Az ösztöndíj mértékének meghatározásához az előző aktív félév alapján számított ösztöndíjindex szolgál [TJSZ 24. § (7)].",
+     "answerable_pred": true,
+     "model": "groq:qwen/qwen3.8-27b",
+     "error": "",
+     "citations": [
+      {
+       "source": "S2",
+       "chunk_id": "tjsz:24:5",
+       "citation": "TJSZ 24. § (5)",
+       "quote": "A tárgyfélévet megelőző félév, vagy félévek szünetelése a tanulmányi ösztöndíj jogosultságból nem kizáró ok.",
+       "quote_score": 100.0,
+       "verified": true
+      },
+      {
+       "source": "S2",
+       "chunk_id": "tjsz:24:5",
+       "citation": "TJSZ 24. § (5)",
+       "quote": "Ez esetben az utolsó aktív félév tanulmányi eredményét kell figyelembe venni.",
+       "quote_score": 100.0,
+       "verified": true
+      },
+      {
+       "source": "S1",
+       "chunk_id": "tjsz:24:7",
+       "citation": "TJSZ 24. § (7)",
+       "quote": "A tanulmányi ösztöndíj mértékének meghatározásához az előző aktív félév alapján számított ösztöndíjindex szolgál",
+       "quote_score": 100.0,
+       "verified": true
+      }
+     ],
+     "context": [
+      "tjsz:24:7",
+      "tjsz:24:5",
+      "tjsz:24:2",
+      "tjsz:39:6",
+      "tjsz:39:2"
+     ],
+     "verdict": "correct",
+     "judge_reason": "A rendszer válasza tartalmilag teljesen pontos, tartalmazza a referenciaválasz lényegi információit és még kiegészítő részletet is ad.",
+     "judge_model": "gemini:gemini-3.5-flash-lite",
+     "correctness": 1.0,
+     "false_refusal": 0.0,
+     "cit_precision": 0.5,
+     "cit_recall": 1.0,
+     "para_cit_precision": 1.0,
+     "para_cit_recall": 1.0,
+     "quote_verified": 1.0,
+     "context_hit": 1.0
+    },
+    {
+     "id": "q077",
+     "type": "unanswerable",
+     "answerable_gold": false,
+     "answer": "A megadott szabályzatrészletek alapján nem tudom megválaszolni, hogy bevihető-e háziállat (kutyák) a kollégiumba, mivel a forrásokban nincs említés háziállat-tartásról.",
+     "answerable_pred": false,
+     "model": "groq:qwen/qwen3.8-27b",
+     "error": "",
+     "citations": [],
+     "context": [
+      "tjsz:48:13",
+      "tjsz:11:2",
+      "vik_tajekoztato_szd_bprof:s-a-hallgatói-jogállás-megszűnésével-kapcs",
+      "tjsz:11:1",
+      "tjsz:11:5"
+     ],
+     "verdict": "correct",
+     "judge_reason": "A rendszer helyesen ismerte fel, hogy a szabályzatokból a kérdés nem megválaszolható.",
+     "judge_model": "gemini:gemini-3.5-flash-lite",
+     "correctness": 1.0,
+     "abstain_correct": 1.0
+    },
+    {
+     "id": "q079",
+     "type": "unanswerable",
+     "answerable_gold": false,
+     "answer": "A megadott szabályzatrészletek alapján nem tudom megválaszolni a kérdést, mivel a források nem tartalmaznak információt a budapesti közlekedési diákigazolvány havi díjáról.",
+     "answerable_pred": false,
+     "model": "groq:qwen/qwen3.8-27b",
+     "error": "",
+     "citations": [],
+     "context": [
+      "vik_szmsz:m2:s-2-fejlesztőközpont",
+      "tjsz:m2:3:1",
+      "vik_szmsz:5:2",
+      "tjsz:m2:1:1#3",
+      "vik_szakmai_gyak_msc:s-az-elvégzendő-feladat-részletezése"
+     ],
+     "verdict": "correct",
+     "judge_reason": "A rendszer helyesen jelezte, hogy a kérdés a szabályzatokból nem megválaszolható.",
+     "judge_model": "gemini:gemini-3.5-flash-lite",
+     "correctness": 1.0,
+     "abstain_correct": 1.0
+    },
+    {
+     "id": "q080",
+     "type": "unanswerable",
+     "answerable_gold": false,
+     "answer": "A megadott szabályzatrészletek alapján nem tudom megválaszolni, hogy tavaly mekkora volt a ponthatár a mérnökinformatikus BSc képzésre, mivel a források nem tartalmazzák a konkrét ponthatárértékeket.",
+     "answerable_pred": false,
+     "model": "groq:qwen/qwen3.8-27b",
+     "error": "",
+     "citations": [],
+     "context": [
+      "kp_bsc_info:p1~3",
+      "kp_bsc_info:p3~12",
+      "kp_bsc_info:p10",
+      "tvsz:146/B:2",
+      "vik_bsc_zv_msc_felveteli:p6"
+     ],
+     "verdict": "correct",
+     "judge_reason": "A rendszer helyesen jelezte, hogy a kérdés a szabályzatokból nem megválaszolható.",
+     "judge_model": "gemini:gemini-3.5-flash-lite",
+     "correctness": 1.0,
+     "abstain_correct": 1.0
+    },
+    {
+     "id": "q082",
+     "type": "unanswerable",
+     "answerable_gold": false,
+     "answer": "A megadott szabályzatrészletek alapján nem tudom megválaszolni, mivel a források nem tartalmaznak információt a specializációk nehézségi fokáról vagy összehasonlításáról.",
+     "answerable_pred": false,
+     "model": "groq:qwen/qwen3.8-27b",
+     "error": "",
+     "citations": [],
+     "context": [
+      "kp_bsc_gain:p8~5",
+      "kp_bsc_vill:p4~15",
+      "kp_bsc_gain:s-jogszabályban-felvételi-szabályzatban-és#4",
+      "kp_bprof_uzinfo:p9~2#1",
+      "kp_msc_info:p8~12"
+     ],
+     "verdict": "correct",
+     "judge_reason": "A rendszer helyesen jelölte, hogy a kérdés a szabályzatok alapján nem megválaszolható.",
+     "judge_model": "gemini:gemini-3.5-flash-lite",
+     "correctness": 1.0,
+     "abstain_correct": 1.0
+    },
+    {
+     "id": "q083",
+     "type": "unanswerable",
+     "answerable_gold": false,
+     "answer": "A megadott szabályzatrészletek alapján nem tudom megválaszolni a kérdést, mivel a források nem tartalmaznak információt az egyetemi menza árakról.",
+     "answerable_pred": false,
+     "model": "groq:qwen/qwen3.8-27b",
+     "error": "",
+     "citations": [],
+     "context": [
+      "tvsz:210/A:4",
+      "tjsz:9:1",
+      "kp_msc_ai:p6",
+      "tjsz:m2:3:1",
+      "kp_bsc_gain:p6~5"
+     ],
+     "verdict": "correct",
+     "judge_reason": "A rendszer helyesen jelzi, hogy a szabályzatok alapján a kérdés nem megválaszolható, ami megegyezik a referenciaválasszal.",
+     "judge_model": "gemini:gemini-3.5-flash-lite",
+     "correctness": 1.0,
+     "abstain_correct": 1.0
+    },
+    {
+     "id": "q084",
+     "type": "unanswerable",
+     "answerable_gold": false,
+     "answer": "A megadott szabályzatrészletek alapján nem tudom megválaszolni, hogy mikor lesz a 2027-es gólyatábor, mivel a forrásokban nincs említés a gólyatábor időpontjáról.",
+     "answerable_pred": false,
+     "model": "groq:qwen/qwen3.8-27b",
+     "error": "",
+     "citations": [],
+     "context": [
+      "tanev_2026_27:m1:s-téli-szünet",
+      "tanev_2026_27:m1:s-tavaszi-szünet",
+      "vik_tanev_kieg_2:s1",
+      "tanev_2026_27:3:2",
+      "tanev_2026_27:7:1"
+     ],
+     "verdict": "correct",
+     "judge_reason": "A referenciaválasz szerint a kérdés nem megválaszolható, és a rendszer helyesen jelzi, hogy a szabályzatok nem tartalmazzák ezt az információt.",
+     "judge_model": "gemini:gemini-3.5-flash-lite",
+     "correctness": 1.0,
+     "abstain_correct": 1.0
+    },
+    {
+     "id": "q086",
+     "type": "unanswerable",
+     "answerable_gold": false,
+     "answer": "A megadott források nem tartalmazzák információt a Q épület nyitvatartási idejéről, különösen nem arról, hogy éjszaka is nyitva áll-e a hallgatók számára tanulási céllal. A forrásokban szereplő elérhetőségek (pl. VIK Oktatási Dékánhelyettes fogadóórája) csak a hivatalos ügyintézési vagy fogadóidőkre vonatkoznak, nem az épület általános nyitvatartására.",
+     "answerable_pred": false,
+     "model": "groq:qwen/qwen3.8-27b",
+     "error": "",
+     "citations": [],
+     "context": [
+      "vik_kepzesi_tajekoztato:s4",
+      "vik_kepzesi_tajekoztato:s12",
+      "vik_szmsz:5:1",
+      "tvsz:74/E:2",
+      "tvsz:13/A:8"
+     ],
+     "verdict": "correct",
+     "judge_reason": "A referenciaválasz szerint a kérdés nem megválaszolható, és a rendszer válasza is pontosan ezt jelzi.",
+     "judge_model": "gemini:gemini-3.5-flash-lite",
+     "correctness": 1.0,
+     "abstain_correct": 1.0
+    }
+   ]
+  }
+ }
+}

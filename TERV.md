@@ -217,6 +217,8 @@ Kétféle kiértékelést kombinálunk: **(A) ground truth alapú** (a feladat e
 
 → A hibrid **gyengébb**, mint a dense önmagában: a BM25 az angol (hit@5 = 0) és a szleng (0,33) kérdéseken használhatatlan, és az RRF-ben lerontja a dense rangsort. F5-ben: súlyozott RRF / lekérdezés-átírás, utána reranker.
 
+**F5 eredmény (test, 59 kérdés; a választás a dev halmazon történt, `configs/final.yaml`):** szótáras bővítés + LLM-átírás → hibrid → bge-reranker (15 jelölt, átírt kérdéssel) → zajszűrés (0,05) → top-5. Retrieval hit@5 0,81 → **0,96**, MRR 0,73 → 0,87; válaszhelyesség 0,80 → **0,95**, téves elutasítás 15% → 2%, hivatkozási precizitás/felidézés 0,82/0,83 → 0,88/0,91 (bíró: gemini-3.5-flash-lite). Részletek és fenntartások: `docs/NAPLO.md` (F5).
+
 ### 3.2 (A) Retrieval-metrikák (ground truth)
 - **Recall@k** (k = 1, 3, 5, 10), **MRR**, **nDCG@10**: bekezdésszinten (szigorú) és §-szinten (laza).
 - **Hit rate a végső kontextusban** (a reranking és szűrés után ténylegesen az LLM elé került 3–5 chunk között ott van-e a gold).
@@ -252,6 +254,7 @@ Kétféle kiértékelést kombinálunk: **(A) ground truth alapú** (a feladat e
 | E8 | Kereszthivatkozás-bővítés | be / ki |
 | E9 | top-k az LLM-nek | 3 · 5 · 10 · 20 (lost in the middle) |
 | E10 | RRF k | 20 · 60 · 100 |
+| E12 | Zajszűrés robusztussága | min_keep 1 · 2 · 3 · relatív küszöb (az F5 kézi próbája alapján) |
 | E11 | Generáló LLM | Groq-modell(ek) · Gemini · lokális Qwen ~9B · ~14B |
 
 **Prioritás a határidő miatt:** kötelező: E1, E2, E3, E6, E9 (és E11 a két API-modellel). Ha belefér: E4, E5, E7, E8, E10, illetve E11 a lokális modellekkel.
@@ -336,7 +339,7 @@ HF/
 | **F3 – Baseline RAG** | nov. 18–20. | BM25 + dense + RRF + egyszerű generálás, CLI, modellválasztás | végponttól végpontig működik egy kérdésre hivatkozással |
 | **F7a – Korai telepítés** | nov. 21. | minimális Gradio-felület a HF Space-en | a publikus URL él (telepítési gondok korán kiderülnek) |
 | **F4 – Kiértékelő halmaz** ✅ (nov. 25.) | nov. 20–24. | 80–100 kérdés, dev/test felosztás, metrikakód | `questions.jsonl` kézzel ellenőrizve, baseline-számok megvannak |
-| **F5 – Advanced RAG** | nov. 24–28. | reranker, zajszűrés, lekérdezés-feldolgozás, kereszthivatkozás, hivatkozás-ellenőrzés | minden komponens be- és kikapcsolható, mért javulással |
+| **F5 – Advanced RAG** ✅ (nov. 28.) | nov. 24–28. | reranker, zajszűrés, lekérdezés-feldolgozás, kereszthivatkozás, hivatkozás-ellenőrzés | minden komponens be- és kikapcsolható, mért javulással |
 | **F6 – Kísérletek** | nov. 28. – dec. 2. | kötelező kísérletek, RAG-triád, bíró-validálás | eredménytáblák és ábrák |
 | **F7b – Végleges felület** | dec. 1–3. | teljes UI (hivatkozás-panel, „Hogyan találtam meg?”, kiértékelés-fül), CI | a végleges URL működik |
 | **F8 – Lokális modellek** | ha elérhető az erősebb gép (legkésőbb dec. 3.) | Qwen ~9B / ~14B kiértékelése (E11) | az összehasonlító tábla kész; **opcionális** |
@@ -368,5 +371,5 @@ HF/
 | 2 | Mi számít publikusnak? | ✅ Minden, ami bejelentkezés nélkül elérhető |
 | 3 | Tárgyadatlapok köre | ✅ Fokozatos: kötelező tárgyak → ha a scraper stabil, az összes VIK-tárgy (2. fejezet) |
 | 4 | Angol dokumentumok | ✅ Magyar korpusz; angol dokumentum csak opcionálisan (P2); angol kérdések többnyelvű embeddinggel |
-| 5 | Alapértelmezett modellek | ⏳ Közepes modell; az F3-ban a `.env` kulcsokkal választjuk ki (generáló: Groq, bíró: Gemini) |
+| 5 | Alapértelmezett modellek | ✅ Generáló: `groq:qwen/qwen3.8-27b` (tartalék: gpt-oss-120b → gemini-3.5-flash); átíró: `groq:openai/gpt-oss-20b`; bíró: `gemini-3.5-flash-lite` (a 3.5-flash napi kerete kb. 20 kérés) |
 | 6 | Pontosan mely VIK-es szabályzatok nyilvánosak? | ⏳ F1 |

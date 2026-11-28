@@ -175,3 +175,72 @@ Típusonként (hit@5): a BM25 az **angol kérdéseken 0,00**, a **szlengen 0,33*
 - A kiértékelő halmaz maga is hibakereső eszköz: az első futtatás egy parserhibát és egy tervezési hibát (instabil azonosítók) is kimutatott.
 - Az LLM-generált kérdések kb. harmada használhatatlan, és a használhatóak közel kétharmadát át kellett írni. A kézi átnézés nem spórolható meg.
 - Gold-címkék: ugyanaz a szabály több dokumentumban is szerepel. Ezt a metrikában kezelni kell, különben a jó kereső büntetést kap.
+
+---
+
+## 2026-11-28 – F5: advanced RAG (lekérdezés-átírás, reranker, zajszűrés)
+
+**Mit csináltunk** (minden elem a `RAGConfig`-ból kapcsolható, a futtató `--cfg kulcs=érték` paraméterrel állítja)
+1. **Lekérdezés-feldolgozás** (`src/vikrag/retrieve/query.py`):
+   - (a) **szótáras bővítés**: `data/glossary.yaml`, kb. 75 általános BME-s szleng- és rövidítéspár (zh, zv, szakdoga, passzivál, abszolút, KTB…). Az általános hallgatói szóhasználatból írtam, nem a kiértékelő kérdésekből;
+   - (b) **LLM-átírás**: `groq:openai/gpt-oss-20b`, prompt: `prompts/query_rewrite_v1.md`. A kérdést a szabályzatok hivatalos magyar szóhasználatára írja át, és az angol kérdést lefordítja;
+   - a változatok (eredeti / bővített / átírt) rangsorait **multi-query RRF** egyesíti.
+2. **Súlyozott RRF** (`rrf(..., weights)`): rangsoronkénti, ill. változatonkénti súly. Például `bm25:orig: 0` esetén a BM25 csak az átírt kérdésen fut.
+3. **Cross-encoder reranker** (`src/vikrag/retrieve/rerank.py`):
+   - `BAAI/bge-reranker-v2-m3` és a 15× gyorsabb `cross-encoder/mmarco-mMiniLMv2-L12-H384-v1`;
+   - a pontszámok SQLite-gyorsítótárba kerülnek, mert CPU-n a bge kb. 0,7 s/pár.
+4. **Zajszűrés** (min. reranker-valószínűség), **kereszthivatkozás-bővítés** (a top chunkok `crossrefs` mezőjéből), **„sandwich” kontextus-sorrend** (lost in the middle).
+5. Ablációs futtató: `eval/ablate.py configs/*.yaml`. Egyszer tölti be a modelleket, és sorban lefuttatja a konfigurációkat.
+
+**A döntés menete: választás a dev halmazon, mérés a test halmazon**
+- A dev halmazon (24 megválaszolható kérdés) a kereső szinte telített (hit@5 = 23/24), egy konfigurációváltás itt egyetlen kérdés különbségét jelenti. **Ezért a választást a test-futtatás előtt rögzítettem** (`configs/f5_shortlist.yaml` fejléce):
+  - minőségi konfiguráció: `hybrid + both + bge (átírt kérdéssel)`, ez volt a dev legjobb MRR/nDCG értéke;
+  - gyors konfiguráció: `hybrid + llm`.
+- **Retrieval, test (52 megválaszolható kérdés):**
+
+| Konfiguráció | hit@1 | hit@5 | recall@5 | MRR | nDCG@10 | angol hit@5 | szleng hit@5 |
+|---|---|---|---|---|---|---|---|
+| BM25 | 0,52 | 0,69 | 0,63 | 0,58 | 0,59 | 0,00 | 0,33 |
+| dense | 0,79 | 0,92 | 0,85 | 0,85 | 0,83 | 1,00 | 0,83 |
+| hibrid (baseline) | 0,65 | 0,81 | 0,77 | 0,74 | 0,74 | 0,33 | 0,33 |
+| hibrid, BM25 súly 0,5 | 0,71 | 0,85 | 0,80 | 0,78 | 0,79 | 1,00 | 0,33 |
+| dense + szótár | 0,77 | 0,94 | 0,89 | 0,85 | 0,84 | 1,00 | 1,00 |
+| hibrid + LLM-átírás | 0,73 | 0,87 | 0,83 | 0,79 | 0,80 | 1,00 | 0,50 |
+| hibrid + mindkettő | 0,75 | 0,89 | 0,86 | 0,81 | 0,81 | 1,00 | 0,67 |
+| hibrid + mMiniLM reranker | 0,73 | 0,94 | 0,90 | 0,82 | 0,82 | 1,00 | 0,83 |
+| hibrid + bge reranker | **0,85** | 0,94 | 0,90 | **0,89** | **0,88** | 1,00 | 0,83 |
+| **hibrid + mindkettő + bge (átírt kérdéssel), 15 jelölt** | 0,81 | **0,96** | **0,92** | 0,87 | 0,86 | **1,00** | **1,00** |
+
+- A test halmaz igazolta a minőségi választást. **A „gyors” jelölt viszont rosszul sikerült:** a test halmazon a `hybrid + llm` (0,87) gyengébb, mint a sima `dense + szótár` (0,94). A dev ezt nem tudta megkülönböztetni. A Space-en a gyorsabb, reranker nélküli útvonalhoz ezért a dense + szótár a jobb jelölt (F7).
+- A reranker 15 és 30 jelölttel pontosan ugyanazokat a metrikákat adja, de a 15 jelölt fele annyi idő (CPU-n kb. 9–10 s/kérdés).
+
+**Válaszszint (dev, 27 kérdés):** A: Q; B: Q + zajszűrés (min_score = 0,05); C: B + kereszthivatkozás; D: B + sandwich. A helyesség 0,98 / 1,00 / 1,00 / 1,00, vagyis ez is telített. **B** lett a választás: 20%-kal kisebb kontextus, egy részben helyes válasz javult. A kereszthivatkozás és a sandwich-sorrend opcionális marad, mert nem javított (a sandwich az idézethűséget 0,92-ről 0,88-ra rontotta).
+A küszöböt a reranker-pontszámok eloszlásából választottam: a dev gold chunkok pontszáma ≥0,08, a megválaszolhatatlan kérdések legjobb találata ≤0,011.
+
+**Hibák, amelyeket menet közben találtunk**
+- **Dupla szigmoid:** a reranker pontszámai mind a 0,5–0,73 sávba estek. Ok: a sentence-transformers `CrossEncoder` alapból szigmoidot alkalmaz, és én még egyszer alkalmaztam. A rangsoron ez nem változtatott (monoton), de a küszöbskálát összenyomta. Kiderült továbbá, hogy az mMiniLM **nem** alkalmaz szigmoidot. → Kifejezett `activation_fn=Sigmoid()` mindkét modellnél. A bge-gyorsítótárat logittal pontosan visszaalakítottam (30 percnyi újraszámolás helyett), a sérült mMiniLM-bejegyzéseket pedig a kulcsok újragenerálásával töröltem. *Tanulság:* egy küszöb beállítása előtt mindig meg kell nézni a pontszámok eloszlását.
+- **Bírócsere:** a `gemini-3.5-flash` ingyenes kerete kb. **20 kérés naponta**; a baseline-bírálat a 25. kérdésnél elakadt. → Bíró: `gemini-3.5-flash-lite`, egységesen. A baseline-t is újrabíráltattam vele, hogy a számok összehasonlíthatók legyenek. A kliens ezért kezeli a napi kvótát (lásd F4).
+- A bíró egyszer érvénytelen JSON-escape-et (`\u…`) adott vissza → tűrőbb JSON-feldolgozás.
+- A végleges test-futásban 13 választ a tartalék modell (gpt-oss-120b) generált, mert a qwen limitbe futott. A tiszta összehasonlításért ezt a 13-at csak qwennel generáltam újra.
+
+**Végeredmény: test, 59 kérdés, bíró `gemini-3.5-flash-lite`**
+
+| | Baseline (F3) | Végleges (F5) |
+|---|---|---|
+| retrieval hit@5 / MRR | 0,81 / 0,73 | **0,96 / 0,87** |
+| kontextus-találat (a gold az LLM előtt van) | 0,81 | **0,96** |
+| **válaszhelyesség** | 0,80 | **0,95** |
+| téves elutasítás | 15% | **2%** |
+| absztinencia (megválaszolhatatlan) | 100% | 100% |
+| hivatkozási precizitás / felidézés | 0,82 / 0,83 | **0,88 / 0,91** |
+| idézethűség | 0,86 | 0,85 |
+| átlagos kontextusméret | 5 | 4,3 |
+
+- **Fenntartás:** a végleges futásban a qwen napi 200k tokenes kerete (TPD) elfogyott, ezért 12 kérdésre a tartalék `gpt-oss-120b` válaszolt. Ide tartozik mind a 6 szleng-, 5 megválaszolhatatlan és 1 számadatkérdés (a futtatás típus szerint rendezve halad). **Csak a mindkét futásban qwen által generált 46 kérdésen:** helyesség 0,86 → **0,96**, téves elutasítás 7% → 0%. A szlengkérdések tiszta (csak qwen) összehasonlítása a kvóta visszaállása után következik.
+- A maradék hibák (4 részben helyes, 1 helytelen) közül csak egy keresési hiba (q067, passzív félévek száma), a többi a generálás pontatlansága: kihagyott második határidő, rossz szereplő megnevezése.
+
+**Tanulság (F5)**
+- A dia sorrendje (lekérdezés-feldolgozás → hibrid → rerank → szűrés) itt is bevált, de **a nagy nyereség a lekérdezés-átírásból és a rerankerből jött**. A hibrid önmagában még rontott is, a súlyozott RRF csak részben segített.
+- Egy kicsi dev halmaz gyorsan telítődik. A választási szabály előzetes rögzítése nélkül könnyű lenne a test halmazon „hangolni”.
+- Az ingyenes API-k napi kvótái (Gemini kb. 20 kérés naponta, Groq 200k token naponta modellenként) gyakorlatilag meghatározzák, mennyi kísérlet fér bele egy napba. Az LLM- és reranker-gyorsítótár nélkül a kiértékelés nem lenne megismételhető.
+- **Kézi próbán talált gyenge pont:** a „Bebuktam a zh-t, mi lesz az aláírással?” kérdésre a reranker a helyes TVSZ 114. § (3)-nak is csak 0,042-es valószínűséget ad. Ez a 0,05-ös küszöb alatt van, így a szűrés után egyetlen chunk marad (min_keep = 1). Az abszolút küszöb tehát törékeny. A mért konfigurációt utólag nem módosítom, mert az a test halmazon való hangolás volna. → F6-kísérlet: min_keep = 2–3, ill. a legjobb pontszámhoz viszonyított küszöb.

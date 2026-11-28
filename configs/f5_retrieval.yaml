@@ -1,0 +1,22 @@
+# F5 retrieval-ablációk (dev halmazon hangolunk; a végső számok a test halmazról).
+base: {mode: hybrid, candidates: 50, rrf_k: 60}
+configs:
+  bm25: {mode: bm25}
+  dense: {mode: dense}
+  hybrid: {}
+  hybrid_w0.5: {rrf_weights: {bm25: 0.5}}
+  hybrid_w0.3: {rrf_weights: {bm25: 0.3}}
+  dense+gloss: {mode: dense, rewrite: glossary}
+  hybrid+gloss: {rewrite: glossary}
+  hybrid_w0.5+gloss: {rewrite: glossary, rrf_weights: {bm25: 0.5}}
+  dense+llm: {mode: dense, rewrite: llm}
+  hybrid+llm: {rewrite: llm}
+  hybrid+both: {rewrite: both}
+  hybrid+both_bm25rw: {rewrite: both, rrf_weights: {"bm25:orig": 0}}
+  hybrid+mminilm: {rerank: mminilm}
+  dense+mminilm: {mode: dense, rerank: mminilm}
+  hybrid+bge: {rerank: bge-m3}
+  dense+bge: {mode: dense, rerank: bge-m3}
+  hybrid+both+bge: {rewrite: both, rerank: bge-m3}
+  hybrid+both+bge_llmq: {rewrite: both, rerank: bge-m3, rerank_query: llm}
+  hybrid+both+mminilm_llmq: {rewrite: both, rerank: mminilm, rerank_query: llm}

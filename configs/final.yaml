@@ -1,0 +1,11 @@
+# F5-ben kiválasztott konfiguráció (a dev halmazon választva, a test halmazon mérve) = a RAGConfig alapértékei.
+mode: hybrid
+rrf_k: 60
+rewrite: both            # szótáras bővítés + LLM-átírás (groq:openai/gpt-oss-20b)
+rerank: bge-m3           # BAAI/bge-reranker-v2-m3
+rerank_query: llm        # a cross-encoder az átírt kérdéssel pontoz
+rerank_candidates: 15
+min_score: 0.05          # zajszűrés
+top_k: 5
+crossref: 0              # opcionális: kereszthivatkozás-bővítés (a dev-en nem javított)
+order: rank              # opcionális: sandwich (a dev-en nem javított)

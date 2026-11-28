@@ -10,6 +10,7 @@ from __future__ import annotations
 import hashlib
 import json
 import os
+import re
 import time
 from dataclasses import dataclass
 from pathlib import Path
@@ -24,7 +25,7 @@ load_dotenv(ROOT / ".env")
 CACHE_DIR = ROOT / ".cache" / "llm"
 
 DEFAULT_GENERATOR = ["groq:qwen/qwen3.8-27b", "groq:openai/gpt-oss-120b", "gemini:gemini-3.5-flash"]
-DEFAULT_JUDGE = ["gemini:gemini-3.5-flash", "groq:openai/gpt-oss-120b"]
+DEFAULT_JUDGE = ["gemini:gemini-3.5-flash-lite"]  # a 3.5-flash free tier napi ~20 kérés: bírónak kevés
 
 
 class LLMError(RuntimeError):
@@ -161,4 +162,12 @@ def parse_json(text: str) -> dict:
     if t.startswith("```"):
         t = t.split("\n", 1)[1].rsplit("```", 1)[0]
     start, end = t.find("{"), t.rfind("}")
-    return json.loads(t[start : end + 1])
+    t = t[start : end + 1]
+    try:
+        return json.loads(t)
+    except json.JSONDecodeError:
+        # hibás escape-ek (pl. "\uXX" vagy "\§" a szövegben): a nem érvényes backslash-eket megkettőzzük
+        return json.loads(_BAD_ESCAPE.sub(r"\\\\", t))
+
+
+_BAD_ESCAPE = re.compile(r'\\(?!["\\/bfnrt]|u[0-9a-fA-F]{4})')

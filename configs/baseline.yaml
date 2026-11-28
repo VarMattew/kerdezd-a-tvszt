@@ -1,0 +1,8 @@
+# F3 baseline: hibrid (BM25 + bge-m3, RRF k=60), top-5, nincs átírás / reranker / zajszűrés.
+# uv run python eval/run.py --name baseline --split test --answers --cfg rewrite=none rerank="" min_score=0
+mode: hybrid
+rrf_k: 60
+top_k: 5
+rewrite: none
+rerank: ""
+min_score: 0.0

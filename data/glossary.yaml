@@ -1,0 +1,77 @@
+# Hallgatói szleng / rövidítés -> szabályzati szakkifejezés (TERV 1.3, lekérdezés-bővítés).
+# A kulcs reguláris kifejezés (kisbetűs, szóelejre illesztve, a ragozott alakokat is elkapja),
+# az érték a lekérdezéshez FŰZÖTT kifejezés(ek). Általános BME-s hallgatói szóhasználat alapján írva,
+# NEM a kiértékelő kérdésekből; a hangolás csak a dev halmazon történt.
+zh: zárthelyi dolgozat
+pótzh: pótlás zárthelyi dolgozat pótlási időszak
+nagyzh: zárthelyi dolgozat
+kisz?h: kis zárthelyi
+zv: záróvizsga
+szakdog: szakdolgozat
+diplomater?v: diplomaterv diplomamunka
+diplomamunk: diplomamunka diplomaterv
+abszol[uú]t: végbizonyítvány abszolutórium
+absz\b: végbizonyítvány abszolutórium
+passziv[aá]l: passzív félév szünetelés
+passzív: passzív félév szünetelés
+évhalaszt: hallgatói jogviszony szünetelése
+utóvizsg: ismétlő vizsga
+uv\b: ismétlő vizsga
+iv\b: ismétlő vizsga
+ismétlővizsg: ismétlő vizsga
+javítóvizsg: javító vizsga
+bebuk: elégtelen sikertelen teljesítés
+buk(ok|tam|ott|ik|ás): elégtelen sikertelen teljesítés
+megbuk: elégtelen sikertelen teljesítés
+aláír: aláírás félévközi követelmények teljesítése
+signo: aláírás
+házi: házi feladat beadás
+hf\b: házi feladat
+késve: késedelmes beadás különeljárási díj
+kés[eé]s: késedelmes beadás
+csúsz: késedelmes határidő
+leadni a tárgy: tantárgy leadása kurzus leadás
+tárgyleadás: tantárgy leadása
+tárgyfelvét: tantárgyfelvétel
+felvesz(em|ek) a tárgy: tantárgyfelvétel
+újrafelv: ismételt tantárgyfelvétel javító ismétlés
+kredit ?index: kreditindex
+ösztöndíjindex: ösztöndíjindex kreditindex
+ktb: Kari Tanulmányi Bizottság
+kth: Kari Tanulmányi Hivatal
+neptun: tanulmányi rendszer TR Neptun
+\btr\b: tanulmányi rendszer TR
+kirúg: hallgatói jogviszony megszűnése elbocsátás
+kiesek: hallgatói jogviszony megszűnése
+dékáni: dékáni méltányosság
+méltányos: méltányossági kérelem
+gólya: elsőéves hallgató
+spec\b: specializáció
+specre: specializáció
+mérnökinf[oó]: mérnökinformatikus
+gazdinf[oó]: gazdaságinformatikus
+villany: villamosmérnök
+vill\b: villamosmérnök
+bprof: üzemmérnök-informatikus BProf alapképzés
+bsc: alapképzés
+msc: mesterképzés
+koli: kollégium kollégiumi
+kolesz: kollégium kollégiumi
+nyelvvizsg: nyelvi kredit szaknyelvi követelmény
+nyelvi kredit: szaknyelvi követelmény nyelvi kredit
+szakmai gyak: szakmai gyakorlat
+coop: kooperatív képzés
+önlab: önálló laboratórium
+mintatanterv: mintatanterv ajánlott félév
+előköv: előkövetelmény
+tandíj: önköltség költségtérítés
+önköltség: önköltségi díj
+chatgpt: generatív mesterséges intelligencia MI használat
+\bai\b: mesterséges intelligencia MI
+mi-t: mesterséges intelligencia MI
+puska: tanulmányi szabálytalanság meg nem engedett segédeszköz
+puskáz: tanulmányi szabálytalanság meg nem engedett segédeszköz
+vizsgaidősz: vizsgaidőszak
+szorgalmi: szorgalmi időszak
+regisztrációs hét: regisztrációs időszak bejelentkezés
+bejelentkez: bejelentkezés regisztrációs időszak

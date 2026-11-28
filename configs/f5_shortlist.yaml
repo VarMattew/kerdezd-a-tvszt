@@ -1,0 +1,17 @@
+# F5: a dev alapján előre kiválasztott jelöltek (a választás a dev-en történt, a test csak mér).
+# Minőségi: hybrid+both+bge_llmq; gyors (HF Space, reranker nélkül): hybrid+llm.
+base: {mode: hybrid, candidates: 50, rrf_k: 60}
+configs:
+  bm25: {mode: bm25}
+  dense: {mode: dense}
+  hybrid: {}
+  hybrid_w0.5: {rrf_weights: {bm25: 0.5}}
+  dense+gloss: {mode: dense, rewrite: glossary}
+  hybrid+gloss: {rewrite: glossary}
+  hybrid+llm: {rewrite: llm}
+  hybrid+both: {rewrite: both}
+  hybrid+both_bm25rw: {rewrite: both, rrf_weights: {"bm25:orig": 0}}
+  hybrid+mminilm: {rerank: mminilm}
+  hybrid+bge: {rerank: bge-m3}
+  hybrid+both+bge_llmq: {rewrite: both, rerank: bge-m3, rerank_query: llm}
+  hybrid+both+bge_llmq_rc15: {rewrite: both, rerank: bge-m3, rerank_query: llm, rerank_candidates: 15}

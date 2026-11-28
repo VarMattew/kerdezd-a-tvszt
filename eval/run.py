@@ -19,8 +19,8 @@ from dataclasses import asdict
 from datetime import datetime
 from pathlib import Path
 
+import yaml
 from metrics import VERDICT_SCORE, aggregate, citation_metrics, retrieval_metrics
-
 from vikrag.llm.client import DEFAULT_JUDGE, LLMError, chat, parse_json
 from vikrag.pipeline import RAG, RAGConfig
 
@@ -93,6 +93,7 @@ def run_answers(rag: RAG, qs: list[dict], delay: float, judge_models=DEFAULT_JUD
             "answer": a.answer, "answerable_pred": a.answerable, "model": a.model, "error": a.error,
             "citations": [asdict(c) for c in a.citations],
             "context": [h.chunk["chunk_id"] for h in res.hits],
+            "queries": res.queries,
         }
         j = judge(q, a.answer if not a.error else f"[HIBA] {a.error}", models=judge_models)
         row.update({"verdict": j["verdict"], "judge_reason": j["reason"], "judge_model": j["judge_model"]})
@@ -142,6 +143,8 @@ if __name__ == "__main__":
     ap.add_argument("--rrf-k", type=int, default=60)
     ap.add_argument("--answers", action="store_true", help="generálás + LLM-bíró (lassú, kvótát fogyaszt)")
     ap.add_argument("--delay", type=float, default=12.0, help="szünet kérdésenként, ha nem cache-ből jött")
+    ap.add_argument("--cfg", nargs="*", default=[], metavar="KULCS=ÉRTÉK",
+                    help="RAGConfig mezők, YAML-értékkel, pl. rerank=mminilm rewrite=both 'rrf_weights={bm25: 0.5}'")
     ap.add_argument("--judge", nargs="+", default=DEFAULT_JUDGE,
                     help="bíró modell(ek); egyetlen modellel a bíró nem cserélődik kvótahiány esetén (a hiányzó ítélet None)")
     args = ap.parse_args()
@@ -150,7 +153,8 @@ if __name__ == "__main__":
     RESULTS.mkdir(exist_ok=True)
     out = {"name": args.name, "split": args.split, "date": datetime.now().isoformat(timespec="seconds"), "runs": {}}
     for mode in args.modes:
-        cfg = RAGConfig(mode=mode, top_k=args.top_k, rrf_k=args.rrf_k)
+        overrides = {k: yaml.safe_load(v) for k, v in (x.split("=", 1) for x in args.cfg)}
+        cfg = RAGConfig(mode=mode, top_k=args.top_k, rrf_k=args.rrf_k, **overrides)
         rag = RAG(cfg)
         print(f"== {mode}: retrieval ({len(qs)} kérdés)")
         rrows = run_retrieval(rag, qs)
